@@ -7,6 +7,7 @@ export { Card } from "../Card";
 
 // Premium Components
 export { PageHero } from "./PageHero";
+export { ImageHero } from "./ImageHero";
 export { SectionHeading } from "./SectionHeading";
 export { FeatureCard } from "./FeatureCard";
 export { Callout } from "./Callout";

@@ -6,11 +6,11 @@ import { AboutTeaserSection } from "@/components/sections/AboutTeaserSection";
 import { ApproachTeaserSection } from "@/components/sections/ApproachTeaserSection";
 import { FinalCtaBandSection } from "@/components/sections/FinalCtaBandSection";
 import { FitChecklistSection } from "@/components/sections/FitChecklistSection";
-import { HeroSection } from "@/components/sections/HeroSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { LogisticsStripSection } from "@/components/sections/LogisticsStripSection";
 import { ServicesSnapshotSection } from "@/components/sections/ServicesSnapshotSection";
 import { MotionSection } from "@/components/motion/MotionSection";
+import { ImageHero } from "@/components/ui";
 
 export const metadata: Metadata = createMetadata({
   title: site.name,
@@ -28,7 +28,16 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
       />
       <MotionSection as="div">
-        <HeroSection />
+        <ImageHero
+          title={site.name}
+          subtitle={site.tagline}
+          imageSrc="/images/section-heros/mountains-3699372_1920.jpg"
+          imageAlt="Mountain landscape with open sky"
+          eyebrow={`Serving ${site.locationShort} · ${site.telehealthLine}`}
+          primaryAction={{ label: site.ctaPrimaryLabel, href: site.ctaPrimaryHref }}
+          secondaryAction={{ label: site.ctaSecondaryLabel, href: site.ctaSecondaryHref }}
+          priority={true}
+        />
       </MotionSection>
       <MotionSection as="div">
         <FitChecklistSection />

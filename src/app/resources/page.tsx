@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
-import { Section, Callout, PageHero, SiteLink } from "@/components/ui";
+import { Section, Callout, SiteLink, ImageHero } from "@/components/ui";
 import { MotionSection } from "@/components/motion/MotionSection";
 import { ToolsGrid } from "@/components/sections/resources/ToolsGrid";
 
@@ -38,11 +38,14 @@ export default function Resources() {
   return (
     <>
       <MotionSection as="div">
-        <PageHero
+        <ImageHero
           title="Resources"
-          description="Practical tools designed to help you prepare, clarify next steps, and reduce overwhelm."
+          subtitle="Practical tools designed to help you prepare, clarify next steps, and reduce overwhelm."
+          imageSrc="/images/section-heros/sea-3052592_1920.jpg"
+          imageAlt="Calm ocean shoreline"
           primaryAction={{ label: "Request a Consultation", href: "/start-here" }}
           secondaryAction={{ label: "Contact", href: "/contact" }}
+          priority={false}
         />
       </MotionSection>
 
