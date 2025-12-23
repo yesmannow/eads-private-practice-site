@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ComponentPropsWithoutRef, ReactNode } from "react";
+import { motion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { Button, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
@@ -34,17 +38,42 @@ export function SiteButton({
   ...props
 }: SiteButtonProps) {
   const shadcnVariant = variantMap[variant];
+  const reducedMotion = useReducedMotion() ?? false;
 
   // Custom brand styling: rounded-full for primary/secondary, maintain site's look
   const brandClasses = variant === "primary" || variant === "secondary"
     ? "rounded-full"
     : "";
 
+  // Micro-interactions for primary buttons only, disabled when reduced motion is enabled
+  const shouldAnimate = variant === "primary" && !reducedMotion;
+  const motionProps = shouldAnimate
+    ? {
+        whileHover: { y: -1 },
+        whileTap: { scale: 0.98 },
+        transition: { duration: 0.15, ease: [0.16, 1, 0.3, 1] as const },
+      }
+    : {};
+
   if (href) {
     // For primary buttons, !text-primary-foreground in variant already uses !important
     // so it will win over any conflicting text-* classes
     const variantClasses = buttonVariants({ variant: shadcnVariant, size: "default" });
     const linkClassName = cn(variantClasses, brandClasses, "button-interactive", className);
+
+    if (shouldAnimate) {
+      return (
+        <motion.div {...motionProps} style={{ display: "inline-block" }}>
+          <Link
+            href={href}
+            className={linkClassName}
+            aria-label={(props as { "aria-label"?: string })["aria-label"]}
+          >
+            {children}
+          </Link>
+        </motion.div>
+      );
+    }
 
     return (
       <Link
@@ -54,6 +83,21 @@ export function SiteButton({
       >
         {children}
       </Link>
+    );
+  }
+
+  if (shouldAnimate) {
+    return (
+      <motion.div {...motionProps} style={{ display: "inline-block" }}>
+        <Button
+          type={type}
+          variant={shadcnVariant}
+          className={cn(brandClasses, "button-interactive", className)}
+          {...props}
+        >
+          {children}
+        </Button>
+      </motion.div>
     );
   }
 

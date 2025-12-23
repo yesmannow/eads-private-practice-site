@@ -1,4 +1,7 @@
+"use client";
+
 import { ReactNode } from "react";
+import { Reveal } from "@/components/motion/Reveal";
 
 type SectionProps = {
   id?: string;
@@ -25,24 +28,26 @@ export function Section({
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {(eyebrow || title || description) && (
-          <div className="max-w-3xl space-y-3">
-            {eyebrow ? (
-              <p className="text-sm font-semibold uppercase tracking-wide text-accent">
-                {eyebrow}
-              </p>
-            ) : null}
-            {title ? (
-              <h2
-                id={id ? `${id}-heading` : undefined}
-                className="text-2xl font-semibold text-foreground sm:text-3xl"
-              >
-                {title}
-              </h2>
-            ) : null}
-            {description ? (
-              <p className="text-lg leading-8 text-foreground/80">{description}</p>
-            ) : null}
-          </div>
+          <Reveal variant="fadeUp">
+            <div className="max-w-3xl space-y-3">
+              {eyebrow ? (
+                <p className="text-sm font-semibold uppercase tracking-wide text-accent">
+                  {eyebrow}
+                </p>
+              ) : null}
+              {title ? (
+                <h2
+                  id={id ? `${id}-heading` : undefined}
+                  className="text-2xl font-semibold text-foreground sm:text-3xl"
+                >
+                  {title}
+                </h2>
+              ) : null}
+              {description ? (
+                <p className="text-lg leading-8 text-foreground/80">{description}</p>
+              ) : null}
+            </div>
+          </Reveal>
         )}
         <div className="mt-10 space-y-8 sm:mt-12">{children}</div>
       </div>

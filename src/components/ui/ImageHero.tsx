@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import { SiteButton } from "./shadcn/SiteButton";
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
+import { Stagger } from "@/components/motion/Stagger";
 
 type ImageHeroProps = {
   title: string;
@@ -35,35 +39,43 @@ export function ImageHero({
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Text Content - Left */}
-          <div className="space-y-6 order-1 lg:order-1">
+          <Stagger className="space-y-6 order-1 lg:order-1">
             {eyebrow && (
-              <p className="text-sm font-semibold uppercase tracking-wide text-accent">
-                {eyebrow}
-              </p>
+              <Reveal variant="fadeUp">
+                <p className="text-sm font-semibold uppercase tracking-wide text-accent">
+                  {eyebrow}
+                </p>
+              </Reveal>
             )}
-            <div>
-              <h1 className="text-foreground">{title}</h1>
-              {/* Gold accent bar */}
-              <div className="mt-2 h-1 w-16 bg-accent rounded-full" />
-            </div>
+            <Reveal variant="fadeUp">
+              <div>
+                <h1 className="text-foreground">{title}</h1>
+                {/* Gold accent bar */}
+                <div className="mt-2 h-1 w-16 bg-accent rounded-full" />
+              </div>
+            </Reveal>
             {subtitle && (
-              <p className="text-lg leading-8 text-foreground/80">{subtitle}</p>
+              <Reveal variant="fadeUp">
+                <p className="text-lg leading-8 text-foreground/80">{subtitle}</p>
+              </Reveal>
             )}
             {(primaryAction || secondaryAction) && (
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                {primaryAction && (
-                  <SiteButton href={primaryAction.href} variant="primary">
-                    {primaryAction.label}
-                  </SiteButton>
-                )}
-                {secondaryAction && (
-                  <SiteButton href={secondaryAction.href} variant="secondary">
-                    {secondaryAction.label}
-                  </SiteButton>
-                )}
-              </div>
+              <Reveal variant="fadeUp">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                  {primaryAction && (
+                    <SiteButton href={primaryAction.href} variant="primary">
+                      {primaryAction.label}
+                    </SiteButton>
+                  )}
+                  {secondaryAction && (
+                    <SiteButton href={secondaryAction.href} variant="secondary">
+                      {secondaryAction.label}
+                    </SiteButton>
+                  )}
+                </div>
+              </Reveal>
             )}
-          </div>
+          </Stagger>
 
           {/* Image - Right (or below on mobile) */}
           <div className="relative order-2 lg:order-2">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { PageShell } from "@/components/PageShell";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 import { site } from "@/config/site";
 
 const inter = Inter({
@@ -44,7 +45,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${libreBaskerville.variable}`}>
       <body className="antialiased font-sans">
-        <PageShell>{children}</PageShell>
+        <MotionProvider>
+          <PageShell>{children}</PageShell>
+        </MotionProvider>
       </body>
     </html>
   );

@@ -1,7 +1,11 @@
+"use client";
+
 import { Button } from "../../ui/button";
 import { Card } from "../../ui/card";
 import { Section } from "../../ui/section";
 import { serviceIcons } from "@/lib/icons";
+import { Reveal } from "@/components/motion/Reveal";
+import { Stagger } from "@/components/motion/Stagger";
 
 const services = [
   {
@@ -51,48 +55,43 @@ export function CoreServices() {
       title="Core services"
       background="muted"
     >
-      <div className="grid gap-6 md:grid-cols-3">
+      <Stagger className="grid gap-6 md:grid-cols-3">
         {services.map((service) => {
-          const Icon = service.iconKey ? serviceIcons[service.iconKey] : null;
+          const Icon = service.iconKey ? serviceIcons[service.iconKey] : undefined;
           return (
-            <div key={service.title}>
-              {Icon && (
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-muted text-accent">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
-                </div>
-              )}
-              <Card title={service.title}>
-                <p className="mb-4 leading-7 text-foreground/80">{service.description}</p>
-                <div>
-                  <p className="mb-2 text-sm font-semibold text-foreground">Common focuses:</p>
-                  <ul className="space-y-2 text-foreground/80">
-                    {service.focuses.map((focus) => (
-                      <li key={focus} className="flex gap-2">
-                        <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-                        <span className="text-sm">{focus}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                  <Button href="/start-here" variant="secondary" className="w-full sm:w-auto">
-                    Start here
-                  </Button>
-                  {service.title === "Care Navigation" && (
-                    <Button
-                      href="/services/care-navigation/planner"
-                      variant="ghost"
-                      className="w-full sm:w-auto"
-                    >
-                      Use the Care Navigation Planner
+            <Reveal key={service.title} variant="cardIn">
+              <Card title={service.title} icon={Icon}>
+                  <p className="mb-4 leading-7 text-foreground/80">{service.description}</p>
+                  <div>
+                    <p className="mb-2 text-sm font-semibold text-foreground">Common focuses:</p>
+                    <ul className="space-y-2 text-foreground/80">
+                      {service.focuses.map((focus) => (
+                        <li key={focus} className="flex gap-2">
+                          <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+                          <span className="text-sm">{focus}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                    <Button href="/start-here" variant="secondary" className="w-full sm:w-auto">
+                      Start here
                     </Button>
-                  )}
-                </div>
+                    {service.title === "Care Navigation" && (
+                      <Button
+                        href="/services/care-navigation/planner"
+                        variant="ghost"
+                        className="w-full sm:w-auto"
+                      >
+                        Use the Care Navigation Planner
+                      </Button>
+                    )}
+                  </div>
               </Card>
-            </div>
+            </Reveal>
           );
         })}
-      </div>
+      </Stagger>
     </Section>
   );
 }
