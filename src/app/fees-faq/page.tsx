@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "What is the session fee?",
     answer:
-      "Standard 50-minute sessions are $XXX. A limited number of sliding-scale spots may be available; please ask during our consultation.",
+      "Standard 50-minute session rates are shared during the consultation so you have full context on scheduling and availability. A limited number of sliding-scale spots may be available; please ask during our consultation.",
   },
   {
     question: "Do you accept insurance?",
