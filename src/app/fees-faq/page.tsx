@@ -10,8 +10,8 @@ import { PoliciesCard } from "@/components/sections/fees-faq/PoliciesCard";
 import { TelehealthLocationCard } from "@/components/sections/fees-faq/TelehealthLocationCard";
 
 export const metadata: Metadata = createMetadata({
-  title: "Fees & FAQs",
-  description: "Fees, insurance, telehealth details, and common questions.",
+  title: "Fees & FAQs | Therapy in Bloomington, IN",
+  description: "Therapy fees, insurance information, telehealth details, and frequently asked questions for counseling services in Bloomington, Indiana.",
   path: "/fees-faq",
 });
 

@@ -12,6 +12,9 @@ export function Footer() {
             <p className="text-sm text-slate-700">
               {site.locationShort} · {site.telehealthLine}
             </p>
+            <p className="text-sm text-slate-700">
+              Licensed Social Worker (MA, LSW)
+            </p>
             <div className="space-y-1 text-sm text-slate-800">
               <p>
                 Phone:{" "}

@@ -6,8 +6,8 @@ import { ContactFinalCTA } from "@/components/sections/contact/ContactFinalCTA";
 import { ContactMain } from "@/components/sections/contact/ContactMain";
 
 export const metadata: Metadata = createMetadata({
-  title: "Contact",
-  description: "Request a consultation or ask a general question.",
+  title: "Contact | Therapy Practice in Bloomington, IN",
+  description: "Contact Steady Path Counseling in Bloomington, Indiana. Request a therapy consultation or ask questions about services, fees, and availability.",
   path: "/contact",
 });
 

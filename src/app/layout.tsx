@@ -18,22 +18,53 @@ const libreBaskerville = Libre_Baskerville({
   display: "swap",
 });
 
-const title = `${site.name} | ${site.locationShort}`;
+const defaultTitle = `Therapy & Care Navigation in Bloomington, IN | ${site.name}`;
+const defaultDescription = "Evidence-informed therapy and care navigation services in Bloomington, Indiana. Licensed Social Worker (MA, LSW) providing telehealth across Indiana.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.baseUrl),
   title: {
-    default: title,
+    default: defaultTitle,
     template: `%s | ${site.name}`,
   },
-  description: site.tagline,
+  description: defaultDescription,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   openGraph: {
-    title,
-    description: site.tagline,
+    title: defaultTitle,
+    description: defaultDescription,
     url: site.baseUrl,
     siteName: site.name,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} - Therapy in Bloomington, Indiana`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: ["/og.png"],
   },
 };
 

@@ -23,11 +23,20 @@ export function createMetadata({
       siteName: site.name,
       locale: "en_US",
       type: "website",
+      images: [
+        {
+          url: "/og.png",
+          width: 1200,
+          height: 630,
+          alt: `${site.name} - ${title}`,
+        },
+      ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: fullTitle,
       description,
+      images: ["/og.png"],
     },
   };
 }

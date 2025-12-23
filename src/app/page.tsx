@@ -13,8 +13,8 @@ import { MotionSection } from "@/components/motion/MotionSection";
 import { ImageHero } from "@/components/ui";
 
 export const metadata: Metadata = createMetadata({
-  title: site.name,
-  description: site.tagline,
+  title: "Therapy & Care Navigation in Bloomington, IN",
+  description: "Evidence-informed therapy and care navigation services in Bloomington, Indiana. Licensed Social Worker (MA, LSW) providing telehealth across Indiana.",
   path: "/",
 });
 

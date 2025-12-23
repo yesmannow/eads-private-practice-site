@@ -28,6 +28,7 @@ export function ContactInfo() {
           <p className="font-semibold text-slate-900">Location</p>
           <p>{site.locationShort}</p>
           <p className="mt-1 text-sm text-slate-600">{site.telehealthLine}</p>
+          <p className="mt-1 text-sm text-slate-600">Licensed Social Worker (MA, LSW)</p>
         </div>
         <div>
           <p className="font-semibold text-slate-900">Hours</p>

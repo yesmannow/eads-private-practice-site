@@ -11,8 +11,8 @@ import { MotionSection } from "@/components/motion/MotionSection";
 import { IconFitCheck, IconPrepare } from "@/lib/icons";
 
 export const metadata: Metadata = createMetadata({
-  title: "Start Here",
-  description: "Confirm fit, understand the process, and request a consultation.",
+  title: "Request a Therapy Consultation in Bloomington, Indiana",
+  description: "Start your therapy journey in Bloomington, IN. Confirm fit, understand the process, and request a consultation with a licensed social worker.",
   path: "/start-here",
 });
 

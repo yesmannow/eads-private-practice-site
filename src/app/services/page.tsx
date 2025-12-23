@@ -8,9 +8,8 @@ import { ServicesLogistics } from "@/components/sections/services/ServicesLogist
 import { SessionStyle } from "@/components/sections/services/SessionStyle";
 
 export const metadata: Metadata = createMetadata({
-  title: "Services",
-  description:
-    "Evidence-informed therapy and care navigation services in Bloomington, Indiana and telehealth across Indiana.",
+  title: "Therapy Services in Bloomington, IN",
+  description: "Evidence-informed psychotherapy and care navigation for adults in Bloomington, Indiana. Individual therapy, caregiver support, and health-related counseling via telehealth across Indiana.",
   path: "/services",
 });
 
