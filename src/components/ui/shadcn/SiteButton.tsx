@@ -41,15 +41,15 @@ export function SiteButton({
     : "";
 
   if (href) {
+    // For primary buttons, !text-primary-foreground in variant already uses !important
+    // so it will win over any conflicting text-* classes
+    const variantClasses = buttonVariants({ variant: shadcnVariant, size: "default" });
+    const linkClassName = cn(variantClasses, brandClasses, "button-interactive", className);
+
     return (
       <Link
         href={href}
-        className={cn(
-          buttonVariants({ variant: shadcnVariant, size: "default" }),
-          brandClasses,
-          "button-interactive",
-          className
-        )}
+        className={linkClassName}
         aria-label={(props as { "aria-label"?: string })["aria-label"]}
       >
         {children}

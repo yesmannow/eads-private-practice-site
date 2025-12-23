@@ -234,13 +234,9 @@ a {
     @apply max-w-prose;
   }
 
-  /* Links (IMPORTANT: avoid overriding button text) */
-  a:not(.btn):not([role="button"]):not(.button):not([class*="bg-"]) {
-    @apply text-primary hover:text-accent transition-colors;
-  }
-
+  /* Links: Only style plain anchors without classes (content links, not buttons) */
   a:not([class]) {
-    @apply underline underline-offset-2 hover:underline-offset-4;
+    @apply text-primary hover:text-accent transition-colors underline underline-offset-2 hover:underline-offset-4;
   }
 }
 
@@ -260,6 +256,12 @@ a {
 
   .button-interactive {
     @apply transition-all duration-200 ease-out hover:shadow-sm active:scale-[0.98];
+  }
+
+  /* Defensive override: Ensure button-like anchors keep intended text color */
+  a.bg-primary.text-primary-foreground,
+  a[class*="bg-primary"][class*="text-primary-foreground"] {
+    color: hsl(var(--primary-foreground)) !important;
   }
 }
 

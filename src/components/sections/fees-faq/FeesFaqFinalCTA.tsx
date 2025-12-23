@@ -13,13 +13,13 @@ export function FeesFaqFinalCTA() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button href="/start-here" variant="outline" className="bg-background text-foreground hover:bg-background/90">
+            <Button href="/start-here" variant="outline" className="bg-background text-foreground hover:brightness-95 hover:shadow-md">
               Request a Consultation
             </Button>
             <Button
               href="/contact"
               variant="ghost"
-              className="text-primary-foreground hover:bg-primary-foreground/10 focus-visible:outline-primary-foreground"
+              className="text-primary-foreground hover:bg-primary-foreground/15 hover:shadow-sm focus-visible:outline-primary-foreground"
             >
               Contact
             </Button>

@@ -63,7 +63,7 @@ export function CTABand({
                 variant={isInverted ? "ghost" : "secondary"}
                 className={
                   isInverted
-                    ? "text-primary-foreground hover:bg-primary-foreground/10 focus-visible:outline-primary-foreground"
+                    ? "text-primary-foreground hover:bg-primary-foreground/15 hover:shadow-sm focus-visible:outline-primary-foreground"
                     : ""
                 }
               >

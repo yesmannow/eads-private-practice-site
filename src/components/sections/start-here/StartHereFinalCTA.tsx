@@ -13,13 +13,13 @@ export function StartHereFinalCTA() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button href="/contact" variant="outline" className="bg-background text-foreground hover:bg-background/90">
+            <Button href="/contact" variant="outline" className="bg-background text-foreground hover:brightness-95 hover:shadow-md">
               Request a Consultation
             </Button>
             <Button
               href="/fees-faq"
               variant="ghost"
-              className="text-primary-foreground hover:bg-primary-foreground/10 focus-visible:outline-primary-foreground"
+              className="text-primary-foreground hover:bg-primary-foreground/15 hover:shadow-sm focus-visible:outline-primary-foreground"
             >
               View Fees & FAQs
             </Button>

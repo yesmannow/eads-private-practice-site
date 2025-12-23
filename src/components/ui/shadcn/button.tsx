@@ -26,16 +26,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         // Primary: Dark background + white text (for light page backgrounds)
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        // IMPORTANT: !text-primary-foreground uses !important to override any conflicting text-* classes
+        default: "bg-primary !text-primary-foreground hover:brightness-110 hover:shadow-md",
         // Destructive: Red background + white text
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-destructive text-destructive-foreground hover:brightness-110 hover:shadow-md focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         // Outline: White/light background + dark text (works on both light AND dark backgrounds)
         outline:
           "border border-border bg-background text-foreground shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         // Secondary: Light background (secondary) + dark text (for light page backgrounds)
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "bg-secondary text-secondary-foreground hover:brightness-95 hover:shadow-md",
         // Ghost: Transparent + hover effects (text color inherits from context)
         ghost:
           "text-foreground hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
@@ -70,12 +71,16 @@ function Button({
   }) {
   const Comp = asChild ? Slot : "button"
 
+  // For primary buttons, !text-primary-foreground in variant already uses !important
+  // so it will win over any conflicting text-* classes
+  const finalClassName = cn(buttonVariants({ variant, size }), className)
+
   return (
     <Comp
       data-slot="button"
       data-variant={variant}
       data-size={size}
-      className={cn(buttonVariants({ variant, size }), className)}
+      className={finalClassName}
       {...props}
     />
   )
