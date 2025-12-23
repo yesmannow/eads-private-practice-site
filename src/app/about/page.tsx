@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
+import { PageHero } from "@/components/ui";
 import { AboutBio } from "@/components/sections/about/AboutBio";
 import { AboutCredentials } from "@/components/sections/about/AboutCredentials";
 import { AboutFinalCTA } from "@/components/sections/about/AboutFinalCTA";
 import { AboutFit } from "@/components/sections/about/AboutFit";
-import { AboutHero } from "@/components/sections/about/AboutHero";
 
 export const metadata: Metadata = createMetadata({
   title: "About",
@@ -15,7 +15,12 @@ export const metadata: Metadata = createMetadata({
 export default function About() {
   return (
     <>
-      <AboutHero />
+      <PageHero
+        title="About"
+        description="Clinician background and treatment philosophy."
+        primaryAction={{ label: "Request a Consultation", href: "/start-here" }}
+        secondaryAction={{ label: "Contact", href: "/contact" }}
+      />
       <AboutBio />
       <AboutCredentials />
       <AboutFit />

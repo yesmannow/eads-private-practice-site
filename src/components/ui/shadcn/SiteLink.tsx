@@ -7,9 +7,9 @@ type SiteLinkProps = ComponentProps<typeof Link> & {
 };
 
 const variantStyles = {
-  default: "text-foreground hover:text-primary transition-colors",
+  default: "text-foreground hover:text-accent underline underline-offset-2 hover:underline-offset-4 transition-colors",
   muted: "text-muted-foreground hover:text-foreground transition-colors",
-  primary: "text-primary hover:text-primary/80 transition-colors font-medium",
+  primary: "text-primary hover:text-accent underline underline-offset-2 hover:underline-offset-4 transition-colors font-medium",
 };
 
 export function SiteLink({

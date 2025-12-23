@@ -4,18 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "@/config/site";
-import { SiteButton } from "./ui/shadcn/SiteButton";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "./ui/shadcn/sheet";
+import { SiteButton, Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui";
 import { Menu } from "lucide-react";
 
 const navItems = [
   { href: "/start-here", label: "Start Here" },
+  { href: "/resources", label: "Resources" },
   { href: "/services", label: "Services" },
   { href: "/approach", label: "Approach" },
   { href: "/about", label: "About" },
@@ -26,11 +20,11 @@ export function HeaderNav() {
   const pathname = usePathname();
 
   return (
-    <header className="relative border-b border-slate-200 bg-white/95 text-slate-900 backdrop-blur">
+    <header className="relative border-b border-border bg-background/95 text-foreground backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+          className="flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           aria-label="Steady Path Counseling home"
         >
           <Image
@@ -42,14 +36,14 @@ export function HeaderNav() {
             priority
           />
           <div className="hidden leading-tight sm:block">
-            <p className="text-base font-semibold">{site.name}</p>
-            <p className="text-sm text-slate-600">{site.locationShort}</p>
+            <p className="text-base font-semibold text-foreground">{site.name}</p>
+            <p className="text-sm text-muted-foreground">{site.locationShort}</p>
           </div>
         </Link>
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-6 text-sm font-medium text-slate-800 lg:flex"
+          className="hidden items-center gap-6 text-sm font-medium text-foreground lg:flex"
         >
           {navItems.map((item) => {
             const isActive = pathname === item.href;
@@ -57,10 +51,10 @@ export function HeaderNav() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-2 py-1 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900 ${
+                className={`rounded-full px-2 py-1 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
                   isActive
-                    ? "bg-sky-50 text-sky-900 font-semibold"
-                    : "text-slate-800 hover:text-sky-900"
+                    ? "bg-muted text-primary font-semibold"
+                    : "text-foreground hover:text-accent"
                 }`}
                 aria-current={isActive ? "page" : undefined}
               >
@@ -78,7 +72,7 @@ export function HeaderNav() {
             <SheetTrigger asChild>
               <button
                 type="button"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-sm transition hover:border-sky-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background text-foreground shadow-sm transition hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                 aria-label="Open navigation menu"
               >
                 <span className="sr-only">Toggle menu</span>
@@ -99,7 +93,7 @@ export function HeaderNav() {
                       className={`rounded-lg px-3 py-2 text-base font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
                         isActive
                           ? "bg-primary/10 text-primary font-semibold"
-                          : "text-foreground hover:bg-accent"
+                          : "text-foreground hover:bg-accent/20 hover:text-accent"
                       }`}
                       aria-current={isActive ? "page" : undefined}
                     >

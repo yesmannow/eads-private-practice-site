@@ -20,27 +20,27 @@ export function Section({
   return (
     <section
       id={id}
-      className={`py-16 sm:py-20 ${background === "muted" ? "bg-slate-50" : ""}`}
+      className={`py-16 sm:py-20 section-divider ${background === "muted" ? "bg-muted" : "bg-background"}`}
       aria-labelledby={id ? `${id}-heading` : undefined}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {(eyebrow || title || description) && (
           <div className="max-w-3xl space-y-3">
             {eyebrow ? (
-              <p className="text-sm font-semibold uppercase tracking-wide text-sky-900">
+              <p className="text-sm font-semibold uppercase tracking-wide text-accent">
                 {eyebrow}
               </p>
             ) : null}
             {title ? (
               <h2
                 id={id ? `${id}-heading` : undefined}
-                className="text-2xl font-semibold text-slate-900 sm:text-3xl"
+                className="text-2xl font-semibold text-foreground sm:text-3xl"
               >
                 {title}
               </h2>
             ) : null}
             {description ? (
-              <p className="text-lg leading-8 text-slate-700">{description}</p>
+              <p className="text-lg leading-8 text-foreground/80">{description}</p>
             ) : null}
           </div>
         )}

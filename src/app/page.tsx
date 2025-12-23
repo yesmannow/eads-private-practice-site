@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/config/site";
 import { createMetadata } from "@/lib/metadata";
+import { getSiteJsonLd } from "@/lib/structured-data";
 import { AboutTeaserSection } from "@/components/sections/AboutTeaserSection";
 import { ApproachTeaserSection } from "@/components/sections/ApproachTeaserSection";
 import { FinalCtaBandSection } from "@/components/sections/FinalCtaBandSection";
@@ -17,8 +18,14 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default function Home() {
+  const siteJsonLd = getSiteJsonLd();
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+      />
       <HeroSection />
       <FitChecklistSection />
       <ServicesSnapshotSection />

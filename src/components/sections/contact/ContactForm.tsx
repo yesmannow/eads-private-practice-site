@@ -164,7 +164,12 @@ export function ContactForm() {
         />
       </div>
 
-      <SiteButton type="submit">Send message</SiteButton>
+      <div className="space-y-2">
+        <SiteButton type="submit">Send message</SiteButton>
+        <p className="text-sm text-slate-600">
+          If you&apos;re not sure what to write, that&apos;s okay. A brief note about what you&apos;re looking for is enough.
+        </p>
+      </div>
     </form>
   );
 }

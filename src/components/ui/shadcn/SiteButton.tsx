@@ -41,6 +41,7 @@ export function SiteButton({
         className={cn(
           buttonVariants({ variant: shadcnVariant, size: "default" }),
           brandClasses,
+          "button-interactive",
           className
         )}
         aria-label={(props as { "aria-label"?: string })["aria-label"]}
@@ -54,7 +55,7 @@ export function SiteButton({
     <Button
       type={type}
       variant={shadcnVariant}
-      className={cn(brandClasses, className)}
+      className={cn(brandClasses, "button-interactive", className)}
       {...props}
     >
       {children}
