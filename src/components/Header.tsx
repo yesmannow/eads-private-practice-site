@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/config/site";
 import { Button } from "./ui/button";
@@ -14,6 +16,7 @@ const navItems = [
 ];
 
 export function HeaderNav() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
@@ -47,10 +50,15 @@ export function HeaderNav() {
           className="flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
           aria-label="Steady Path Counseling home"
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-base font-semibold text-sky-900">
-            <span>SP</span>
-          </div>
-          <div className="leading-tight">
+          <Image
+            src="/images/branding/website-logo.png"
+            alt="Steady Path Counseling logo"
+            width={160}
+            height={40}
+            className="h-7 w-auto sm:h-10"
+            priority
+          />
+          <div className="hidden leading-tight sm:block">
             <p className="text-base font-semibold">{site.name}</p>
             <p className="text-sm text-slate-600">{site.locationShort}</p>
           </div>
@@ -60,15 +68,23 @@ export function HeaderNav() {
           aria-label="Primary"
           className="hidden items-center gap-6 text-sm font-medium text-slate-800 lg:flex"
         >
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-full px-2 py-1 transition hover:text-sky-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`rounded-full px-2 py-1 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900 ${
+                  isActive
+                    ? "bg-sky-50 text-sky-900 font-semibold"
+                    : "text-slate-800 hover:text-sky-900"
+                }`}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Button href="/contact" className="px-4 py-2">
             Contact
           </Button>
@@ -114,18 +130,26 @@ export function HeaderNav() {
           <div className="absolute inset-x-0 top-full z-10 origin-top bg-white shadow-lg ring-1 ring-slate-200">
             <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
               <div className="flex flex-col gap-3" role="menu">
-                {navItems.map((item, index) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    role="menuitem"
-                    ref={index === 0 ? firstLinkRef : undefined}
-                    onClick={() => setIsOpen(false)}
-                    className="rounded-lg px-3 py-2 text-base font-medium text-slate-900 transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                {navItems.map((item, index) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      role="menuitem"
+                      ref={index === 0 ? firstLinkRef : undefined}
+                      onClick={() => setIsOpen(false)}
+                      className={`rounded-lg px-3 py-2 text-base font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900 ${
+                        isActive
+                          ? "bg-sky-50 text-sky-900 font-semibold"
+                          : "text-slate-900 hover:bg-slate-50"
+                      }`}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
                 <Button href="/contact" className="justify-start">
                   Contact
                 </Button>
