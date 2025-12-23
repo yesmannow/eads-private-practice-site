@@ -74,10 +74,6 @@ export function HeaderNav() {
           </Button>
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Button href={site.ctaPrimaryHref}>{site.ctaPrimaryLabel}</Button>
-        </div>
-
         <div className="lg:hidden">
           <button
             type="button"
@@ -89,7 +85,7 @@ export function HeaderNav() {
           >
             <span className="sr-only">Toggle menu</span>
             <svg
-              aria-hidden
+              aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               className="h-5 w-5"
@@ -132,9 +128,6 @@ export function HeaderNav() {
                 ))}
                 <Button href="/contact" className="justify-start">
                   Contact
-                </Button>
-                <Button href={site.ctaPrimaryHref} className="justify-start">
-                  {site.ctaPrimaryLabel}
                 </Button>
               </div>
             </div>
