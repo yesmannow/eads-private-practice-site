@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import { Card } from "../Card";
+import { cn } from "@/lib/utils";
 
 type FeatureCardProps = {
   title: string;
@@ -8,6 +9,7 @@ type FeatureCardProps = {
   href?: string;
   icon?: ReactNode;
   footer?: ReactNode;
+  className?: string;
 };
 
 export function FeatureCard({
@@ -16,12 +18,17 @@ export function FeatureCard({
   href,
   icon,
   footer,
+  className,
 }: FeatureCardProps) {
   const content = (
-    <div className="h-full">
-      {icon && <div className="mb-3">{icon}</div>}
+    <div className={cn("h-full", className)}>
+      {icon && (
+        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-muted text-accent">
+          {icon}
+        </div>
+      )}
       <Card title={title}>
-        <p className="text-slate-600">{description}</p>
+        <p className="text-foreground/80">{description}</p>
         {footer && <div className="mt-4">{footer}</div>}
       </Card>
     </div>
@@ -31,7 +38,7 @@ export function FeatureCard({
     return (
       <Link
         href={href}
-        className="group block h-full transition-transform hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+        className="group block h-full transition-transform hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       >
         {content}
       </Link>

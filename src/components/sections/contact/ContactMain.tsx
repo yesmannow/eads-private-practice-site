@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ContactForm } from "./ContactForm";
 import { ContactInfo } from "./ContactInfo";
 import { Callout, Section } from "../../ui";
@@ -28,7 +29,19 @@ export function ContactMain() {
             </p>
           </Callout>
         </div>
-        <ContactInfo />
+        <div className="space-y-6">
+          <ContactInfo />
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-secondary/40 shadow-lg">
+            <Image
+              src="/images/design-images/hand-4661763_1280.jpg"
+              alt="An open hand reaching toward light"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority={false}
+            />
+          </div>
+        </div>
       </div>
     </Section>
   );

@@ -53,7 +53,7 @@ export function CTABand({
           <div className="flex flex-col gap-3 sm:flex-row">
             <SiteButton
               href={primaryAction.href}
-              variant={isInverted ? "secondary" : "primary"}
+              variant={isInverted ? "outline" : "primary"}
             >
               {primaryAction.label}
             </SiteButton>

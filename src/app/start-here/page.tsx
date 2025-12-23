@@ -8,6 +8,7 @@ import { ImportantNotes } from "@/components/sections/start-here/ImportantNotes"
 import { StartHereFinalCTA } from "@/components/sections/start-here/StartHereFinalCTA";
 import { WhatToExpectSteps } from "@/components/sections/start-here/WhatToExpectSteps";
 import { MotionSection } from "@/components/motion/MotionSection";
+import { IconFitCheck, IconPrepare } from "@/lib/icons";
 
 export const metadata: Metadata = createMetadata({
   title: "Start Here",
@@ -33,20 +34,28 @@ export default function StartHere() {
               <p className="mb-3 text-foreground/80">
                 Choose the path that feels right for you:
               </p>
-              <ul className="space-y-2 text-foreground/80">
-                <li className="flex gap-2">
-                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-                  <SiteLink href="/start-here/fit-check" variant="primary">
-                    <strong>Fit Check</strong>
-                  </SiteLink>
-                  {" "}— A brief guide to help determine next steps
+              <ul className="space-y-3 text-foreground/80">
+                <li className="flex gap-3">
+                  <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted text-accent">
+                    <IconFitCheck className="h-4 w-4" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <SiteLink href="/start-here/fit-check" variant="primary">
+                      <strong>Fit Check</strong>
+                    </SiteLink>
+                    {" "}— A brief guide to help determine next steps
+                  </div>
                 </li>
-                <li className="flex gap-2">
-                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-                  <SiteLink href="/start-here/prepare" variant="primary">
-                    <strong>Prepare Checklist</strong>
-                  </SiteLink>
-                  {" "}— Organize what you&apos;d like help with and practical logistics
+                <li className="flex gap-3">
+                  <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted text-accent">
+                    <IconPrepare className="h-4 w-4" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <SiteLink href="/start-here/prepare" variant="primary">
+                      <strong>Prepare Checklist</strong>
+                    </SiteLink>
+                    {" "}— Organize what you&apos;d like help with and practical logistics
+                  </div>
                 </li>
               </ul>
             </Callout>

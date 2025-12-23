@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, ReactNode } from "react";
 import { Button, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
 
 type SiteButtonProps = {
   href?: string;
@@ -13,10 +13,16 @@ type SiteButtonProps = {
 } & Omit<ComponentPropsWithoutRef<"button">, "children">;
 
 // Map site variants to shadcn/ui variants
+// IMPORTANT: Each variant must provide proper contrast:
+// - primary: Dark bg + white text (for light backgrounds)
+// - secondary: Light bg + dark text (for light backgrounds) - maps to outline
+// - outline: White bg + dark text (works on both light AND dark backgrounds)
+// - ghost: Transparent + hover (text color from context or explicit className)
 const variantMap: Record<ButtonVariant, "default" | "secondary" | "ghost" | "outline"> = {
   primary: "default",
   secondary: "outline",
   ghost: "ghost",
+  outline: "outline",
 };
 
 export function SiteButton({
