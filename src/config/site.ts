@@ -1,18 +1,30 @@
+export const site = {
+  name: "Steady Path Counseling",
+  tagline:
+    "Evidence-informed therapy and care navigation to support health, adjustment, and emotional wellbeing.",
+  locationShort: "Bloomington, Indiana",
+  telehealthLine: "Telehealth across Indiana",
+  phone: "(555) 555-5555",
+  email: "hello@steadypathcounseling.com",
+  baseUrl: "https://example.com",
+  ctaPrimaryLabel: "Request a Consultation",
+  ctaPrimaryHref: "/start-here",
+  ctaSecondaryLabel: "View Services",
+  ctaSecondaryHref: "/services",
+};
+
 export const siteConfig = {
-  name: "Bloomington Counseling & Wellness",
-  practitioner: "Licensed Clinical Social Worker",
-  location: "Bloomington, Indiana",
-  baseUrl: "https://www.practice-example.com",
+  ...site,
+  location: site.locationShort,
   contact: {
-    phone: "(812) 555-2034",
-    email: "hello@practice-example.com",
+    phone: site.phone,
+    email: site.email,
   },
-  tagline: "Practical, compassionate counseling for adults in Indiana.",
+  practitioner: "Licensed Social Worker",
 };
 
 export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/start-here", label: "Start here" },
+  { href: "/start-here", label: "Start Here" },
   { href: "/services", label: "Services" },
   { href: "/approach", label: "Approach" },
   { href: "/about", label: "About" },
@@ -20,5 +32,5 @@ export const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-export const primaryCtaHref = "/start-here";
-export const secondaryCtaHref = "/contact";
+export const primaryCtaHref = site.ctaPrimaryHref;
+export const secondaryCtaHref = site.ctaSecondaryHref;

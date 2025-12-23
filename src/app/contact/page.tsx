@@ -58,7 +58,6 @@ export default function Contact() {
           <div className="lg:col-span-2">
             <form
               className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-              onSubmit={(event) => event.preventDefault()}
               aria-describedby="contact-privacy-note"
             >
               <div className="grid gap-6 sm:grid-cols-2">

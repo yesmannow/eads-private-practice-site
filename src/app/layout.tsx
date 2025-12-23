@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { PageShell } from "@/components/PageShell";
-import { siteConfig } from "@/config/site";
+import { site } from "@/config/site";
 
-const title = `${siteConfig.name} | ${siteConfig.location}`;
+const title = `${site.name} | ${site.locationShort}`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.baseUrl),
+  metadataBase: new URL(site.baseUrl),
   title: {
     default: title,
-    template: `%s | ${siteConfig.name}`,
+    template: `%s | ${site.name}`,
   },
-  description: siteConfig.tagline,
+  description: site.tagline,
   openGraph: {
     title,
-    description: siteConfig.tagline,
-    url: siteConfig.baseUrl,
-    siteName: siteConfig.name,
+    description: site.tagline,
+    url: site.baseUrl,
+    siteName: site.name,
     locale: "en_US",
     type: "website",
   },
