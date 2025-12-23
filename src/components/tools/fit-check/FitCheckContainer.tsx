@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { FitCheckProgress } from "./FitCheckProgress";
 import { FitCheckStep } from "./FitCheckStep";
 import { FitCheckResult } from "./FitCheckResult";
+import { fadeIn, standardTransition } from "@/lib/motion";
 
 type StepData = {
   question: string;
@@ -74,6 +76,7 @@ export function FitCheckContainer() {
   const [showCrisis, setShowCrisis] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const announcementRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const totalSteps = STEPS.length;
   const currentAnswer = answers[currentStep];
@@ -121,7 +124,18 @@ export function FitCheckContainer() {
     return (
       <div className="mx-auto max-w-2xl">
         <div aria-live="polite" aria-atomic="true">
-          <FitCheckResult />
+          {shouldReduceMotion ? (
+            <FitCheckResult />
+          ) : (
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={fadeIn}
+              transition={standardTransition}
+            >
+              <FitCheckResult />
+            </motion.div>
+          )}
         </div>
       </div>
     );
@@ -141,14 +155,36 @@ export function FitCheckContainer() {
 
       <FitCheckProgress currentStep={currentStep + 1} totalSteps={totalSteps} />
 
-      <FitCheckStep
-        question={currentStepData.question}
-        options={currentStepData.options}
-        selectedValue={currentAnswer || null}
-        onSelect={handleSelect}
-        stepNumber={currentStep + 1}
-        totalSteps={totalSteps}
-      />
+      {shouldReduceMotion ? (
+        <FitCheckStep
+          question={currentStepData.question}
+          options={currentStepData.options}
+          selectedValue={currentAnswer || null}
+          onSelect={handleSelect}
+          stepNumber={currentStep + 1}
+          totalSteps={totalSteps}
+        />
+      ) : (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentStep}
+            initial="initial"
+            animate="animate"
+            exit="initial"
+            variants={fadeIn}
+            transition={standardTransition}
+          >
+            <FitCheckStep
+              question={currentStepData.question}
+              options={currentStepData.options}
+              selectedValue={currentAnswer || null}
+              onSelect={handleSelect}
+              stepNumber={currentStep + 1}
+              totalSteps={totalSteps}
+            />
+          </motion.div>
+        </AnimatePresence>
+      )}
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
-import { Section, Card, SiteButton, Callout, PageHero, SiteLink } from "@/components/ui";
-import { toolIcons } from "@/lib/icons";
+import { Section, Callout, PageHero, SiteLink } from "@/components/ui";
+import { MotionSection } from "@/components/motion/MotionSection";
+import { ToolsGrid } from "@/components/sections/resources/ToolsGrid";
 
 export const metadata: Metadata = createMetadata({
   title: "Resources",
@@ -37,12 +37,14 @@ const tools = [
 export default function Resources() {
   return (
     <>
-      <PageHero
-        title="Resources"
-        description="Practical tools designed to help you prepare, clarify next steps, and reduce overwhelm."
-        primaryAction={{ label: "Request a Consultation", href: "/start-here" }}
-        secondaryAction={{ label: "Contact", href: "/contact" }}
-      />
+      <MotionSection as="div">
+        <PageHero
+          title="Resources"
+          description="Practical tools designed to help you prepare, clarify next steps, and reduce overwhelm."
+          primaryAction={{ label: "Request a Consultation", href: "/start-here" }}
+          secondaryAction={{ label: "Contact", href: "/contact" }}
+        />
+      </MotionSection>
 
       {/* Suggested Order */}
       <Section background="muted">
@@ -84,30 +86,7 @@ export default function Resources() {
         description="Self-guided resources to help you prepare and organize."
         background="default"
       >
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {tools.map((tool) => {
-            const Icon = toolIcons[tool.key];
-            return (
-              <Link
-                key={tool.href}
-                href={tool.href}
-                className="group block h-full transition-transform hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              >
-                <Card title={tool.title}>
-                  {Icon && (
-                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-muted text-accent">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </div>
-                  )}
-                  <p className="text-muted-foreground">{tool.description}</p>
-                  <p className="mt-3 text-sm font-medium text-accent group-hover:underline">
-                    Access tool →
-                  </p>
-                </Card>
-              </Link>
-            );
-          })}
-        </div>
+        <ToolsGrid tools={tools} />
       </Section>
 
       {/* Notes / Boundaries */}

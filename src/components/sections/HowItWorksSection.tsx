@@ -1,6 +1,10 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import { Section } from "../ui/section";
+import { staggerContainer, fadeUp, standardTransition, viewportOnce } from "@/lib/motion";
 
 const steps = [
   {
@@ -18,6 +22,8 @@ const steps = [
 ];
 
 export function HowItWorksSection() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <Section
       id="process"
@@ -25,17 +31,38 @@ export function HowItWorksSection() {
       description="Expect clear steps, transparent communication, and a calm pace so you understand what comes next."
       background="muted"
     >
-      <div className="grid gap-6 md:grid-cols-3">
-        {steps.map((step, index) => (
-          <Card
-            key={step.title}
-            eyebrow={`Step ${index + 1}`}
-            title={step.title}
-          >
-            <p className="leading-7 text-slate-800">{step.body}</p>
-          </Card>
-        ))}
-      </div>
+      {shouldReduceMotion ? (
+        <div className="grid gap-6 md:grid-cols-3">
+          {steps.map((step, index) => (
+            <Card
+              key={step.title}
+              eyebrow={`Step ${index + 1}`}
+              title={step.title}
+            >
+              <p className="leading-7 text-slate-800">{step.body}</p>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <motion.div
+          className="grid gap-6 md:grid-cols-3"
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={viewportOnce}
+        >
+          {steps.map((step, index) => (
+            <motion.div key={step.title} variants={fadeUp} transition={standardTransition}>
+              <Card
+                eyebrow={`Step ${index + 1}`}
+                title={step.title}
+              >
+                <p className="leading-7 text-slate-800">{step.body}</p>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+      )}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-start">
         <Button href="/start-here">Request a Consultation</Button>
         <Button href="/fees-faq" variant="secondary">

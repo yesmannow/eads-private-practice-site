@@ -10,6 +10,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { LogisticsStripSection } from "@/components/sections/LogisticsStripSection";
 import { ServicesSnapshotSection } from "@/components/sections/ServicesSnapshotSection";
+import { MotionSection } from "@/components/motion/MotionSection";
 
 export const metadata: Metadata = createMetadata({
   title: site.name,
@@ -26,8 +27,12 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
       />
-      <HeroSection />
-      <FitChecklistSection />
+      <MotionSection as="div">
+        <HeroSection />
+      </MotionSection>
+      <MotionSection as="div">
+        <FitChecklistSection />
+      </MotionSection>
       <ServicesSnapshotSection />
       <HowItWorksSection />
       <ApproachTeaserSection />

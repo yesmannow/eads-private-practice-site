@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { PlannerProgress } from "./PlannerProgress";
 import { PlannerStep } from "./PlannerStep";
 import { PlannerSummary } from "./PlannerSummary";
 import { PlannerActions } from "./PlannerActions";
+import { fadeIn, standardTransition } from "@/lib/motion";
 
 const WHO_ABOUT_OPTIONS = [
   { value: "myself", label: "Myself" },
@@ -97,6 +99,7 @@ export function CareNavPlannerContainer() {
   const [showSummary, setShowSummary] = useState(false);
   const [maxPrioritiesMessage, setMaxPrioritiesMessage] = useState("");
   const announcementRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const totalSteps = 4;
 
@@ -189,16 +192,38 @@ export function CareNavPlannerContainer() {
     return (
       <div className="mx-auto max-w-3xl">
         <div aria-live="polite" aria-atomic="true">
-          <PlannerSummary
-            situationOverview={situationOverview}
-            whoAbout={whoAbout}
-            challenges={challenges}
-            priorities={priorities}
-            questions={questions}
-          />
-          <div className="mt-8">
-            <PlannerActions emailBody={formatEmailBody()} />
-          </div>
+          {shouldReduceMotion ? (
+            <>
+              <PlannerSummary
+                situationOverview={situationOverview}
+                whoAbout={whoAbout}
+                challenges={challenges}
+                priorities={priorities}
+                questions={questions}
+              />
+              <div className="mt-8">
+                <PlannerActions emailBody={formatEmailBody()} />
+              </div>
+            </>
+          ) : (
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={fadeIn}
+              transition={standardTransition}
+            >
+              <PlannerSummary
+                situationOverview={situationOverview}
+                whoAbout={whoAbout}
+                challenges={challenges}
+                priorities={priorities}
+                questions={questions}
+              />
+              <div className="mt-8">
+                <PlannerActions emailBody={formatEmailBody()} />
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
     );
@@ -216,177 +241,392 @@ export function CareNavPlannerContainer() {
 
       <PlannerProgress currentStep={currentStep} totalSteps={totalSteps} />
 
-      {currentStep === 1 && (
-        <PlannerStep heading="What are you navigating?" stepNumber={1} totalSteps={totalSteps}>
-          <div className="space-y-6">
-            <div className="space-y-3">
-              <label htmlFor="situation-overview" className="text-lg font-medium text-slate-900">
-                In a sentence or two, describe the situation (general information only).
-              </label>
-              <textarea
-                id="situation-overview"
-                value={situationOverview}
-                onChange={(e) => setSituationOverview(e.target.value)}
-                rows={4}
-                className="w-full rounded-lg border border-slate-200 px-4 py-3 text-base text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-                aria-describedby="situation-help"
-              />
-              <p id="situation-help" className="text-sm text-slate-600">
-                Avoid sensitive clinical details.
-              </p>
-            </div>
-
-            <fieldset className="space-y-3">
-              <legend className="mb-3 text-lg font-medium text-slate-900">
-                Who is this primarily about?
-              </legend>
-              <div className="space-y-3">
-                {WHO_ABOUT_OPTIONS.map((option) => (
-                  <label
-                    key={option.value}
-                    className="flex cursor-pointer items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:bg-slate-50"
-                  >
-                    <input
-                      type="radio"
-                      name="who-about"
-                      value={option.value}
-                      checked={whoAbout === option.value}
-                      onChange={(e) => setWhoAbout(e.target.value)}
-                      className="h-4 w-4 border-slate-300 text-sky-900 focus:ring-2 focus:ring-sky-900 focus:ring-offset-2"
-                    />
-                    <span className="flex-1 text-base text-slate-800">{option.label}</span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-
-            <button
-              onClick={handleNext}
-              className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-            >
-              Continue
-            </button>
-          </div>
-        </PlannerStep>
-      )}
-
-      {currentStep === 2 && (
-        <PlannerStep heading="What feels most challenging?" stepNumber={2} totalSteps={totalSteps}>
-          <div className="space-y-6">
-            <fieldset className="space-y-3">
-              <legend className="sr-only">What feels most challenging?</legend>
-              {CHALLENGE_OPTIONS.map((option) => {
-                const isChecked = challenges.includes(option.value);
-                return (
-                  <label
-                    key={option.value}
-                    className="flex cursor-pointer items-start gap-3 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:bg-slate-50"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={isChecked}
-                      onChange={() => toggleChallenge(option.value)}
-                      className="mt-1 h-4 w-4 rounded border-slate-300 text-sky-900 focus:ring-2 focus:ring-sky-900 focus:ring-offset-2"
-                    />
-                    <span className="flex-1 text-base text-slate-800">{option.label}</span>
-                  </label>
-                );
-              })}
-            </fieldset>
-
-            <button
-              onClick={handleNext}
-              className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-            >
-              Continue
-            </button>
-          </div>
-        </PlannerStep>
-      )}
-
-      {currentStep === 3 && (
-        <PlannerStep heading="Choose up to three priorities" stepNumber={3} totalSteps={totalSteps}>
-          <div className="space-y-6">
-            <p className="text-slate-700">Select up to three areas you want to focus on first.</p>
-
-            {maxPrioritiesMessage && (
-              <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
-                <p className="text-sm text-amber-800">{maxPrioritiesMessage}</p>
-              </div>
-            )}
-
-            <fieldset className="space-y-3">
-              <legend className="sr-only">Choose up to three priorities</legend>
-              {PRIORITY_OPTIONS.map((option) => {
-                const isChecked = priorities.includes(option.value);
-                return (
-                  <label
-                    key={option.value}
-                    className="flex cursor-pointer items-start gap-3 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:bg-slate-50"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={isChecked}
-                      onChange={() => togglePriority(option.value)}
-                      disabled={!isChecked && priorities.length >= 3}
-                      className="mt-1 h-4 w-4 rounded border-slate-300 text-sky-900 focus:ring-2 focus:ring-sky-900 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    />
-                    <span className="flex-1 text-base text-slate-800">{option.label}</span>
-                  </label>
-                );
-              })}
-            </fieldset>
-
-            <button
-              onClick={handleNext}
-              className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-            >
-              Continue
-            </button>
-          </div>
-        </PlannerStep>
-      )}
-
-      {currentStep === 4 && (
-        <PlannerStep
-          heading="Questions to bring to appointments"
-          stepNumber={4}
-          totalSteps={totalSteps}
-        >
-          <div className="space-y-6">
-            <p className="text-slate-700">
-              Use these prompts to organize questions you want to bring to appointments. All fields
-              are optional.
-            </p>
-
-            <div className="space-y-6">
-              {QUESTION_PROMPTS.map((question) => (
-                <div key={question.key} className="space-y-2">
-                  <label
-                    htmlFor={`question-${question.key}`}
-                    className="text-base font-medium text-slate-900"
-                  >
-                    {question.prompt}
+      {shouldReduceMotion ? (
+        <>
+          {currentStep === 1 && (
+            <PlannerStep heading="What are you navigating?" stepNumber={1} totalSteps={totalSteps}>
+              <div className="space-y-6">
+                <div className="space-y-3">
+                  <label htmlFor="situation-overview" className="text-lg font-medium text-slate-900">
+                    In a sentence or two, describe the situation (general information only).
                   </label>
                   <textarea
-                    id={`question-${question.key}`}
-                    value={questions[question.key] || ""}
-                    onChange={(e) => updateQuestion(question.key, e.target.value)}
-                    rows={3}
+                    id="situation-overview"
+                    value={situationOverview}
+                    onChange={(e) => setSituationOverview(e.target.value)}
+                    rows={4}
                     className="w-full rounded-lg border border-slate-200 px-4 py-3 text-base text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                    aria-describedby="situation-help"
                   />
+                  <p id="situation-help" className="text-sm text-slate-600">
+                    Avoid sensitive clinical details.
+                  </p>
                 </div>
-              ))}
-            </div>
 
-            <button
-              onClick={handleNext}
-              className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                <fieldset className="space-y-3">
+                  <legend className="mb-3 text-lg font-medium text-slate-900">
+                    Who is this primarily about?
+                  </legend>
+                  <div className="space-y-3">
+                    {WHO_ABOUT_OPTIONS.map((option) => (
+                      <label
+                        key={option.value}
+                        className="flex cursor-pointer items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:bg-slate-50"
+                      >
+                        <input
+                          type="radio"
+                          name="who-about"
+                          value={option.value}
+                          checked={whoAbout === option.value}
+                          onChange={(e) => setWhoAbout(e.target.value)}
+                          className="h-4 w-4 border-slate-300 text-sky-900 focus:ring-2 focus:ring-sky-900 focus:ring-offset-2"
+                        />
+                        <span className="flex-1 text-base text-slate-800">{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+
+                <button
+                  onClick={handleNext}
+                  className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                >
+                  Continue
+                </button>
+              </div>
+            </PlannerStep>
+          )}
+
+          {currentStep === 2 && (
+            <PlannerStep heading="What feels most challenging?" stepNumber={2} totalSteps={totalSteps}>
+              <div className="space-y-6">
+                <fieldset className="space-y-3">
+                  <legend className="sr-only">What feels most challenging?</legend>
+                  {CHALLENGE_OPTIONS.map((option) => {
+                    const isChecked = challenges.includes(option.value);
+                    return (
+                      <label
+                        key={option.value}
+                        className="flex cursor-pointer items-start gap-3 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:bg-slate-50"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => toggleChallenge(option.value)}
+                          className="mt-1 h-4 w-4 rounded border-slate-300 text-sky-900 focus:ring-2 focus:ring-sky-900 focus:ring-offset-2"
+                        />
+                        <span className="flex-1 text-base text-slate-800">{option.label}</span>
+                      </label>
+                    );
+                  })}
+                </fieldset>
+
+                <button
+                  onClick={handleNext}
+                  className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                >
+                  Continue
+                </button>
+              </div>
+            </PlannerStep>
+          )}
+
+          {currentStep === 3 && (
+            <PlannerStep heading="Choose up to three priorities" stepNumber={3} totalSteps={totalSteps}>
+              <div className="space-y-6">
+                <p className="text-slate-700">Select up to three areas you want to focus on first.</p>
+
+                {maxPrioritiesMessage && (
+                  <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
+                    <p className="text-sm text-amber-800">{maxPrioritiesMessage}</p>
+                  </div>
+                )}
+
+                <fieldset className="space-y-3">
+                  <legend className="sr-only">Choose up to three priorities</legend>
+                  {PRIORITY_OPTIONS.map((option) => {
+                    const isChecked = priorities.includes(option.value);
+                    return (
+                      <label
+                        key={option.value}
+                        className="flex cursor-pointer items-start gap-3 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:bg-slate-50"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => togglePriority(option.value)}
+                          disabled={!isChecked && priorities.length >= 3}
+                          className="mt-1 h-4 w-4 rounded border-slate-300 text-sky-900 focus:ring-2 focus:ring-sky-900 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                        />
+                        <span className="flex-1 text-base text-slate-800">{option.label}</span>
+                      </label>
+                    );
+                  })}
+                </fieldset>
+
+                <button
+                  onClick={handleNext}
+                  className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                >
+                  Continue
+                </button>
+              </div>
+            </PlannerStep>
+          )}
+
+          {currentStep === 4 && (
+            <PlannerStep
+              heading="Questions to bring to appointments"
+              stepNumber={4}
+              totalSteps={totalSteps}
             >
-              View Summary
-            </button>
-          </div>
-        </PlannerStep>
+              <div className="space-y-6">
+                <p className="text-slate-700">
+                  Use these prompts to organize questions you want to bring to appointments. All fields
+                  are optional.
+                </p>
+
+                <div className="space-y-6">
+                  {QUESTION_PROMPTS.map((question) => (
+                    <div key={question.key} className="space-y-2">
+                      <label
+                        htmlFor={`question-${question.key}`}
+                        className="text-base font-medium text-slate-900"
+                      >
+                        {question.prompt}
+                      </label>
+                      <textarea
+                        id={`question-${question.key}`}
+                        value={questions[question.key] || ""}
+                        onChange={(e) => updateQuestion(question.key, e.target.value)}
+                        rows={3}
+                        className="w-full rounded-lg border border-slate-200 px-4 py-3 text-base text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  onClick={handleNext}
+                  className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                >
+                  View Summary
+                </button>
+              </div>
+            </PlannerStep>
+          )}
+        </>
+      ) : (
+        <AnimatePresence mode="wait">
+          {currentStep === 1 && (
+            <motion.div
+              key="step-1"
+              initial="initial"
+              animate="animate"
+              exit="initial"
+              variants={fadeIn}
+              transition={standardTransition}
+            >
+              <PlannerStep heading="What are you navigating?" stepNumber={1} totalSteps={totalSteps}>
+                <div className="space-y-6">
+                  <div className="space-y-3">
+                    <label htmlFor="situation-overview" className="text-lg font-medium text-slate-900">
+                      In a sentence or two, describe the situation (general information only).
+                    </label>
+                    <textarea
+                      id="situation-overview"
+                      value={situationOverview}
+                      onChange={(e) => setSituationOverview(e.target.value)}
+                      rows={4}
+                      className="w-full rounded-lg border border-slate-200 px-4 py-3 text-base text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                      aria-describedby="situation-help"
+                    />
+                    <p id="situation-help" className="text-sm text-slate-600">
+                      Avoid sensitive clinical details.
+                    </p>
+                  </div>
+
+                  <fieldset className="space-y-3">
+                    <legend className="mb-3 text-lg font-medium text-slate-900">
+                      Who is this primarily about?
+                    </legend>
+                    <div className="space-y-3">
+                      {WHO_ABOUT_OPTIONS.map((option) => (
+                        <label
+                          key={option.value}
+                          className="flex cursor-pointer items-center gap-3 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:bg-slate-50"
+                        >
+                          <input
+                            type="radio"
+                            name="who-about"
+                            value={option.value}
+                            checked={whoAbout === option.value}
+                            onChange={(e) => setWhoAbout(e.target.value)}
+                            className="h-4 w-4 border-slate-300 text-sky-900 focus:ring-2 focus:ring-sky-900 focus:ring-offset-2"
+                          />
+                          <span className="flex-1 text-base text-slate-800">{option.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
+
+                  <button
+                    onClick={handleNext}
+                    className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                  >
+                    Continue
+                  </button>
+                </div>
+              </PlannerStep>
+            </motion.div>
+          )}
+
+          {currentStep === 2 && (
+            <motion.div
+              key="step-2"
+              initial="initial"
+              animate="animate"
+              exit="initial"
+              variants={fadeIn}
+              transition={standardTransition}
+            >
+              <PlannerStep heading="What feels most challenging?" stepNumber={2} totalSteps={totalSteps}>
+                <div className="space-y-6">
+                  <fieldset className="space-y-3">
+                    <legend className="sr-only">What feels most challenging?</legend>
+                    {CHALLENGE_OPTIONS.map((option) => {
+                      const isChecked = challenges.includes(option.value);
+                      return (
+                        <label
+                          key={option.value}
+                          className="flex cursor-pointer items-start gap-3 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:bg-slate-50"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={() => toggleChallenge(option.value)}
+                            className="mt-1 h-4 w-4 rounded border-slate-300 text-sky-900 focus:ring-2 focus:ring-sky-900 focus:ring-offset-2"
+                          />
+                          <span className="flex-1 text-base text-slate-800">{option.label}</span>
+                        </label>
+                      );
+                    })}
+                  </fieldset>
+
+                  <button
+                    onClick={handleNext}
+                    className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                  >
+                    Continue
+                  </button>
+                </div>
+              </PlannerStep>
+            </motion.div>
+          )}
+
+          {currentStep === 3 && (
+            <motion.div
+              key="step-3"
+              initial="initial"
+              animate="animate"
+              exit="initial"
+              variants={fadeIn}
+              transition={standardTransition}
+            >
+              <PlannerStep heading="Choose up to three priorities" stepNumber={3} totalSteps={totalSteps}>
+                <div className="space-y-6">
+                  <p className="text-slate-700">Select up to three areas you want to focus on first.</p>
+
+                  {maxPrioritiesMessage && (
+                    <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
+                      <p className="text-sm text-amber-800">{maxPrioritiesMessage}</p>
+                    </div>
+                  )}
+
+                  <fieldset className="space-y-3">
+                    <legend className="sr-only">Choose up to three priorities</legend>
+                    {PRIORITY_OPTIONS.map((option) => {
+                      const isChecked = priorities.includes(option.value);
+                      return (
+                        <label
+                          key={option.value}
+                          className="flex cursor-pointer items-start gap-3 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:bg-slate-50"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={() => togglePriority(option.value)}
+                            disabled={!isChecked && priorities.length >= 3}
+                            className="mt-1 h-4 w-4 rounded border-slate-300 text-sky-900 focus:ring-2 focus:ring-sky-900 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                          />
+                          <span className="flex-1 text-base text-slate-800">{option.label}</span>
+                        </label>
+                      );
+                    })}
+                  </fieldset>
+
+                  <button
+                    onClick={handleNext}
+                    className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                  >
+                    Continue
+                  </button>
+                </div>
+              </PlannerStep>
+            </motion.div>
+          )}
+
+          {currentStep === 4 && (
+            <motion.div
+              key="step-4"
+              initial="initial"
+              animate="animate"
+              exit="initial"
+              variants={fadeIn}
+              transition={standardTransition}
+            >
+              <PlannerStep
+                heading="Questions to bring to appointments"
+                stepNumber={4}
+                totalSteps={totalSteps}
+              >
+                <div className="space-y-6">
+                  <p className="text-slate-700">
+                    Use these prompts to organize questions you want to bring to appointments. All fields
+                    are optional.
+                  </p>
+
+                  <div className="space-y-6">
+                    {QUESTION_PROMPTS.map((question) => (
+                      <div key={question.key} className="space-y-2">
+                        <label
+                          htmlFor={`question-${question.key}`}
+                          className="text-base font-medium text-slate-900"
+                        >
+                          {question.prompt}
+                        </label>
+                        <textarea
+                          id={`question-${question.key}`}
+                          value={questions[question.key] || ""}
+                          onChange={(e) => updateQuestion(question.key, e.target.value)}
+                          rows={3}
+                          className="w-full rounded-lg border border-slate-200 px-4 py-3 text-base text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={handleNext}
+                    className="rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                  >
+                    View Summary
+                  </button>
+                </div>
+              </PlannerStep>
+            </motion.div>
+          )}
+        </AnimatePresence>
       )}
     </div>
   );
