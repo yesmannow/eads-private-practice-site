@@ -1,5 +1,8 @@
 "use client";
 
+import { Label } from "@/components/ui/shadcn/label";
+import { Textarea } from "@/components/ui/shadcn/textarea";
+
 type TextPromptFieldProps = {
   prompt: string;
   helperText: string;
@@ -19,18 +22,18 @@ export function TextPromptField({
 }: TextPromptFieldProps) {
   return (
     <div className="space-y-3">
-      <label htmlFor={fieldId} className="text-lg font-medium text-slate-900">
+      <Label htmlFor={fieldId} className="text-lg font-medium">
         {prompt}
-      </label>
-      <textarea
+      </Label>
+      <Textarea
         id={fieldId}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         rows={rows}
-        className="w-full rounded-lg border border-slate-200 px-4 py-3 text-base text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+        className="text-base"
         aria-describedby={`${fieldId}-help`}
       />
-      <p id={`${fieldId}-help`} className="text-sm text-slate-600">
+      <p id={`${fieldId}-help`} className="text-sm text-muted-foreground">
         {helperText}
       </p>
     </div>

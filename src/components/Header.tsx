@@ -3,9 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
 import { site } from "@/config/site";
-import { Button } from "./ui/button";
+import { SiteButton } from "./ui/shadcn/SiteButton";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/shadcn/sheet";
+import { Menu } from "lucide-react";
 
 const navItems = [
   { href: "/start-here", label: "Start Here" },
@@ -17,30 +24,6 @@ const navItems = [
 
 export function HeaderNav() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-  const firstLinkRef = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
-  useEffect(() => {
-    if (isOpen) {
-      firstLinkRef.current?.focus();
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = originalOverflow;
-      };
-    }
-  }, [isOpen]);
 
   return (
     <header className="relative border-b border-slate-200 bg-white/95 text-slate-900 backdrop-blur">
@@ -85,64 +68,38 @@ export function HeaderNav() {
               </Link>
             );
           })}
-          <Button href="/contact" className="px-4 py-2">
+          <SiteButton href="/contact" className="px-4 py-2">
             Contact
-          </Button>
+          </SiteButton>
         </nav>
 
         <div className="lg:hidden">
-          <button
-            type="button"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-sm transition hover:border-sky-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            onClick={() => setIsOpen((prev) => !prev)}
-          >
-            <span className="sr-only">Toggle menu</span>
-            <svg
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {isOpen ? (
-        <div
-          id="mobile-menu"
-          role="dialog"
-          aria-modal="true"
-          className="lg:hidden"
-        >
-          <div className="fixed inset-0 bg-slate-900/30" onClick={() => setIsOpen(false)} />
-          <div className="absolute inset-x-0 top-full z-10 origin-top bg-white shadow-lg ring-1 ring-slate-200">
-            <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
-              <div className="flex flex-col gap-3" role="menu">
-                {navItems.map((item, index) => {
+          <Sheet>
+            <SheetTrigger asChild>
+              <button
+                type="button"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-sm transition hover:border-sky-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+                aria-label="Open navigation menu"
+              >
+                <span className="sr-only">Toggle menu</span>
+                <Menu className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetHeader>
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+              </SheetHeader>
+              <nav className="mt-8 flex flex-col gap-3" aria-label="Mobile navigation">
+                {navItems.map((item) => {
                   const isActive = pathname === item.href;
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
-                      role="menuitem"
-                      ref={index === 0 ? firstLinkRef : undefined}
-                      onClick={() => setIsOpen(false)}
-                      className={`rounded-lg px-3 py-2 text-base font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900 ${
+                      className={`rounded-lg px-3 py-2 text-base font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
                         isActive
-                          ? "bg-sky-50 text-sky-900 font-semibold"
-                          : "text-slate-900 hover:bg-slate-50"
+                          ? "bg-primary/10 text-primary font-semibold"
+                          : "text-foreground hover:bg-accent"
                       }`}
                       aria-current={isActive ? "page" : undefined}
                     >
@@ -150,14 +107,14 @@ export function HeaderNav() {
                     </Link>
                   );
                 })}
-                <Button href="/contact" className="justify-start">
+                <SiteButton href="/contact" className="justify-start w-full">
                   Contact
-                </Button>
-              </div>
-            </div>
-          </div>
+                </SiteButton>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }

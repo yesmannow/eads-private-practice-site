@@ -12,7 +12,7 @@ export function AboutBio() {
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-slate-100">
           <Image
             src="/images/bio-photo/tucker-bio-photo.jpg"
-            alt="Brian \"Tucker\" Eads, MA, LSW"
+            alt='Brian "Tucker" Eads, MA, LSW'
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -20,7 +20,7 @@ export function AboutBio() {
         </div>
         <div className="space-y-6 text-slate-800">
           <div>
-            <h3 className="text-xl font-semibold text-slate-900">Brian "Tucker" Eads, MA, LSW</h3>
+            <h3 className="text-xl font-semibold text-slate-900">Brian &quot;Tucker&quot; Eads, MA, LSW</h3>
             <p className="mt-3 leading-7 text-slate-700">
               I am a Licensed Social Worker (Indiana) providing psychotherapy and care navigation services. My practice focuses on supporting adults managing stress, adjustment challenges, caregiver demands, and health-related changes.
             </p>

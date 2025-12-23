@@ -1,5 +1,8 @@
 "use client";
 
+import { Checkbox } from "@/components/ui/shadcn/checkbox";
+import { cn } from "@/lib/utils";
+
 type ChecklistOption = {
   value: string;
   label: string;
@@ -22,23 +25,26 @@ export function ChecklistSection({
 }: ChecklistSectionProps) {
   return (
     <fieldset className="space-y-4">
-      <legend className="mb-4 text-lg font-medium text-slate-900">{prompt}</legend>
+      <legend className="mb-4 text-lg font-medium">{prompt}</legend>
       <div className="space-y-3">
         {options.map((option) => {
           const isChecked = selectedValues.includes(option.value);
+          const checkboxId = `${fieldsetId}-${option.value}`;
           return (
             <label
               key={option.value}
-              className="flex cursor-pointer items-start gap-3 rounded-lg border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:bg-slate-50"
+              className={cn(
+                "flex cursor-pointer items-start gap-3 rounded-lg border border-border bg-card p-4 transition hover:border-primary/50 hover:bg-accent"
+              )}
             >
-              <input
-                type="checkbox"
+              <Checkbox
+                id={checkboxId}
                 checked={isChecked}
-                onChange={() => onToggle(option.value)}
-                className="mt-1 h-4 w-4 rounded border-slate-300 text-sky-900 focus:ring-2 focus:ring-sky-900 focus:ring-offset-2"
+                onCheckedChange={() => onToggle(option.value)}
+                className="mt-1"
                 aria-describedby={`${fieldsetId}-help`}
               />
-              <span className="flex-1 text-base text-slate-800">{option.label}</span>
+              <span className="flex-1 text-base">{option.label}</span>
             </label>
           );
         })}

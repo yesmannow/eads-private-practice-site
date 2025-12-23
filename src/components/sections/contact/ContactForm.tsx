@@ -1,11 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "../../ui/button";
+import { SiteButton } from "../../ui/shadcn/SiteButton";
+import { FormInput, FormTextarea } from "../../ui/shadcn/FormField";
+import { Input } from "../../ui/shadcn/input";
+import { Textarea } from "../../ui/shadcn/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/shadcn/select";
+import { Label } from "../../ui/shadcn/label";
+import { RadioGroup, RadioGroupItem } from "../../ui/shadcn/radio-group";
 
 export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [serviceInterest, setServiceInterest] = useState("individual-therapy");
+  const [contactMethod, setContactMethod] = useState("email");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,8 +22,8 @@ export function ContactForm() {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
       phone: formData.get("phone") as string,
-      contactMethod: formData.get("contact-method") as string,
-      serviceInterest: formData.get("service-interest") as string,
+      contactMethod: contactMethod,
+      serviceInterest: serviceInterest,
       message: formData.get("message") as string,
       availability: formData.get("availability") as string,
     };
@@ -72,159 +80,91 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <form onSubmit={handleSubmit} className="space-y-6 rounded-3xl border border-border bg-card p-6 shadow-sm">
       <div className="grid gap-6 sm:grid-cols-2">
-        <div className="space-y-2">
-          <label htmlFor="name" className="text-sm font-medium text-slate-800">
-            Name <span className="text-sky-900" aria-label="required">*</span>
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            className={`w-full rounded-xl border px-3 py-2 text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
-              errors.name
-                ? "border-red-300 focus-visible:outline-red-500"
-                : "border-slate-200 focus-visible:outline-sky-900"
-            }`}
-            placeholder="Your name"
-            aria-invalid={errors.name ? "true" : "false"}
-            aria-describedby={errors.name ? "name-error" : undefined}
-          />
-          {errors.name && (
-            <p id="name-error" className="text-sm text-red-600" role="alert">
-              {errors.name}
-            </p>
-          )}
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="email" className="text-sm font-medium text-slate-800">
-            Email <span className="text-sky-900" aria-label="required">*</span>
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className={`w-full rounded-xl border px-3 py-2 text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
-              errors.email
-                ? "border-red-300 focus-visible:outline-red-500"
-                : "border-slate-200 focus-visible:outline-sky-900"
-            }`}
-            placeholder="you@example.com"
-            aria-invalid={errors.email ? "true" : "false"}
-            aria-describedby={errors.email ? "email-error" : undefined}
-          />
-          {errors.email && (
-            <p id="email-error" className="text-sm text-red-600" role="alert">
-              {errors.email}
-            </p>
-          )}
-        </div>
+        <FormInput
+          label="Name"
+          required
+          name="name"
+          type="text"
+          placeholder="Your name"
+          error={errors.name}
+        />
+        <FormInput
+          label="Email"
+          required
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          error={errors.email}
+        />
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
-          <label htmlFor="phone" className="text-sm font-medium text-slate-800">
-            Phone <span className="text-sm font-normal text-slate-600">(optional)</span>
-          </label>
-          <input
+          <Label htmlFor="phone">
+            Phone <span className="text-sm font-normal text-muted-foreground">(optional)</span>
+          </Label>
+          <Input
             id="phone"
             name="phone"
             type="tel"
-            className="w-full rounded-xl border border-slate-200 px-3 py-2 text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
             placeholder="(555) 123-4567"
           />
         </div>
         <div className="space-y-2">
-          <fieldset>
-            <legend className="text-sm font-medium text-slate-800">Preferred contact method</legend>
-            <div className="mt-2 space-y-2">
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="contact-method"
-                  value="email"
-                  defaultChecked
-                  className="h-4 w-4 border-slate-300 text-sky-900 focus:ring-sky-900"
-                />
-                <span className="text-sm text-slate-700">Email</span>
-              </label>
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="contact-method"
-                  value="phone"
-                  className="h-4 w-4 border-slate-300 text-sky-900 focus:ring-sky-900"
-                />
-                <span className="text-sm text-slate-700">Phone</span>
-              </label>
+          <Label>Preferred contact method</Label>
+          <RadioGroup value={contactMethod} onValueChange={setContactMethod} className="mt-2">
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="email" id="contact-email" />
+              <Label htmlFor="contact-email" className="font-normal cursor-pointer">Email</Label>
             </div>
-          </fieldset>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="phone" id="contact-phone" />
+              <Label htmlFor="contact-phone" className="font-normal cursor-pointer">Phone</Label>
+            </div>
+          </RadioGroup>
         </div>
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="service-interest" className="text-sm font-medium text-slate-800">
-          Service interest
-        </label>
-        <select
-          id="service-interest"
-          name="service-interest"
-          className="w-full rounded-xl border border-slate-200 px-3 py-2 text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-        >
-          <option value="individual-therapy">Individual Therapy</option>
-          <option value="caregiver-support">Caregiver Support</option>
-          <option value="care-navigation">Care Navigation</option>
-          <option value="not-sure">Not sure</option>
-        </select>
+        <Label htmlFor="service-interest">Service interest</Label>
+        <Select value={serviceInterest} onValueChange={setServiceInterest}>
+          <SelectTrigger id="service-interest">
+            <SelectValue placeholder="Select a service" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="individual-therapy">Individual Therapy</SelectItem>
+            <SelectItem value="caregiver-support">Caregiver Support</SelectItem>
+            <SelectItem value="care-navigation">Care Navigation</SelectItem>
+            <SelectItem value="not-sure">Not sure</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
-      <div className="space-y-2">
-        <div className="flex items-center justify-between">
-          <label htmlFor="message" className="text-sm font-medium text-slate-800">
-            Message <span className="text-sky-900" aria-label="required">*</span>
-          </label>
-        </div>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          required
-          className={`w-full rounded-xl border px-3 py-2 text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
-            errors.message
-              ? "border-red-300 focus-visible:outline-red-500"
-              : "border-slate-200 focus-visible:outline-sky-900"
-          }`}
-          placeholder="General information only—avoid sensitive details."
-          aria-invalid={errors.message ? "true" : "false"}
-          aria-describedby={errors.message ? "message-error" : "message-help"}
-        />
-        <p id="message-help" className="text-xs text-slate-600">
-          General information only—avoid sensitive details.
-        </p>
-        {errors.message && (
-          <p id="message-error" className="text-sm text-red-600" role="alert">
-            {errors.message}
-          </p>
-        )}
-      </div>
+      <FormTextarea
+        label="Message"
+        required
+        name="message"
+        rows={4}
+        placeholder="General information only—avoid sensitive details."
+        error={errors.message}
+        helperText="General information only—avoid sensitive details."
+      />
 
       <div className="space-y-2">
-        <label htmlFor="availability" className="text-sm font-medium text-slate-800">
-          Availability <span className="text-sm font-normal text-slate-600">(optional)</span>
-        </label>
-        <textarea
+        <Label htmlFor="availability">
+          Availability <span className="text-sm font-normal text-muted-foreground">(optional)</span>
+        </Label>
+        <Textarea
           id="availability"
           name="availability"
           rows={2}
-          className="w-full rounded-xl border border-slate-200 px-3 py-2 text-slate-900 shadow-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
           placeholder="Preferred days/times or scheduling constraints"
         />
       </div>
 
-      <Button type="submit">Send message</Button>
+      <SiteButton type="submit">Send message</SiteButton>
     </form>
   );
 }
