@@ -3,6 +3,7 @@ import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { PageShell } from "@/components/PageShell";
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { PageTransition } from "@/components/motion/PageTransition";
 import { site } from "@/config/site";
 
 const inter = Inter({
@@ -77,7 +78,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${libreBaskerville.variable}`}>
       <body className="antialiased font-sans">
         <MotionProvider>
-          <PageShell>{children}</PageShell>
+          <PageTransition>
+            <PageShell>{children}</PageShell>
+          </PageTransition>
         </MotionProvider>
       </body>
     </html>

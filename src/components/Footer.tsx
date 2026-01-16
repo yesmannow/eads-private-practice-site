@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/config/site";
 
 export function Footer() {
@@ -7,8 +8,19 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-4">
-            <p className="text-lg font-semibold">{site.name}</p>
-            <p className="text-slate-700">{site.tagline}</p>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/images/branding/bst-website-secondary-logo.png"
+                alt="Blazing Star Therapy secondary logo"
+                width={40}
+                height={40}
+                className="opacity-80"
+              />
+              <div>
+                <p className="text-lg font-semibold">{site.name}</p>
+                <p className="text-slate-700">{site.tagline}</p>
+              </div>
+            </div>
             <p className="text-sm text-slate-700">
               {site.locationShort} · {site.telehealthLine}
             </p>

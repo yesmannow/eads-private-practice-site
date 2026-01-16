@@ -8,12 +8,11 @@ import { SiteButton, Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger 
 import { Menu } from "lucide-react";
 
 const navItems = [
-  { href: "/start-here", label: "Start Here" },
-  { href: "/resources", label: "Resources" },
-  { href: "/services", label: "Services" },
-  { href: "/approach", label: "Approach" },
+  { href: "/", label: "Home" },
+  { href: "/approach", label: "My Approach" },
   { href: "/about", label: "About" },
-  { href: "/fees-faq", label: "Fees & FAQ" },
+  { href: "/specialties", label: "Specialties" },
+  { href: "/contact", label: "Let's Connect" },
 ];
 
 export function HeaderNav() {
@@ -28,11 +27,11 @@ export function HeaderNav() {
           aria-label="Steady Path Counseling home"
         >
           <Image
-            src="/images/branding/website-logo.png"
+            src="/images/branding/bst-website-logo.png"
             alt="Steady Path Counseling logo"
             width={160}
-            height={40}
-            className="h-7 w-auto sm:h-10"
+            height={160}
+            className="h-12 w-auto sm:h-16"
             priority
           />
           <div className="hidden leading-tight sm:block">
@@ -62,9 +61,6 @@ export function HeaderNav() {
               </Link>
             );
           })}
-          <SiteButton href="/contact" className="px-4 py-2">
-            Contact
-          </SiteButton>
         </nav>
 
         <div className="lg:hidden">
