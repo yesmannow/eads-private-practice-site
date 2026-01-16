@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { site } from "@/config/site";
 import { SiteButton, Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui";
 import { Menu } from "lucide-react";
 
@@ -24,20 +23,16 @@ export function HeaderNav() {
         <Link
           href="/"
           className="flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-          aria-label="Steady Path Counseling home"
+          aria-label="Blazing Star Therapy home"
         >
           <Image
             src="/images/branding/bst-website-logo.png"
-            alt="Steady Path Counseling logo"
+            alt="Blazing Star Therapy logo"
             width={160}
             height={160}
             className="h-12 w-auto sm:h-16"
             priority
           />
-          <div className="hidden leading-tight sm:block">
-            <p className="text-base font-semibold text-foreground">{site.name}</p>
-            <p className="text-sm text-muted-foreground">{site.locationShort}</p>
-          </div>
         </Link>
 
         <nav

@@ -9,6 +9,7 @@ type SectionProps = {
   eyebrow?: string;
   description?: string;
   background?: "default" | "muted";
+  className?: string;
   children: ReactNode;
 };
 
@@ -18,12 +19,13 @@ export function Section({
   eyebrow,
   description,
   background = "default",
+  className = "",
   children,
 }: SectionProps) {
   return (
     <section
       id={id}
-      className={`py-16 sm:py-20 section-divider ${background === "muted" ? "bg-muted" : "bg-background"}`}
+      className={`py-16 sm:py-20 section-divider ${background === "muted" ? "bg-muted" : "bg-background"} ${className}`}
       aria-labelledby={id ? `${id}-heading` : undefined}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
