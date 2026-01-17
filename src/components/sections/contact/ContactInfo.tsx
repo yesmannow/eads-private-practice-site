@@ -29,7 +29,7 @@ export function ContactInfo() {
             <p className="font-semibold text-slate-900 mb-1">Email</p>
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="text-sky-900 hover:text-sky-800 hover:underline transition-all break-all"
+              className="text-sky-900 hover:text-sky-800 hover:underline transition-all break-words"
             >
               {siteConfig.contact.email}
             </a>
