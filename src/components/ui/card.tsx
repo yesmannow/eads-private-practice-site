@@ -12,7 +12,7 @@ type CardProps = {
 
 export function Card({ title, eyebrow, icon: Icon, children, footer }: CardProps) {
   return (
-    <div className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
       {(eyebrow || title || Icon) && (
         <div className="space-y-1">
           {eyebrow ? <p className="text-xs font-semibold uppercase tracking-wide text-sky-900">{eyebrow}</p> : null}

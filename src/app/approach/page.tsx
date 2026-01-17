@@ -133,7 +133,7 @@ export default function ApproachPage() {
               <div className="flex-1 bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
                 <h3 className="text-xl font-semibold mb-3">Initial Consultation (1-2 sessions)</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We'll meet to better understand the problems and goals you'd like to address. This helps us determine if we're a good fit to work together.
+                  We&apos;ll meet to better understand the problems and goals you&apos;d like to address. This helps us determine if we&apos;re a good fit to work together.
                 </p>
               </div>
             </div>
@@ -145,7 +145,7 @@ export default function ApproachPage() {
               <div className="flex-1 bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
                 <h3 className="text-xl font-semibold mb-3">Personalized Treatment Plan</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Together, we'll develop a treatment plan tailored to your specific needs and goals. This is your journey, and I'm here to guide and support you.
+                  Together, we&apos;ll develop a treatment plan tailored to your specific needs and goals. This is your journey, and I&apos;m here to guide and support you.
                 </p>
               </div>
             </div>
@@ -157,7 +157,7 @@ export default function ApproachPage() {
               <div className="flex-1 bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
                 <h3 className="text-xl font-semibold mb-3">Ongoing Check-ins</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We'll regularly check in to ensure our work together is helpful and adjust our approach as needed. Your feedback is invaluable in shaping our work together.
+                  We&apos;ll regularly check in to ensure our work together is helpful and adjust our approach as needed. Your feedback is invaluable in shaping our work together.
                 </p>
               </div>
             </div>
@@ -169,9 +169,9 @@ export default function ApproachPage() {
       <Section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="container max-w-3xl mx-auto text-center px-4">
           <div className="bg-white p-8 md:p-12 rounded-2xl shadow-lg border border-gray-100">
-            <h2 className="text-3xl font-bold mb-6">You're in the Driver's Seat</h2>
+            <h2 className="text-3xl font-bold mb-6">You&apos;re in the Driver&apos;s Seat</h2>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              You are always in charge, and I'm here to help guide you. If at any point you or I think another therapist would be a better fit, I'm happy to provide resources and referrals.
+              You are always in charge, and I&apos;m here to help guide you. If at any point you or I think another therapist would be a better fit, I&apos;m happy to provide resources and referrals.
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Regardless of the treatment plan and intervention, I commit to showing up for you with empathy, openness, and care.
