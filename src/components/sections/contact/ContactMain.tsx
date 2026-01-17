@@ -31,15 +31,23 @@ export function ContactMain() {
         </div>
         <div className="space-y-6">
           <ContactInfo />
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-secondary/40 shadow-lg">
+          {/* Bio Photo Section */}
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-accent/5 to-secondary/40 shadow-lg hover:shadow-xl transition-shadow duration-300">
             <Image
-              src="/images/design-images/hand-4661763_1280.jpg"
-              alt="An open hand reaching toward light"
+              src="/images/bio-photo/tucker-bio-photo.jpg"
+              alt="Tucker Eads, LCSW - Blazing Star Therapy"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority={false}
             />
+          </div>
+          {/* Additional Info Card */}
+          <div className="p-6 bg-gradient-to-br from-accent/5 to-white rounded-2xl border border-accent/10 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">Looking forward to hearing from you</h3>
+            <p className="text-slate-700 text-sm leading-relaxed">
+              I typically respond within 24-48 hours. If you need immediate support, please reach out by phone or contact a crisis resource.
+            </p>
           </div>
         </div>
       </div>
