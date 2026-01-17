@@ -23,7 +23,7 @@ export default function About() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Me</h1>
@@ -125,7 +125,7 @@ export default function About() {
             <CardHover>
               <Link 
                 href="/contact" 
-                className="inline-block bg-white text-accent px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
+                className="inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
               >
                 Get in Touch
               </Link>

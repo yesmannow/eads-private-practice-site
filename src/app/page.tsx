@@ -47,7 +47,7 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
         
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
@@ -58,7 +58,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <Link 
               href="/contact" 
-              className="bg-white text-accent px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
+              className="bg-white text-foreground px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
             >
               Start Your Journey
             </Link>
@@ -160,14 +160,12 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CardHover>
                 <Link 
                   href="/contact" 
-                  className="bg-white text-accent px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
+                  className="bg-white text-gray-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
                 >
                   Schedule a Consultation
                 </Link>
-              </CardHover>
               <CardHover>
                 <Link 
                   href="/fees-faq" 

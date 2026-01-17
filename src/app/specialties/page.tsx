@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { PageHero } from "@/components/ui/PageHero";
+import Image from "next/image";
 import { Section } from "@/components/ui/section";
 import { Brain, Heart, Users, Sparkles, CheckCircle2, Flower } from "lucide-react";
 
@@ -11,10 +11,24 @@ export const metadata: Metadata = {
 export default function SpecialtiesPage() {
   return (
     <main className="flex-1">
-      <PageHero
-        title="My Specialties"
-        description="Areas of expertise and therapeutic approaches"
-      />
+      {/* Hero Section */}
+      <section className="relative h-96 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/about/Monarch_on_Rough_Blazing_Star_(42664211220) (1).jpg"
+            alt="Monarch butterfly on rough blazing star flower"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">My Specialties</h1>
+          <p className="text-xl">Areas of expertise and therapeutic approaches</p>
+        </div>
+      </section>
       
       <Section className="py-12 md:py-16 lg:py-20">
         <div className="container max-w-4xl mx-auto">

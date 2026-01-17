@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { PageHero } from "@/components/ui/PageHero";
+import Image from "next/image";
 import { Section } from "@/components/ui/section";
 import { CheckCircle2, HeartPulse, Scale, ArrowRight, Leaf, Flower2, Sun, Wind } from "lucide-react";
 import Link from "next/link";
@@ -13,10 +13,23 @@ export default function ApproachPage() {
   return (
     <main className="flex-1">
       {/* Hero Section */}
-      <PageHero
-        title="My Therapeutic Approach"
-        description="A relationship-centered path to healing and growth"
-      />
+      <section className="relative h-96 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/about/jeffrey-hamilton-BLo2SfRwxqU-unsplash (1).jpg"
+            alt="Peaceful nature landscape representing therapeutic growth"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">My Therapeutic Approach</h1>
+          <p className="text-xl">A relationship-centered path to healing and growth</p>
+        </div>
+      </section>
       
       {/* Core Philosophy Section */}
       <Section className="py-16 bg-white">

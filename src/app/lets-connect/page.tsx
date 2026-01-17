@@ -26,6 +26,23 @@ export default function LetsConnect() {
         </div>
       </section>
 
+      {/* Bio Photo Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <div className="relative w-64 h-64 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-white">
+              <Image
+                src="/images/bio-photo/tucker-bio-photo.jpg"
+                alt="Tucker Eads, LCSW - Blazing Star Therapy"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 256px"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Consultation Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -59,7 +76,7 @@ export default function LetsConnect() {
                         href="https://calendly.com/blazingstartherapy/initial-consult" 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-accent text-white px-6 py-3 rounded-full font-medium hover:bg-accent/90 transition-colors"
+                        className="inline-block bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors"
                       >
                         Book Your Free Consultation
                       </Link>

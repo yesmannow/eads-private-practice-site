@@ -1,16 +1,16 @@
 export const site = {
-  name: "Steady Path Counseling",
+  name: "Blazing Star Therapy",
   tagline:
-    "Evidence-informed therapy and care navigation to support health, adjustment, and emotional wellbeing.",
+    "Evidence-based therapy for anxiety, stress, life transitions, and chronic health challenges in Bloomington, Indiana.",
   locationShort: "Bloomington, Indiana",
-  telehealthLine: "Telehealth across Indiana",
-  phone: "(555) 555-5555",
-  email: "hello@steadypathcounseling.com",
-  baseUrl: "https://example.com",
-  ctaPrimaryLabel: "Request a Consultation",
-  ctaPrimaryHref: "/start-here",
-  ctaSecondaryLabel: "View Services",
-  ctaSecondaryHref: "/services",
+  telehealthLine: "Telehealth across Indiana & Illinois",
+  phone: "(812) 555-0123",
+  email: "tucker@blazingstartherapy.com",
+  baseUrl: "https://blazingstartherapy.com",
+  ctaPrimaryLabel: "Schedule Consultation",
+  ctaPrimaryHref: "/lets-connect",
+  ctaSecondaryLabel: "Learn My Approach",
+  ctaSecondaryHref: "/approach",
 };
 
 export const siteConfig = {
