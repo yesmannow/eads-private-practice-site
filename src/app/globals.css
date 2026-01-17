@@ -26,9 +26,9 @@
   --popover: 0 0% 100%;
   --popover-foreground: 177 18% 24%;
 
-  /* Primary brand */
+  /* Primary brand - Enhanced for better visibility */
   --primary: 177 18% 24%; /* Deep Teal */
-  --primary-foreground: 0 0% 98%; /* FIX: near-white for readable text */
+  --primary-foreground: 0 0% 99%; /* FIX: white for readable text */
 
   /* Secondary surfaces */
   --secondary: 155 25% 75%; /* Mist-ish */
@@ -37,7 +37,7 @@
   --muted: 145 35% 85%; /* Soft Mint */
   --muted-foreground: 145 15% 38%; /* readable muted text */
 
-  /* Accent */
+  /* Accent - Enhanced gold */
   --accent: 38 63% 55%; /* Gold */
   --accent-foreground: 177 18% 24%;
 
@@ -204,7 +204,7 @@ a {
     @apply bg-background text-foreground;
   }
 
-  /* Typography scale - Serif for headings, Sans for body */
+  /* Typography scale - Serif for headings, Sans for body - Enhanced */
   h1 {
     @apply font-serif text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl tracking-tight;
   }
@@ -240,28 +240,33 @@ a {
   }
 }
 
-/* Micro-interactions */
+/* Micro-interactions - Enhanced for modern feel */
 @layer utilities {
   .hover-lift {
-    @apply transition-transform duration-200 ease-out hover:-translate-y-0.5;
+    @apply transition-transform duration-200 ease-out hover:-translate-y-1;
   }
 
   .hover-shadow {
-    @apply transition-shadow duration-200 ease-out hover:shadow-md;
+    @apply transition-shadow duration-200 ease-out hover:shadow-lg;
   }
 
   .card-interactive {
-    @apply transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md;
+    @apply transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-lg;
   }
 
   .button-interactive {
-    @apply transition-all duration-200 ease-out hover:shadow-sm active:scale-[0.98];
+    @apply transition-all duration-200 ease-out hover:shadow-lg active:scale-[0.98];
   }
 
   /* Defensive override: Ensure button-like anchors keep intended text color */
   a.bg-primary.text-primary-foreground,
   a[class*="bg-primary"][class*="text-primary-foreground"] {
     color: hsl(var(--primary-foreground)) !important;
+  }
+  
+  a.bg-white,
+  a[class*="bg-white"] {
+    color: hsl(var(--primary)) !important;
   }
 }
 
@@ -277,4 +282,10 @@ a {
 /* Section utility */
 .section {
   @apply py-16 sm:py-20;
+}
+
+/* CTA gradient pattern background */
+.cta-pattern-overlay {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=');
+  opacity: 0.5;
 }

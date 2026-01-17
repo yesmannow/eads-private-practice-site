@@ -22,12 +22,12 @@ export default function ApproachPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50" />
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">My Therapeutic Approach</h1>
-          <p className="text-xl">A relationship-centered path to healing and growth</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg">My Therapeutic Approach</h1>
+          <p className="text-xl text-white/95 drop-shadow-md">A relationship-centered path to healing and growth</p>
         </div>
       </section>
 
@@ -49,7 +49,7 @@ export default function ApproachPage() {
       </Section>
 
       {/* Therapeutic Modalities Section */}
-      <Section className="py-16 bg-gray-50">
+      <Section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="container max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">My Therapeutic Framework</h2>
@@ -59,7 +59,7 @@ export default function ApproachPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                   <Leaf className="w-6 h-6" />
@@ -71,7 +71,7 @@ export default function ApproachPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-green-600">
                   <Flower2 className="w-6 h-6" />
@@ -84,7 +84,7 @@ export default function ApproachPage() {
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
             <h3 className="text-2xl font-bold mb-6">Integrative & Holistic</h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
               I also integrate elements of other modalities including relational and trauma therapies, ensuring a comprehensive approach that addresses your unique needs and goals.
@@ -144,9 +144,9 @@ export default function ApproachPage() {
       </Section>
 
       {/* Final CTA */}
-      <Section className="py-16 bg-gray-50">
+      <Section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="container max-w-3xl mx-auto text-center px-4">
-          <div className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
+          <div className="bg-white p-8 md:p-12 rounded-2xl shadow-lg border border-gray-100">
             <h2 className="text-3xl font-bold mb-6">You're in the Driver's Seat</h2>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
               You are always in charge, and I'm here to help guide you. If at any point you or I think another therapist would be a better fit, I'm happy to provide resources and referrals.
@@ -156,7 +156,7 @@ export default function ApproachPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:brightness-110 transition-all transform hover:-translate-y-0.5"
             >
               Begin Your Journey
               <ArrowRight className="w-5 h-5" />

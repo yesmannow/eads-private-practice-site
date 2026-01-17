@@ -21,12 +21,12 @@ export default function SpecialtiesPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50" />
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">My Specialties</h1>
-          <p className="text-xl">Areas of expertise and therapeutic approaches</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg">My Specialties</h1>
+          <p className="text-xl text-white/95 drop-shadow-md">Areas of expertise and therapeutic approaches</p>
         </div>
       </section>
       
