@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { site } from "@/config/site";
+import { getSiteSettings } from "@/config/site-server";
 import { Heart, Phone, Mail, MapPin, ExternalLink, Flower2, Users, Shield, Clock, Star } from "lucide-react";
 
-export function Footer() {
+export async function Footer() {
+  const siteSettings = await getSiteSettings();
   return (
     <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
@@ -30,12 +31,12 @@ export function Footer() {
                   className="brightness-0 invert"
                 />
                 <div>
-                  <h3 className="text-xl font-bold text-white">{site.name}</h3>
-                  <p className="text-sm text-slate-300">LCSW</p>
+                  <h3 className="text-xl font-bold text-white">{siteSettings.name}</h3>
+                  <p className="text-sm text-slate-300">{siteSettings.credentials.title}</p>
                 </div>
               </div>
               <p className="text-slate-300 leading-relaxed text-sm">
-                {site.tagline}
+                {siteSettings.tagline}
               </p>
               <div className="flex items-center gap-2 text-slate-400 text-sm">
                 <Flower2 className="w-4 h-4" />
@@ -84,32 +85,32 @@ export function Footer() {
                   <MapPin className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-slate-300 text-sm font-medium">In-Person</p>
-                    <p className="text-slate-400 text-sm">{site.locationShort}</p>
+                    <p className="text-slate-400 text-sm">{siteSettings.contact.locationShort}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Shield className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-slate-300 text-sm font-medium">Telehealth</p>
-                    <p className="text-slate-400 text-sm">{site.telehealthLine}</p>
+                    <p className="text-slate-400 text-sm">{siteSettings.contact.telehealthLine}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-slate-400 flex-shrink-0" />
                   <Link
-                    href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
+                    href={`tel:${siteSettings.contact.phone.replace(/[^\d+]/g, "")}`}
                     className="text-slate-300 hover:text-white transition-colors text-sm"
                   >
-                    {site.phone}
+                    {siteSettings.contact.phone}
                   </Link>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-slate-400 flex-shrink-0" />
                   <Link
-                    href={`mailto:${site.email}`}
+                    href={`mailto:${siteSettings.contact.email}`}
                     className="text-slate-300 hover:text-white transition-colors text-sm"
                   >
-                    {site.email}
+                    {siteSettings.contact.email}
                   </Link>
                 </div>
               </div>
@@ -164,9 +165,9 @@ export function Footer() {
                   Office Hours
                 </h5>
                 <ul className="text-slate-400 text-xs space-y-1">
-                  <li>Monday - Friday: 9 AM - 6 PM</li>
-                  <li>Saturday: By appointment</li>
-                  <li>Sunday: Closed</li>
+                  <li>Monday - Friday: {siteSettings.officeHours.mondayFriday}</li>
+                  <li>Saturday: {siteSettings.officeHours.saturday}</li>
+                  <li>Sunday: {siteSettings.officeHours.sunday}</li>
                 </ul>
               </div>
 
@@ -176,7 +177,7 @@ export function Footer() {
                   Insurance
                 </h5>
                 <p className="text-slate-400 text-xs leading-relaxed">
-                  In-network with Cigna, Aetna, and Blue Cross Blue Shield in Illinois & Indiana. Superbills available for out-of-network reimbursement.
+                  {siteSettings.insurance}
                 </p>
               </div>
 
@@ -186,10 +187,9 @@ export function Footer() {
                   Professional
                 </h5>
                 <ul className="text-slate-400 text-xs space-y-1">
-                  <li>Licensed Clinical Social Worker</li>
-                  <li>7+ years experience</li>
-                  <li>ACT & DBT trained</li>
-                  <li>Chronic illness specialist</li>
+                  <li>{siteSettings.credentials.title}</li>
+                  <li>{siteSettings.credentials.experience}</li>
+                  <li>{siteSettings.credentials.specialties}</li>
                 </ul>
               </div>
             </div>
@@ -202,7 +202,7 @@ export function Footer() {
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6">
                 <p className="text-slate-400 text-sm">
-                  © {new Date().getFullYear()} {site.name}. All rights reserved.
+                  © {new Date().getFullYear()} {siteSettings.name}. All rights reserved.
                 </p>
                 <div className="flex items-center gap-4 text-xs">
                   <Link href="/privacy" className="text-slate-400 hover:text-white transition-colors">

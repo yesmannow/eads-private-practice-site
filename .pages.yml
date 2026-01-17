@@ -1,0 +1,719 @@
+# Pages CMS Configuration for Blazing Star Therapy
+# This file defines what content can be edited through the Pages CMS interface
+# Documentation: https://pagescms.org/docs/configuration
+
+# Media Configuration
+# Define where images and files are stored and how they're accessed
+media:
+  - name: images
+    label: Images
+    input: public/images
+    output: /images
+    extensions: [jpg, jpeg, png, gif, webp, svg]
+    categories: [image]
+  - name: documents
+    label: Documents
+    input: public/docs
+    output: /docs
+    categories: [document]
+    extensions: [pdf, doc, docx]
+
+# Reusable Components
+# Define reusable field groups that can be used across different content types
+components:
+  contactInfo:
+    label: Contact Information
+    type: object
+    fields:
+      - name: phone
+        label: Phone Number
+        type: string
+        required: true
+        pattern:
+          regex: '^[\d\s\(\)\-\+]+$'
+          message: "Please enter a valid phone number"
+      - name: email
+        label: Email Address
+        type: string
+        required: true
+        pattern:
+          regex: '^[^\s@]+@[^\s@]+\.[^\s@]+$'
+          message: "Please enter a valid email address"
+      - name: locationShort
+        label: Location (Short)
+        type: string
+        required: true
+        default: "Bloomington, Indiana"
+      - name: telehealthLine
+        label: Telehealth Coverage
+        type: string
+        required: true
+        default: "Telehealth across Indiana & Illinois"
+
+  ctaButton:
+    label: Call-to-Action Button
+    type: object
+    fields:
+      - name: label
+        label: Button Label
+        type: string
+        required: true
+      - name: href
+        label: Link URL
+        type: string
+        required: true
+        default: "/contact"
+
+  featureCard:
+    label: Feature Card
+    type: object
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: icon
+        label: Icon Name
+        type: string
+        description: "Icon name from lucide-react (e.g., Heart, Flower, Shield)"
+        default: "Heart"
+
+  faqItem:
+    label: FAQ Item
+    type: object
+    fields:
+      - name: question
+        label: Question
+        type: string
+        required: true
+      - name: answer
+        label: Answer
+        type: rich-text
+        required: true
+        options:
+          media: images
+
+# Content Configuration
+# Define what content can be edited
+content:
+  # Site Settings - Global site configuration
+  - name: siteSettings
+    label: Site Settings
+    type: file
+    path: content/site-settings.json
+    format: json
+    fields:
+      - name: name
+        label: Site Name
+        type: string
+        required: true
+        default: "Blazing Star Therapy"
+      - name: tagline
+        label: Tagline
+        type: text
+        required: true
+        description: "Main tagline displayed on the homepage"
+      - name: baseUrl
+        label: Base URL
+        type: string
+        required: true
+        default: "https://blazingstartherapy.com"
+      - name: contact
+        component: contactInfo
+      - name: ctaPrimary
+        label: Primary Call-to-Action
+        component: ctaButton
+        default:
+          label: "Schedule Consultation"
+          href: "/lets-connect"
+      - name: ctaSecondary
+        label: Secondary Call-to-Action
+        component: ctaButton
+        default:
+          label: "Learn My Approach"
+          href: "/approach"
+      - name: practitioner
+        label: Practitioner Title
+        type: string
+        default: "Licensed Clinical Social Worker"
+      - name: officeHours
+        label: Office Hours
+        type: object
+        fields:
+          - name: mondayFriday
+            label: Monday - Friday
+            type: string
+            default: "9 AM - 6 PM"
+          - name: saturday
+            label: Saturday
+            type: string
+            default: "By appointment"
+          - name: sunday
+            label: Sunday
+            type: string
+            default: "Closed"
+      - name: insurance
+        label: Insurance Information
+        type: text
+        description: "List of accepted insurance providers"
+        default: "In-network with Cigna, Aetna, and Blue Cross Blue Shield in Illinois & Indiana. Superbills available for out-of-network reimbursement."
+      - name: credentials
+        label: Professional Credentials
+        type: object
+        fields:
+          - name: title
+            label: Professional Title
+            type: string
+            default: "Licensed Clinical Social Worker"
+          - name: experience
+            label: Years of Experience
+            type: string
+            default: "7+ years experience"
+          - name: specialties
+            label: Specialties
+            type: text
+            default: "ACT & DBT trained, Chronic illness specialist"
+
+  # Navigation Menu
+  - name: navigation
+    label: Navigation Menu
+    type: file
+    path: content/navigation.json
+    format: json
+    fields:
+      - name: items
+        label: Menu Items
+        type: list
+        list:
+          collapsible: true
+        fields:
+          - name: href
+            label: URL Path
+            type: string
+            required: true
+            pattern:
+              regex: '^/'
+              message: "URL must start with /"
+          - name: label
+            label: Menu Label
+            type: string
+            required: true
+
+  # Homepage Content
+  - name: homepage
+    label: Homepage
+    type: file
+    path: content/homepage.json
+    format: json
+    fields:
+      - name: hero
+        label: Hero Section
+        type: object
+        fields:
+          - name: title
+            label: Main Title
+            type: string
+            required: true
+            default: "Blazing Star Therapy"
+          - name: subtitle
+            label: Subtitle
+            type: text
+            required: true
+            default: "Guiding you toward a life of meaning, purpose, and resilience through evidence-based therapy."
+          - name: backgroundImage
+            label: Background Image
+            type: image
+            options:
+              media: images
+              path: home page
+          - name: primaryButton
+            component: ctaButton
+          - name: secondaryButton
+            component: ctaButton
+      - name: features
+        label: Features Section
+        type: object
+        fields:
+          - name: title
+            label: Section Title
+            type: string
+            default: "Why Choose Blazing Star Therapy?"
+          - name: subtitle
+            label: Section Subtitle
+            type: text
+            default: "A compassionate approach to mental health and well-being"
+          - name: items
+            label: Feature Cards
+            type: list
+            list:
+              min: 1
+              max: 6
+              collapsible: true
+            component: featureCard
+      - name: aboutPreview
+        label: About Preview Section
+        type: object
+        fields:
+          - name: title
+            label: Section Title
+            type: string
+            default: "Meet Tucker Eads, LCSW"
+          - name: paragraphs
+            label: Content Paragraphs
+            type: list
+            list:
+              min: 1
+              collapsible: true
+            fields:
+              - name: text
+                label: Paragraph Text
+                type: text
+                required: true
+          - name: quote
+            label: Quote
+            type: text
+            description: "Inspirational quote to display"
+          - name: headshotImage
+            label: Headshot Image
+            type: image
+            options:
+              media: images
+              path: home page
+          - name: ctaLink
+            label: Learn More Link
+            type: string
+            default: "/about"
+
+  # About Page Content
+  - name: aboutPage
+    label: About Page
+    type: file
+    path: content/about-page.json
+    format: json
+    fields:
+      - name: hero
+        label: Hero Section
+        type: object
+        fields:
+          - name: title
+            label: Page Title
+            type: string
+            default: "About Me"
+          - name: subtitle
+            label: Subtitle
+            type: text
+            default: "My journey in mental health and the story behind Blazing Star Therapy"
+          - name: backgroundImage
+            label: Background Image
+            type: image
+            options:
+              media: images
+      - name: story
+        label: My Story Section
+        type: object
+        fields:
+          - name: title
+            label: Section Title
+            type: string
+            default: "My Story"
+          - name: paragraphs
+            label: Story Paragraphs
+            type: list
+            list:
+              min: 1
+              collapsible: true
+            fields:
+              - name: text
+                label: Paragraph Text
+                type: rich-text
+                required: true
+                options:
+                  media: images
+          - name: images
+            label: Story Images
+            type: list
+            list:
+              min: 0
+              max: 4
+            fields:
+              - name: image
+                label: Image
+                type: image
+                required: true
+                options:
+                  media: images
+              - name: alt
+                label: Alt Text
+                type: string
+                required: true
+      - name: blazingStar
+        label: Blazing Star Section
+        type: object
+        fields:
+          - name: title
+            label: Section Title
+            type: string
+            default: "What is Blazing Star?"
+          - name: paragraphs
+            label: Content Paragraphs
+            type: list
+            list:
+              min: 1
+              collapsible: true
+            fields:
+              - name: text
+                label: Paragraph Text
+                type: rich-text
+                required: true
+                options:
+                  media: images
+          - name: image
+            label: Blazing Star Image
+            type: image
+            options:
+              media: images
+          - name: imageCaption
+            label: Image Caption
+            type: string
+
+  # FAQ Content
+  - name: faqs
+    label: Frequently Asked Questions
+    type: collection
+    path: content/faqs
+    filename: '{slug}.json'
+    format: json
+    view:
+      fields: [question]
+      primary: question
+      sort: [question]
+      default:
+        sort: question
+        order: asc
+    fields:
+      - name: question
+        label: Question
+        type: string
+        required: true
+      - name: answer
+        label: Answer
+        type: rich-text
+        required: true
+        options:
+          media: images
+      - name: slug
+        label: URL Slug
+        type: string
+        required: true
+        description: "URL-friendly identifier (e.g., consultation-offered)"
+        pattern:
+          regex: '^[a-z0-9-]+$'
+          message: "Slug must contain only lowercase letters, numbers, and hyphens"
+      - name: category
+        label: Category
+        type: select
+        options:
+          choices:
+            - label: General
+              value: general
+            - label: Fees & Insurance
+              value: fees
+            - label: Services
+              value: services
+            - label: Scheduling
+              value: scheduling
+            - label: Policies
+              value: policies
+        default: general
+      - name: order
+        label: Display Order
+        type: number
+        default: 0
+        description: "Lower numbers appear first (0, 1, 2, etc.)"
+
+  # Fees & Policies
+  - name: feesPolicies
+    label: Fees & Policies
+    type: file
+    path: content/fees-policies.json
+    format: json
+    fields:
+      - name: sessionFee
+        label: Standard Session Fee
+        type: string
+        required: true
+        description: "e.g., '$150 per session'"
+      - name: sessionLength
+        label: Session Length
+        type: string
+        default: "50-55 minutes"
+      - name: consultationInfo
+        label: Consultation Information
+        type: rich-text
+        description: "Details about consultation availability and duration"
+        options:
+          media: images
+      - name: insuranceAccepted
+        label: Insurance Accepted
+        type: list
+        list:
+          collapsible: true
+        fields:
+          - name: provider
+            label: Insurance Provider
+            type: string
+            required: true
+          - name: states
+            label: States Covered
+            type: string
+            description: "e.g., 'Illinois & Indiana'"
+      - name: superbillInfo
+        label: Superbill Information
+        type: rich-text
+        description: "Information about superbills for out-of-network reimbursement"
+        options:
+          media: images
+      - name: cancellationPolicy
+        label: Cancellation Policy
+        type: rich-text
+        required: true
+        options:
+          media: images
+      - name: paymentMethods
+        label: Accepted Payment Methods
+        type: list
+        list:
+          collapsible: true
+        fields:
+          - name: method
+            label: Payment Method
+            type: string
+            required: true
+
+  # Services/Specialties
+  - name: specialties
+    label: Specialties & Services
+    type: collection
+    path: content/specialties
+    filename: '{slug}.json'
+    format: json
+    view:
+      fields: [title, category]
+      primary: title
+      sort: [title]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: URL Slug
+        type: string
+        required: true
+        pattern:
+          regex: '^[a-z0-9-]+$'
+          message: "Slug must contain only lowercase letters, numbers, and hyphens"
+      - name: category
+        label: Category
+        type: select
+        options:
+          choices:
+            - label: Individual Therapy
+              value: individual
+            - label: Caregiver Support
+              value: caregiver
+            - label: Care Navigation
+              value: navigation
+            - label: Specialized Focus
+              value: focus
+        required: true
+      - name: description
+        label: Description
+        type: rich-text
+        required: true
+        options:
+          media: images
+      - name: image
+        label: Featured Image
+        type: image
+        options:
+          media: images
+      - name: order
+        label: Display Order
+        type: number
+        default: 0
+
+  # Resources/Blog Posts (if needed)
+  - name: resources
+    label: Resources
+    type: collection
+    path: content/resources
+    filename: '{year}-{month}-{day}-{slug}.json'
+    format: json
+    view:
+      fields: [title, date, category]
+      primary: title
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: URL Slug
+        type: string
+        required: true
+        pattern:
+          regex: '^[a-z0-9-]+$'
+      - name: date
+        label: Publication Date
+        type: date
+        required: true
+      - name: category
+        label: Category
+        type: string
+      - name: excerpt
+        label: Short Excerpt
+        type: text
+        description: "Brief summary for listings"
+      - name: content
+        label: Full Content
+        type: rich-text
+        required: true
+        options:
+          media: images
+      - name: featuredImage
+        label: Featured Image
+        type: image
+        options:
+          media: images
+
+  # Privacy Policy
+  - name: privacyPolicy
+    label: Privacy Policy
+    type: file
+    path: content/privacy-policy.json
+    format: json
+    fields:
+      - name: title
+        label: Page Title
+        type: string
+        required: true
+        default: "Privacy Policy"
+      - name: hero
+        label: Hero Section
+        type: object
+        fields:
+          - name: title
+            label: Hero Title
+            type: string
+            default: "Privacy, Terms & Accessibility"
+          - name: subtitle
+            label: Hero Subtitle
+            type: text
+            default: "Information about how we handle your data and your rights"
+      - name: privacySection
+        label: Privacy Information Section
+        type: object
+        fields:
+          - name: title
+            label: Section Title
+            type: string
+            default: "Privacy information"
+          - name: informationCollection
+            label: Information Collection Card
+            type: object
+            fields:
+              - name: title
+                label: Card Title
+                type: string
+                default: "Information collection"
+              - name: paragraphs
+                label: Content Paragraphs
+                type: list
+                list:
+                  min: 1
+                  collapsible: true
+                fields:
+                  - name: text
+                    label: Paragraph Text
+                    type: rich-text
+                    required: true
+                    options:
+                      media: images
+          - name: cookiesAnalytics
+            label: Cookies & Analytics Card
+            type: object
+            fields:
+              - name: title
+                label: Card Title
+                type: string
+                default: "Cookies and analytics"
+              - name: paragraphs
+                label: Content Paragraphs
+                type: list
+                list:
+                  min: 1
+                  collapsible: true
+                fields:
+                  - name: text
+                    label: Paragraph Text
+                    type: rich-text
+                    required: true
+                    options:
+                      media: images
+          - name: telehealthCommunication
+            label: Telehealth & Communication Notice
+            type: object
+            fields:
+              - name: title
+                label: Notice Title
+                type: string
+                default: "Telehealth and communication"
+              - name: content
+                label: Notice Content
+                type: rich-text
+                required: true
+                options:
+                  media: images
+      - name: termsSection
+        label: Terms of Service Section
+        type: object
+        fields:
+          - name: title
+            label: Section Title
+            type: string
+            default: "Terms of Service"
+          - name: content
+            label: Terms Content
+            type: rich-text
+            required: true
+            options:
+              media: images
+      - name: accessibilitySection
+        label: Accessibility Section
+        type: object
+        fields:
+          - name: title
+            label: Section Title
+            type: string
+            default: "Accessibility"
+          - name: content
+            label: Accessibility Content
+            type: rich-text
+            required: true
+            options:
+              media: images
+
+# Global Settings
+settings:
+  hide: false
+  content:
+    merge: true

@@ -1,0 +1,44 @@
+{
+  "title": "Privacy Policy",
+  "hero": {
+    "title": "Privacy, Terms & Accessibility",
+    "subtitle": "Information about how we handle your data and your rights"
+  },
+  "privacySection": {
+    "title": "Privacy information",
+    "informationCollection": {
+      "title": "Information collection",
+      "paragraphs": [
+        {
+          "text": "<p>This website collects minimal technical data needed to operate and secure the site (such as IP address and browser type).</p>"
+        },
+        {
+          "text": "<p>If you contact us via email or phone, we receive that information. The contact form on this site is front-end only and does not send information to a server. Do not include protected health information (PHI) or sensitive clinical details in forms or unencrypted email.</p>"
+        }
+      ]
+    },
+    "cookiesAnalytics": {
+      "title": "Cookies and analytics",
+      "paragraphs": [
+        {
+          "text": "<p>This site does not use cookies or analytics tracking.</p>"
+        },
+        {
+          "text": "<p>Third-party services: This site uses secure hosting and email services. No personal data is shared with third parties for marketing or advertising purposes.</p>"
+        }
+      ]
+    },
+    "telehealthCommunication": {
+      "title": "Telehealth and communication",
+      "content": "<p>Telehealth services follow HIPAA-aligned practices with secure video platforms and private spaces. Email and phone communication may not be encrypted; please limit sensitive details in those channels.</p>"
+    }
+  },
+  "termsSection": {
+    "title": "Terms of Service",
+    "content": "<p>By using this website, you agree to the following terms:</p><ul><li>This website is for informational purposes only and does not constitute medical advice.</li><li>Emergency situations should be directed to 911 or your local emergency services.</li><li>All content is provided \"as is\" without warranty of any kind.</li><li>We reserve the right to modify these terms at any time.</li></ul>"
+  },
+  "accessibilitySection": {
+    "title": "Accessibility",
+    "content": "<p>We are committed to making this website accessible to all users. If you encounter any accessibility issues, please contact us. We strive to comply with WCAG 2.1 Level AA standards.</p><p>This site includes:</p><ul><li>Semantic HTML structure</li><li>Alt text for images</li><li>Keyboard navigation support</li><li>Screen reader compatibility</li></ul>"
+  }
+}

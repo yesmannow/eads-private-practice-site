@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "title": "About Me",
+    "subtitle": "My journey in mental health and the story behind Blazing Star Therapy"
+  },
+  "story": {
+    "title": "My Story",
+    "paragraphs": [
+      {
+        "text": "I found this work after seeking support for myself as a young adult at the National Alliance on Mental Illness (NAMI). I then volunteered at NAMI facilitating support and education groups. This meaningful work inspired me to complete a Master's in Social Work from the University of Chicago."
+      },
+      {
+        "text": "I enjoyed developing one-on-one therapeutic relationships during my internship on the outpatient mental health team at Mt. Sinai Chicago. This led me to pursue a yearlong psychotherapy fellowship focused on ACT and DBT with Paul Holmes, PsyD, at Emotion Management Program. During my 5+ years as a psychotherapist at Rush University Medical Center I developed an interest and specialty in working with folks experiencing complex medical challenges and chronic pain."
+      },
+      {
+        "text": "Personally, I'm down-to-earth and draw inspiration and joy from live music, nature, organizers and activists, art, food and history. I love to grow food and flowers, ride bikes, and am interested in learning more about native plants and regenerative ecology."
+      }
+    ],
+    "images": [
+      {
+        "image": "/images/bio-photo/tucker-bio-photo.jpg",
+        "alt": "Tucker Eads, LCSW"
+      },
+      {
+        "image": "/images/about/tucker-nature.jpg",
+        "alt": "Tucker in nature"
+      }
+    ]
+  },
+  "blazingStar": {
+    "title": "What is Blazing Star?",
+    "paragraphs": [
+      {
+        "text": "Blazing star, or Liatris, is a genus of perennial flowers native to North America. Prairie blazing star (Liatris pycnostachya) is an iconic prairie plant, blooming from midsummer onward. Rough blazing star (Liatris aspera) is hardy and tolerates drought and sandy and rocky soil."
+      },
+      {
+        "text": "Blazing stars host numerous pollinators including bees, butterflies, moths, and even hummingbirds."
+      }
+    ],
+    "image": "/images/about/monarch-blazing-star.jpg",
+    "imageCaption": "Rough blazing star with monarch butterfly"
+  }
+}

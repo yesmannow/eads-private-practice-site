@@ -1,0 +1,31 @@
+{
+  "name": "Blazing Star Therapy",
+  "tagline": "Evidence-based therapy for anxiety, stress, life transitions, and chronic health challenges in Bloomington, Indiana.",
+  "baseUrl": "https://blazingstartherapy.com",
+  "contact": {
+    "phone": "(812) 555-0123",
+    "email": "tucker@blazingstartherapy.com",
+    "locationShort": "Bloomington, Indiana",
+    "telehealthLine": "Telehealth across Indiana & Illinois"
+  },
+  "ctaPrimary": {
+    "label": "Schedule Consultation",
+    "href": "/lets-connect"
+  },
+  "ctaSecondary": {
+    "label": "Learn My Approach",
+    "href": "/approach"
+  },
+  "practitioner": "Licensed Clinical Social Worker",
+  "officeHours": {
+    "mondayFriday": "9 AM - 6 PM",
+    "saturday": "By appointment",
+    "sunday": "Closed"
+  },
+  "insurance": "In-network with Cigna, Aetna, and Blue Cross Blue Shield in Illinois & Indiana. Superbills available for out-of-network reimbursement.",
+  "credentials": {
+    "title": "Licensed Clinical Social Worker",
+    "experience": "7+ years experience",
+    "specialties": "ACT & DBT trained, Chronic illness specialist"
+  }
+}

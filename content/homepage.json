@@ -1,0 +1,55 @@
+{
+  "hero": {
+    "title": "Blazing Star Therapy",
+    "subtitle": "Guiding you toward a life of meaning, purpose, and resilience through evidence-based therapy.",
+    "backgroundImage": "/images/home-page/home-header.jpg",
+    "primaryButton": {
+      "label": "Start Your Journey",
+      "href": "/contact"
+    },
+    "secondaryButton": {
+      "label": "Learn About My Approach",
+      "href": "/approach"
+    }
+  },
+  "features": {
+    "title": "Why Choose Blazing Star Therapy?",
+    "subtitle": "A compassionate approach to mental health and well-being",
+    "items": [
+      {
+        "title": "Compassionate Care",
+        "description": "A warm, non-judgmental space for your healing journey.",
+        "icon": "Heart"
+      },
+      {
+        "title": "Nature-Inspired Growth",
+        "description": "Drawing wisdom from nature's resilience and beauty.",
+        "icon": "Flower"
+      },
+      {
+        "title": "Client-Centered",
+        "description": "Your goals and values guide our work together.",
+        "icon": "Shield"
+      },
+      {
+        "title": "Holistic Healing",
+        "description": "Supporting mind, body, and spirit in your journey.",
+        "icon": "Sun"
+      }
+    ]
+  },
+  "aboutPreview": {
+    "title": "Meet Tucker Eads, LCSW",
+    "paragraphs": [
+      {
+        "text": "With over 7 years of experience in psychotherapy, I specialize in helping individuals navigate anxiety, stress, life transitions, and the challenges of chronic health conditions."
+      },
+      {
+        "text": "My approach is grounded in evidence-based therapies including Acceptance and Commitment Therapy (ACT) and Dialectical Behavior Therapy (DBT), tailored to your unique needs and goals."
+      }
+    ],
+    "quote": "I believe in creating a warm, collaborative space where you can explore your experiences and develop the tools to live a meaningful life aligned with your values.",
+    "headshotImage": "/images/home-page/tucker-headshot.jpg",
+    "ctaLink": "/about"
+  }
+}

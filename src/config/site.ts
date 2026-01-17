@@ -1,4 +1,8 @@
-export const site = {
+// Client-safe exports - no server-only imports
+// For server-side functions, import from '@/config/site-server'
+
+// Default fallback values
+const defaultSite = {
   name: "Blazing Star Therapy",
   tagline:
     "Evidence-based therapy for anxiety, stress, life transitions, and chronic health challenges in Bloomington, Indiana.",
@@ -13,6 +17,21 @@ export const site = {
   ctaSecondaryHref: "/approach",
 };
 
+// Legacy exports for backward compatibility (will use defaults if content not loaded)
+export const site = {
+  name: defaultSite.name,
+  tagline: defaultSite.tagline,
+  locationShort: defaultSite.locationShort,
+  telehealthLine: defaultSite.telehealthLine,
+  phone: defaultSite.phone,
+  email: defaultSite.email,
+  baseUrl: defaultSite.baseUrl,
+  ctaPrimaryLabel: defaultSite.ctaPrimaryLabel,
+  ctaPrimaryHref: defaultSite.ctaPrimaryHref,
+  ctaSecondaryLabel: defaultSite.ctaSecondaryLabel,
+  ctaSecondaryHref: defaultSite.ctaSecondaryHref,
+};
+
 export const siteConfig = {
   ...site,
   location: site.locationShort,
@@ -24,13 +43,11 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-  { href: "/start-here", label: "Start Here" },
-  { href: "/resources", label: "Resources" },
-  { href: "/services", label: "Services" },
-  { href: "/approach", label: "Approach" },
+  { href: "/", label: "Home" },
+  { href: "/approach", label: "My Approach" },
   { href: "/about", label: "About" },
-  { href: "/fees-faq", label: "Fees & FAQ" },
-  { href: "/contact", label: "Contact" },
+  { href: "/specialties", label: "Specialties" },
+  { href: "/contact", label: "Let's Connect" },
 ];
 
 export const primaryCtaHref = site.ctaPrimaryHref;
