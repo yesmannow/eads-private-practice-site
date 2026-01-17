@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import { Section } from "@/components/ui/section";
-import { CheckCircle2, HeartPulse, Scale, ArrowRight, Leaf, Flower2, Sun, Wind } from "lucide-react";
+import { HeartPulse, ArrowRight, Leaf, Flower2 } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function ApproachPage() {
           <p className="text-xl">A relationship-centered path to healing and growth</p>
         </div>
       </section>
-      
+
       {/* Core Philosophy Section */}
       <Section className="py-16 bg-white">
         <div className="container max-w-4xl mx-auto px-4">
@@ -154,8 +154,8 @@ export default function ApproachPage() {
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Regardless of the treatment plan and intervention, I commit to showing up for you with empathy, openness, and care.
             </p>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-primary/90 transition-colors"
             >
               Begin Your Journey
@@ -167,3 +167,4 @@ export default function ApproachPage() {
     </main>
   );
 }
+
