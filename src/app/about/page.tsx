@@ -23,16 +23,16 @@ export default function About() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Me</h1>
-          <p className="text-xl">My journey in mental health and the story behind Blazing Star Therapy</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg">About Me</h1>
+          <p className="text-xl text-white/95 drop-shadow-md">My journey in mental health and the story behind Blazing Star Therapy</p>
         </div>
       </section>
 
       {/* My Story Section */}
-      <MotionSection className="py-16 md:py-24 bg-white">
+      <MotionSection className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">
           <ScrollReveal>
             <div className="prose-lg text-gray-700 space-y-6">
@@ -57,7 +57,7 @@ export default function About() {
 
           <StaggerReveal className="mt-16 grid md:grid-cols-2 gap-8">
             <CardHover>
-              <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+              <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <Image
                   src="/images/about/jeffrey-hamilton-BLo2SfRwxqU-unsplash (1).jpg"
                   alt="Nature scene"
@@ -67,7 +67,7 @@ export default function About() {
               </div>
             </CardHover>
             <CardHover>
-              <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+              <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <Image
                   src="/images/about/IMG_8960-2 (1).jpg"
                   alt="Tucker Eads"
@@ -113,11 +113,12 @@ export default function About() {
       </MotionSection>
 
       {/* CTA Section */}
-      <MotionSection className="py-16 bg-accent text-white">
-        <div className="container mx-auto px-4 text-center">
+      <MotionSection className="py-16 bg-gradient-to-br from-accent via-accent to-accent/90 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <ScrollReveal>
-            <h2 className="text-3xl font-bold mb-6">Ready to start your journey?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-6 text-white">Ready to start your journey?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-white/95">
               I'm here to support you in navigating life's challenges and finding your path forward.
             </p>
           </ScrollReveal>
@@ -125,7 +126,7 @@ export default function About() {
             <CardHover>
               <Link 
                 href="/contact" 
-                className="inline-block bg-white text-gray-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
+                className="inline-block bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-white/95 hover:shadow-xl transition-all transform hover:-translate-y-0.5"
               >
                 Get in Touch
               </Link>

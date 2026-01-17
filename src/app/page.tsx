@@ -47,37 +47,37 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/40" />
         </div>
         
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Blazing Star Therapy</h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">Blazing Star Therapy</h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white/95 drop-shadow-md">
             Guiding you toward a life of meaning, purpose, and resilience through evidence-based therapy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <Link 
               href="/contact" 
-              className="bg-white text-foreground px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
+              className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-white/95 hover:shadow-lg transition-all transform hover:-translate-y-0.5"
             >
               Start Your Journey
             </Link>
             <Link 
               href="/approach" 
-              className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white/10 transition-colors"
+              className="border-2 border-white bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-full font-semibold hover:bg-white/20 transition-all transform hover:-translate-y-0.5"
             >
               Learn About My Approach
             </Link>
           </div>
           <div className="animate-bounce mt-16">
-            <p className="text-sm mb-2">Scroll to explore</p>
-            <ArrowDown className="mx-auto h-6 w-6" />
+            <p className="text-sm mb-2 text-white/90">Scroll to explore</p>
+            <ArrowDown className="mx-auto h-6 w-6 text-white/90" />
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <MotionSection className="py-16 bg-white">
+      <MotionSection className="py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
           <ScrollReveal>
             <div className="text-center mb-12">
@@ -91,7 +91,7 @@ export default function Home() {
           <StaggerReveal className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <CardHover key={index}>
-                <div className="p-6 bg-gray-50 rounded-xl hover:shadow-md transition-shadow">
+                <div className="p-6 bg-white rounded-xl hover:shadow-lg transition-all border border-gray-100">
                   <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
                     {feature.icon}
                   </div>
@@ -150,11 +150,12 @@ export default function Home() {
       </MotionSection>
 
       {/* CTA Section */}
-      <MotionSection className="py-16 bg-accent text-white">
-        <div className="container mx-auto px-4 text-center">
+      <MotionSection className="py-16 bg-gradient-to-br from-accent via-accent to-accent/90 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <ScrollReveal>
-            <h2 className="text-3xl font-bold mb-6">Ready to Begin Your Healing Journey?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-6 text-white">Ready to Begin Your Healing Journey?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-white/95">
               Take the first step toward positive change. I&apos;m here to support you every step of the way.
             </p>
           </ScrollReveal>
@@ -162,14 +163,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
                   href="/contact" 
-                  className="bg-white text-gray-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
+                  className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-white/95 hover:shadow-xl transition-all transform hover:-translate-y-0.5"
                 >
                   Schedule a Consultation
                 </Link>
               <CardHover>
                 <Link 
                   href="/fees-faq" 
-                  className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white/10 transition-colors"
+                  className="border-2 border-white bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-full font-semibold hover:bg-white/20 transition-all transform hover:-translate-y-0.5"
                 >
                   View Fees & FAQ
                 </Link>
