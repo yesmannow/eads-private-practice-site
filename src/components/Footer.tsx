@@ -223,7 +223,7 @@ export async function Footer() {
                 </p>
                 <div className="flex items-center gap-2">
                   <Flower2 className="w-4 h-4 text-slate-500" />
-                  <span className="text-slate-500 text-xs">Bloomington, IN</span>
+                  <span className="text-slate-500 text-xs">{siteSettings.contact.locationShort}</span>
                 </div>
               </div>
             </div>

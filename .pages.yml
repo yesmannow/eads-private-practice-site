@@ -191,6 +191,10 @@ content:
         list:
           collapsible: true
         fields:
+          - name: label
+            label: Menu Label
+            type: string
+            required: true
           - name: href
             label: URL Path
             type: string
@@ -198,10 +202,6 @@ content:
             pattern:
               regex: '^/'
               message: "URL must start with /"
-          - name: label
-            label: Menu Label
-            type: string
-            required: true
 
   # Homepage Content
   - name: homepage
