@@ -35,23 +35,26 @@ export default function About() {
       <MotionSection className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">
           <ScrollReveal>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">My Story</h2>
             <div className="prose-lg text-gray-700 space-y-6">
-              <p>
-                I found this work after seeking support for myself as a young adult at the National Alliance on Mental Illness (NAMI). 
-                I then volunteered at NAMI facilitating support and education groups. This meaningful work inspired me to complete a 
-                Master&apos;s in Social Work from the University of Chicago.
-              </p>
-              <p>
-                I enjoyed developing one-on-one therapeutic relationships during my internship on the outpatient mental health team at 
-                Mt. Sinai Chicago. This led me to pursue a yearlong psychotherapy fellowship focused on ACT and DBT with Paul Holmes, 
-                PsyD, at Emotion Management Program. During my 5+ years as a psychotherapist at Rush University Medical Center I 
-                developed an interest and specialty in working with folks experiencing complex medical challenges and chronic pain.
-              </p>
-              <p>
-                Personally, I&apos;m down-to-earth and draw inspiration and joy from live music, nature, organizers and activists, art, 
-                food and history. I love to grow food and flowers, ride bikes, and am interested in learning more about native plants 
-                and regenerative ecology.
-              </p>
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                <p className="mb-6">
+                  I found this work after seeking support for myself as a young adult at the National Alliance on Mental Illness (NAMI). 
+                  I then volunteered at NAMI facilitating support and education groups. This meaningful work inspired me to complete a 
+                  Master&apos;s in Social Work from the University of Chicago.
+                </p>
+                <p className="mb-6">
+                  I enjoyed developing one-on-one therapeutic relationships during my internship on the outpatient mental health team at 
+                  Mt. Sinai Chicago. This led me to pursue a yearlong psychotherapy fellowship focused on ACT and DBT with Paul Holmes, 
+                  PsyD, at Emotion Management Program. During my 5+ years as a psychotherapist at Rush University Medical Center I 
+                  developed an interest and specialty in working with folks experiencing complex medical challenges and chronic pain.
+                </p>
+                <p className="mb-0">
+                  Personally, I&apos;m down-to-earth and draw inspiration and joy from live music, nature, organizers and activists, art, 
+                  food and history. I love to grow food and flowers, ride bikes, and am interested in learning more about native plants 
+                  and regenerative ecology.
+                </p>
+              </div>
             </div>
           </ScrollReveal>
 
@@ -59,18 +62,19 @@ export default function About() {
             <CardHover>
               <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <Image
-                  src="/images/about/jeffrey-hamilton-BLo2SfRwxqU-unsplash (1).jpg"
-                  alt="Nature scene"
+                  src="/images/bio-photo/tucker-bio-photo.jpg"
+                  alt="Tucker Eads, LCSW"
                   fill
                   className="object-cover"
                 />
               </div>
+              <p className="mt-2 text-sm text-gray-600 italic text-center">Tucker Eads, LCSW</p>
             </CardHover>
             <CardHover>
               <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <Image
                   src="/images/about/IMG_8960-2 (1).jpg"
-                  alt="Tucker Eads"
+                  alt="Tucker in nature"
                   fill
                   className="object-cover"
                 />

@@ -91,12 +91,12 @@ export default function Home() {
           <StaggerReveal className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <CardHover key={index}>
-                <div className="p-6 bg-white rounded-xl hover:shadow-lg transition-all border border-gray-100">
-                  <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                <div className="p-6 bg-white rounded-xl hover:shadow-lg transition-all border border-gray-100 h-full">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                 </div>
               </CardHover>
             ))}
@@ -112,21 +112,27 @@ export default function Home() {
               <ScrollReveal>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">Meet Tucker Eads, LCSW</h2>
                 <div className="prose-lg text-gray-700 space-y-6">
-                  <p>
+                  <p className="text-lg leading-relaxed">
                     With over 7 years of experience in psychotherapy, I specialize in helping individuals navigate anxiety, 
                     stress, life transitions, and the challenges of chronic health conditions.
                   </p>
-                  <p>
+                  <p className="text-lg leading-relaxed">
                     My approach is grounded in evidence-based therapies including Acceptance and Commitment Therapy (ACT) 
                     and Dialectical Behavior Therapy (DBT), tailored to your unique needs and goals.
                   </p>
+                  <div className="bg-accent/5 border-l-4 border-accent p-4 rounded-r-lg mt-6">
+                    <p className="text-base text-gray-700 italic mb-0">
+                      &ldquo;I believe in creating a warm, collaborative space where you can explore your experiences and 
+                      develop the tools to live a meaningful life aligned with your values.&rdquo;
+                    </p>
+                  </div>
                   <div className="mt-8">
                     <Link 
                       href="/about" 
-                      className="inline-flex items-center text-accent font-medium hover:text-accent/80 transition-colors"
+                      className="inline-flex items-center text-accent font-semibold hover:text-accent/80 transition-colors group"
                     >
-                      Learn more about me
-                      <ArrowDown className="ml-2 w-4 h-4 rotate-90" />
+                      Learn more about my journey
+                      <ArrowDown className="ml-2 w-4 h-4 rotate-90 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </div>
@@ -134,7 +140,7 @@ export default function Home() {
             </div>
             <div className="lg:w-1/3">
               <ScrollReveal delay={0.2}>
-                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg">
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
                   <Image
                     src="/images/home page/tucker_headshot (1).jpg"
                     alt="Tucker Eads, LCSW"
@@ -143,6 +149,7 @@ export default function Home() {
                     sizes="(max-width: 1024px) 100vw, 33vw"
                   />
                 </div>
+                <p className="mt-4 text-center text-sm text-gray-600 font-medium">Tucker Eads, LCSW</p>
               </ScrollReveal>
             </div>
           </div>

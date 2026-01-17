@@ -25,8 +25,15 @@ export function PageHero({
   children,
 }: PageHeroProps) {
   return (
-    <section className="bg-background border-b border-border">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+    <section className="bg-gradient-to-b from-background to-gray-50/50 border-b border-border relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--accent)) 1px, transparent 0)',
+          backgroundSize: '32px 32px'
+        }} />
+      </div>
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 relative">
         <div className="max-w-3xl space-y-6">
           {eyebrow && (
             <p className="text-sm font-semibold uppercase tracking-wide text-accent">
