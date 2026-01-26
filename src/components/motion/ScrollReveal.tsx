@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import { ReactNode, useRef } from "react";
-import { fadeUp, standardTransition, viewportOnce } from "@/lib/motion";
+import { standardTransition } from "@/lib/motion";
 
 interface ScrollRevealProps {
   children: ReactNode;

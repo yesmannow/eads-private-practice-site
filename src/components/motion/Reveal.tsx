@@ -10,7 +10,6 @@ import {
   EASE_OUT,
   getViewportOnce,
 } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 
 type RevealVariant = "fadeUp" | "fadeIn" | "cardIn";
 
@@ -38,7 +37,7 @@ export function Reveal({
   const getVariants = () => {
     switch (variant) {
       case "fadeIn":
-        return getFadeIn(reducedMotion);
+        return getFadeIn();
       case "cardIn":
         return getCardIn(reducedMotion);
       case "fadeUp":

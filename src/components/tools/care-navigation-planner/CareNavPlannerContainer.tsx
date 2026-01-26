@@ -175,7 +175,7 @@ export function CareNavPlannerContainer() {
       body += "\n\n";
     }
 
-    const answeredQuestions = Object.entries(questions).filter(([_, answer]) => answer.trim());
+    const answeredQuestions = Object.entries(questions).filter(([, answer]) => answer.trim());
     if (answeredQuestions.length > 0) {
       body += "Questions to bring to appointments:\n\n";
       answeredQuestions.forEach(([key, answer]) => {

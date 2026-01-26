@@ -29,7 +29,7 @@ export function AboutBio() {
               My approach is collaborative and skills-based, emphasizing practical tools and clear goals. Sessions are structured to help you build coping strategies, navigate complex systems, and move toward what matters most, even when facing ongoing stress or uncertainty.
             </p>
             <p className="mt-4 leading-7 text-slate-700">
-              Care navigation is a core service, providing structured support for coordinating next steps, resources, and communication when systems feel overwhelming. Whether you're seeking individual therapy, caregiver support, or care navigation, the work is tailored to your situation and goals.
+              Care navigation is a core service, providing structured support for coordinating next steps, resources, and communication when systems feel overwhelming. Whether you&apos;re seeking individual therapy, caregiver support, or care navigation, the work is tailored to your situation and goals.
             </p>
           </div>
         </div>

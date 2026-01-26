@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { Header } from "./Header";
-import { Footer } from "./Footer";
 
 type PageShellProps = {
   children: ReactNode;
@@ -19,7 +18,6 @@ export function PageShell({ children }: PageShellProps) {
       <main id="main-content" tabIndex={-1}>
         {children}
       </main>
-      <Footer />
     </div>
   );
 }

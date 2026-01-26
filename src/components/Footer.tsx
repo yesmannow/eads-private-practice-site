@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/config/site";
-import { Heart, Phone, Mail, MapPin, ExternalLink, Flower2, Users, Shield, Clock, Star } from "lucide-react";
+import { Heart, Phone, Mail, MapPin, Flower2, Users, Shield, Clock, Star } from "lucide-react";
 
 export function Footer() {
   return (

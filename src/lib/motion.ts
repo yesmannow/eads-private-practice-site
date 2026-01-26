@@ -57,7 +57,7 @@ export const fadeUp: Variants = getFadeUp(false);
 /**
  * Get fade in animation variant (opacity only)
  */
-export const getFadeIn = (reducedMotion = false): Variants => ({
+export const getFadeIn = (): Variants => ({
   initial: {
     opacity: 0,
   },
@@ -69,7 +69,7 @@ export const getFadeIn = (reducedMotion = false): Variants => ({
 /**
  * Fade in animation variant (default)
  */
-export const fadeIn: Variants = getFadeIn(false);
+export const fadeIn: Variants = getFadeIn();
 
 /**
  * Get card in animation variant (opacity + y + scale)

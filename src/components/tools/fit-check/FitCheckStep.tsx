@@ -13,7 +13,7 @@ type FitCheckStepProps = {
   selectedValue: string | null;
   onSelect: (value: string) => void;
   stepNumber: number;
-  totalSteps: number;
+  totalSteps?: number;
 };
 
 export function FitCheckStep({
@@ -22,7 +22,6 @@ export function FitCheckStep({
   selectedValue,
   onSelect,
   stepNumber,
-  totalSteps,
 }: FitCheckStepProps) {
   const radiogroupRef = useRef<HTMLDivElement>(null);
   const optionRefs = useRef<(HTMLButtonElement | null)[]>([]);

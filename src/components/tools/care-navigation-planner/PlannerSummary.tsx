@@ -109,7 +109,7 @@ export function PlannerSummary({
           </div>
         )}
 
-        {Object.entries(questions).some(([_, answer]) => answer.trim()) && (
+        {Object.entries(questions).some(([, answer]) => answer.trim()) && (
           <div>
             <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-sky-900">
               Questions to bring to appointments

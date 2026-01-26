@@ -21,7 +21,7 @@ export default function PreparePage() {
               Prepare for a Consultation
             </h1>
             <p className="text-lg leading-8 text-slate-700">
-              You don't need to have everything figured out. This checklist can help you organize
+              You don&apos;t need to have everything figured out. This checklist can help you organize
               your thoughts before reaching out.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">

@@ -19,7 +19,7 @@ export default function LetsConnect() {
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-accent to-accent/90 text-white py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Let's Connect</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Let&apos;s Connect</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
             Begin your journey toward healing and growth with a free consultation
           </p>
@@ -111,7 +111,7 @@ export default function LetsConnect() {
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-2">In-Network Insurance</h4>
                           <p className="text-gray-600 text-sm mb-3">
-                            I'm an in-network provider with the following insurance plans. After the initial consultation, I can verify your benefits and out-of-pocket costs.
+                            I&apos;m an in-network provider with the following insurance plans. After the initial consultation, I can verify your benefits and out-of-pocket costs.
                           </p>
                           
                           <div className="space-y-4">
@@ -145,7 +145,7 @@ export default function LetsConnect() {
 
                     <div className="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-100">
                       <p className="text-sm text-blue-700">
-                        Have questions about fees or insurance? Don't hesitate to reach out during your free consultation.
+                        Have questions about fees or insurance? Don&apos;t hesitate to reach out during your free consultation.
                       </p>
                     </div>
                   </div>

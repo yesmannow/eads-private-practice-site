@@ -10,7 +10,7 @@ export function AboutCredentials() {
       <div className="grid gap-6 md:grid-cols-3">
         <Card title="Education">
           <p className="leading-7 text-slate-800">
-            Master's-level clinical training with a focus on evidence-informed practice. Continuing education in trauma-informed care, ACT-informed therapy, DBT-informed skills, and mindfulness-based strategies.
+            Master&apos;s-level clinical training with a focus on evidence-informed practice. Continuing education in trauma-informed care, ACT-informed therapy, DBT-informed skills, and mindfulness-based strategies.
           </p>
         </Card>
         <Card title="Clinical interests">
