@@ -1,163 +1,126 @@
-import { CTAButton } from "@/components/CTAButton";
-import { Section } from "@/components/Section";
-import { siteConfig } from "@/config/site";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Calendar, Mail, CreditCard } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Reach out to request a consultation or ask a question. Includes important safety and privacy notes.",
+  title: "Contact | Blazing Star Therapy",
+  description: "Schedule a consultation or get in touch with Tucker Eads, LCSW in Bloomington, IN.",
 };
 
 export default function Contact() {
   return (
-    <>
-      <section className="bg-white">
-        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-            <div className="space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-wide text-sky-900">Contact</p>
-            <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
-              Reach out to begin
-            </h1>
-            <p className="text-lg leading-8 text-slate-700">
-              Please share a few details about what you’re looking for. Do not include sensitive
-              clinical details. I’ll respond within 2 business days to schedule a brief consultation.
-            </p>
-            <div className="rounded-2xl bg-sky-50 p-4 text-sm text-slate-800">
-              <p className="font-semibold">Crisis support</p>
-              <p>
-                If you are in immediate danger call 911. In the U.S. you can call or text 988 for the
-                Suicide & Crisis Lifeline.
-              </p>
+    <main className="flex-1">
+      {/* Schedule Initial Consultation Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
+              <Calendar className="w-8 h-8" />
             </div>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Schedule initial consultation</h1>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              You can book a no-cost 20-minute initial consultation with me here. I have telehealth availability in Illinois and Indiana, and in-person sessions in Bloomington, IN.
+            </p>
+          </div>
+          
+          <div className="flex justify-center mb-12">
+            <Link
+              href="https://calendly.com/blazingstartherapy/initial-consult"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-primary/90 hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+            >
+              <Calendar className="w-5 h-5" />
+              Book Your Free Consultation
+            </Link>
+          </div>
+
+          {/* Email Contact */}
+          <div className="text-center pt-8 border-t border-gray-200">
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 text-gray-700 mb-4">
+              <Mail className="w-6 h-6" />
+            </div>
+            <p className="text-lg text-gray-700 mb-4">
+              You can also email me:
+            </p>
+            <a
+              href="mailto:tucker@blazingstartherapy.com"
+              className="text-xl font-semibold text-primary hover:text-primary/80 transition-colors"
+            >
+              tucker@blazingstartherapy.com
+            </a>
           </div>
         </div>
       </section>
 
-      <Section background="muted">
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-slate-900">Contact details</h2>
-            <div className="mt-4 space-y-2 text-slate-700">
-              <p>Phone: {siteConfig.contact.phone}</p>
-              <p>Email: {siteConfig.contact.email}</p>
-              <p>{siteConfig.location}</p>
-              <p className="text-sm text-slate-600">
-                Telehealth available to clients physically located in Indiana. In-person sessions in
-                Bloomington as available.
-              </p>
+      {/* Cost Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
+              <CreditCard className="w-8 h-8" />
             </div>
-            <div className="mt-6">
-              <CTAButton variant="secondary" href={`mailto:${siteConfig.contact.email}`}>
-                Email the practice
-              </CTAButton>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Cost</h2>
           </div>
 
-          <div className="lg:col-span-2">
-            <form
-              className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-              aria-describedby="contact-privacy-note"
-            >
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-800" htmlFor="name">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    className="w-full rounded-xl border border-slate-200 px-3 py-2 text-slate-900 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-                    placeholder="Your name"
-                  />
+          <div className="space-y-12">
+            {/* In-Network Insurance */}
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">In-network with your insurance</h3>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                I&apos;m an in-network provider with the insurances listed below. After the initial consultation I can process an insurance verification to confirm your benefits and out-of-pocket cost, including co-pay or co-insurance. For in-network insurance, the cost is set by the insurance company and the specifics of your plan.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-8 mt-8">
+                <div>
+                  <h4 className="text-lg font-semibold mb-4 text-gray-900">Illinois:</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Blue Cross and Blue Shield of Illinois (BCBS-IL) (PPO and Blue Choice)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Cigna</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Aetna</span>
+                    </li>
+                  </ul>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-800" htmlFor="email">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    className="w-full rounded-xl border border-slate-200 px-3 py-2 text-slate-900 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-                    placeholder="you@example.com"
-                  />
-                </div>
-              </div>
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-800" htmlFor="phone">
-                    Phone (optional)
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    className="w-full rounded-xl border border-slate-200 px-3 py-2 text-slate-900 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-800" htmlFor="contact-preference">
-                    Preferred contact
-                  </label>
-                  <select
-                    id="contact-preference"
-                    name="contact-preference"
-                    className="w-full rounded-xl border border-slate-200 px-3 py-2 text-slate-900 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-                    defaultValue="email"
-                  >
-                    <option value="email">Email</option>
-                    <option value="phone">Phone</option>
-                  </select>
+                
+                <div>
+                  <h4 className="text-lg font-semibold mb-4 text-gray-900">Indiana:</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Cigna</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>Aetna</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <label className="text-sm font-medium text-slate-800" htmlFor="message">
-                    What would you like to share?
-                  </label>
-                  <p className="text-xs text-slate-600">Do not include sensitive clinical details.</p>
-                </div>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  className="w-full rounded-xl border border-slate-200 px-3 py-2 text-slate-900 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-                  placeholder="Scheduling needs, goals, or questions"
-                />
-              </div>
-              <div className="rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
-                <p className="font-semibold text-slate-900">Privacy note</p>
-                <p>
-                  This form is for general inquiries only and is not monitored continuously. Please do
-                  not include sensitive clinical details. Crisis needs should be directed to emergency
-                  services.
-                </p>
-                <p className="mt-2">
-                  If you are in immediate danger call 911; in the U.S. you can call or text 988.
+            </div>
+
+            {/* Out-of-Network and Self-Pay */}
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Out-of-network and self-pay</h3>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                I can also work with you as an out-of-network provider for you to submit to your insurance. For out-of-network and self-pay, the rate is $175 per session.
+              </p>
+              <div className="mt-6 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                <p className="text-3xl font-bold text-gray-900">
+                  $175 <span className="text-lg font-normal text-gray-600">per session</span>
                 </p>
               </div>
-              <div className="flex gap-3">
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center rounded-full bg-sky-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-                >
-                  Send message
-                </button>
-                <Link
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-2 text-sm font-semibold text-slate-900 transition hover:border-sky-900 hover:text-sky-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-                >
-                  Email instead
-                </Link>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
-      </Section>
-    </>
+      </section>
+    </main>
   );
 }

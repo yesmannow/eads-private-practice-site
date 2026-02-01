@@ -1,98 +1,98 @@
-import { CTAButton } from "@/components/CTAButton";
-import { Card } from "@/components/Card";
-import { Section } from "@/components/Section";
-import { primaryCtaHref, secondaryCtaHref, siteConfig } from "@/config/site";
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import Image from "next/image";
+import { MotionSection } from "@/components/motion/MotionSection";
+import { ScrollReveal } from "@/components/motion/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Learn about education, experience, and who I’m a good fit for as a Licensed Clinical Social Worker in Bloomington, Indiana.",
+  title: "About | Tucker Eads, LCSW - Blazing Star Therapy",
+  description: "Learn about Tucker Eads, LCSW, and the inspiration behind Blazing Star Therapy in Bloomington, Indiana."
 };
-
-const fitList = [
-  "You want a calm, direct therapist who will collaborate on goals.",
-  "You appreciate practical tools alongside space to process feelings.",
-  "You’re navigating stress, anxiety, life transitions, or relationship changes.",
-  "You value clear expectations, boundaries, and follow-up between sessions.",
-];
 
 export default function About() {
   return (
-    <>
-      <section className="bg-white">
-        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-wide text-sky-900">About</p>
-            <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
-              A grounded partner in your care
-            </h1>
-            <p className="text-lg leading-8 text-slate-700">
-              I am a {siteConfig.practitioner} serving {siteConfig.location}. My style is calm,
-              collaborative, and practical—centered on what helps you move toward what matters most.
-            </p>
-            <div className="flex gap-3">
-              <CTAButton href={primaryCtaHref}>Request a consultation</CTAButton>
-              <CTAButton variant="secondary" href={secondaryCtaHref}>
-                Contact
-              </CTAButton>
+    <main className="flex-1">
+      {/* Bio Section - 2 Columns */}
+      <MotionSection className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="flex flex-col lg:flex-row gap-12 items-start">
+            {/* Bio Image - Left Column */}
+            <div className="lg:w-1/2 flex-shrink-0">
+              <ScrollReveal>
+                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/bio-photo/tucker-bio-photo.jpg"
+                    alt="Tucker Eads, LCSW"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                  />
+                </div>
+              </ScrollReveal>
+            </div>
+            
+            {/* Bio Text - Right Column */}
+            <div className="lg:w-1/2">
+              <ScrollReveal delay={0.2}>
+                <div className="prose-lg text-gray-700 space-y-6">
+                  <p>
+                    I found this work after seeking support for myself as a young adult at the National Alliance on Mental Illness (NAMI). 
+                    I then volunteered at NAMI facilitating support and education groups. This meaningful work inspired me to complete a 
+                    Master&apos;s in Social Work from the University of Chicago.
+                  </p>
+                  <p>
+                    I enjoyed developing one-on-one therapeutic relationships during my internship on the outpatient mental health team at 
+                    Mt. Sinai Chicago. This led me to pursue a yearlong psychotherapy fellowship focused on ACT and DBT with Paul Holmes, 
+                    PsyD, at Emotion Management Program. During my 5+ years as a psychotherapist at Rush University Medical Center I 
+                    developed an interest and specialty in working with folks experiencing complex medical challenges and chronic pain.
+                  </p>
+                  <p>
+                    Personally, I&apos;m down-to-earth and draw inspiration and joy from live music, nature, organizers and activists, art, 
+                    food and history. I love to grow food and flowers, ride bikes, and am interested in learning more about native plants 
+                    and regenerative ecology.
+                  </p>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
-      </section>
+      </MotionSection>
 
-      <Section
-        eyebrow="Background"
-        title="Education and experience"
-        subtitle="Licensure, training, and practice history inform the work we’ll do together."
-        background="muted"
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          <Card title="Education">
-            <p>Master of Social Work (MSW) with a focus on clinical practice and community care.</p>
-            <p className="text-sm text-slate-600">
-              Continuing education in trauma-informed care, ACT, and DBT-informed approaches.
-            </p>
-          </Card>
-          <Card title="Experience">
-            <p>
-              Experience in outpatient counseling, care coordination, and collaborating with medical and
-              psychiatric providers to support whole-person care.
-            </p>
-          </Card>
-          <Card title="Good to know">
-            <p>
-              Telehealth provided to clients located in Indiana. In-person sessions available in
-              Bloomington as openings allow. Not a crisis service.
-            </p>
-          </Card>
+      {/* Blazing Star Section */}
+      <MotionSection className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="flex flex-col md:flex-row gap-12 items-start">
+            {/* Text Content */}
+            <ScrollReveal className="md:w-1/2">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">What is Blazing Star?</h2>
+              <div className="prose text-gray-700 space-y-4">
+                <p>
+                  Blazing star, or Liatris, is a genus of perennial flowers native to North America. Prairie blazing star 
+                  (Liatris pycnostachya) is an iconic prairie plant, blooming from midsummer onward. Rough blazing star 
+                  (Liatris aspera) is hardy and tolerates drought and sandy and rocky soil.
+                </p>
+                <p>
+                  Blazing stars host numerous pollinators including bees, butterflies, moths, and even hummingbirds.
+                </p>
+              </div>
+            </ScrollReveal>
+            
+            {/* Image with Caption */}
+            <ScrollReveal delay={0.2} className="md:w-1/2">
+              <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="/images/about/IMG_8960-2 (1).jpg"
+                  alt="Rough blazing star"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <p className="mt-2 text-sm text-gray-600 italic">Rough blazing star</p>
+            </ScrollReveal>
+          </div>
         </div>
-      </Section>
-
-      <Section eyebrow="Fit" title="Who I’m a good fit for" subtitle="You deserve a therapist who matches your needs.">
-        <div className="grid gap-6 md:grid-cols-2">
-          <Card title="Clients who feel at home here">
-            <ul className="space-y-3 text-slate-700">
-              {fitList.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-1 inline-block h-2 w-2 rounded-full bg-sky-900" aria-hidden />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Card>
-          <Card title="If I’m not the right fit">
-            <p>
-              I will gladly connect you with colleagues who may better match your needs, preferences, or
-              schedule. Your care and safety come first.
-            </p>
-            <p className="text-sm text-slate-600">
-              If you are in immediate danger call 911; in the U.S. you can call or text 988 for crisis
-              support.
-            </p>
-          </Card>
-        </div>
-      </Section>
-    </>
+      </MotionSection>
+    </main>
   );
 }

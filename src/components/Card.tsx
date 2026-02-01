@@ -8,14 +8,14 @@ type CardProps = {
 
 export function Card({ title, subtitle, children }: CardProps) {
   return (
-    <div className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="h-full rounded-2xl border border-border bg-card p-6 shadow-sm card-interactive">
       <div className="space-y-2">
-        <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+        <h3 className="text-lg font-semibold text-card-foreground">{title}</h3>
         {subtitle ? (
-          <p className="text-sm text-slate-600">{subtitle}</p>
+          <p className="text-sm text-muted-foreground">{subtitle}</p>
         ) : null}
       </div>
-      <div className="mt-4 space-y-3 text-slate-700">{children}</div>
+      <div className="mt-4 space-y-3 text-card-foreground">{children}</div>
     </div>
   );
 }

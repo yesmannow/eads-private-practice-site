@@ -1,103 +1,82 @@
-import { CTAButton } from "@/components/CTAButton";
-import { Card } from "@/components/Card";
-import { Section } from "@/components/Section";
-import { primaryCtaHref, secondaryCtaHref } from "@/config/site";
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Approach",
-  description:
-    "A steady blend of ACT, DBT-informed skills, and mindfulness explained in plain language.",
+  title: "My Therapeutic Approach | Blazing Star Therapy",
+  description: "Discover my client-centered approach to therapy, integrating ACT, DBT, and other evidence-based modalities to support your healing journey.",
 };
 
-const approaches = [
-  {
-    title: "Acceptance & Commitment Therapy (ACT)",
-    description:
-      "We clarify what matters most, make space for tough feelings, and choose actions that align with your values. The goal is flexibility, not perfection.",
-  },
-  {
-    title: "DBT-informed skills",
-    description:
-      "We borrow practical tools from DBT to regulate emotions, tolerate distress, and communicate clearly. Skills are taught in-session and practiced between visits.",
-  },
-  {
-    title: "Mindfulness, without the jargon",
-    description:
-      "We build brief, realistic mindfulness habits to help you notice patterns, calm the body, and respond rather than react.",
-  },
-];
-
-const commitments = [
-  "Plain English explanations so you know why we’re using a tool.",
-  "Collaborative pacing: we adjust intensity based on how you’re doing.",
-  "Curiosity over judgment—every feeling is allowed in the room.",
-  "Practical follow-ups so you leave sessions with something concrete.",
-];
-
-export default function Approach() {
+export default function ApproachPage() {
   return (
-    <>
-      <section className="bg-white">
-        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-wide text-sky-900">Approach</p>
-            <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
-              Practical, evidence-informed counseling
-            </h1>
-            <p className="text-lg leading-8 text-slate-700">
-              You will know what we’re doing and why. We will blend reflection with skills and keep
-              checking that the work feels useful.
-            </p>
-            <div className="flex gap-3">
-              <CTAButton href={primaryCtaHref}>Request a consultation</CTAButton>
-              <CTAButton variant="secondary" href={secondaryCtaHref}>
-                Contact
-              </CTAButton>
+    <main className="flex-1">
+      {/* Hero Section */}
+      <section className="relative h-96 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/about/jeffrey-hamilton-BLo2SfRwxqU-unsplash (1).jpg"
+            alt="Peaceful nature landscape representing therapeutic growth"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50" />
+        </div>
+
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">My Therapeutic Approach</h1>
+        </div>
+      </section>
+
+      {/* Main Content - Two Column Layout */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          {/* Therapeutic Relationship */}
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 py-12 border-b border-gray-200">
+            <div className="md:pr-8">
+              <h2 className="text-xl font-bold text-gray-900">Therapeutic relationship</h2>
+            </div>
+            <div className="prose prose-lg text-gray-700">
+              <p>
+                I center the therapeutic relationship. Healing and growth is most likely to happen in therapy within a relationship of safety, empathy, and collaboration. That is key to having the willingness to explore challenging and vulnerable themes.
+              </p>
+            </div>
+          </div>
+
+          {/* Evidence Based */}
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 py-12 border-b border-gray-200">
+            <div className="md:pr-8">
+              <h2 className="text-xl font-bold text-gray-900">Evidence based</h2>
+            </div>
+            <div className="prose prose-lg text-gray-700 space-y-4">
+              <p>
+                My approach is grounded in contextual behavioral therapies including Acceptance and Commitment Therapy (ACT) and Dialectical Behavior Therapy (DBT). ACT and DBT expand on traditional Cognitive Behavior Therapy (CBT), and incorporate the addition of mindfulness and acceptance.
+              </p>
+              <p>
+                DBT offers specific skills for coping with distress, navigating strong emotions, handling challenges in relationships, and doing so mindfully. ACT is all about doing what matters most to us, despite the inevitable pain in life. Additionally, I have participated in training in Cognitive Processing Therapy (CPT) for PTSD.
+              </p>
+              <p>
+                I also integrate elements of other modalities including relational and trauma therapies.
+              </p>
+            </div>
+          </div>
+
+          {/* What to Expect */}
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 py-12">
+            <div className="md:pr-8">
+              <h2 className="text-xl font-bold text-gray-900">What to expect</h2>
+            </div>
+            <div className="prose prose-lg text-gray-700 space-y-4">
+              <p>
+                You are always in charge, and I&apos;m here to help guide you. Initially we&apos;ll meet for 1-2 sessions to better understand the problems and goals you&apos;d like to address. We&apos;ll then develop a treatment plan together and you can decide if I&apos;m a good fit. We&apos;ll check-in regularly to make sure sessions are helpful and adjust as needed. If you or I think another therapist would be a better fit, I&apos;m happy to provide resources and referrals.
+              </p>
+              <p>
+                Regardless of the treatment plan and intervention, I commit to showing up for you with empathy, openness, and care.
+              </p>
             </div>
           </div>
         </div>
       </section>
-
-      <Section
-        eyebrow="Modalities"
-        title="How we work together"
-        subtitle="Each approach is adapted to your pace, culture, and goals."
-        background="muted"
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          {approaches.map((item) => (
-            <Card key={item.title} title={item.title}>
-              <p>{item.description}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Therapy style"
-        title="What you can expect in the room"
-        subtitle="A collaborative, grounded style with room for both feelings and action."
-      >
-        <div className="grid gap-6 md:grid-cols-2">
-          <Card title="Tone">
-            <p>
-              Warm, calm, and direct. We balance empathy with gentle accountability so you feel seen
-              and supported while moving toward change.
-            </p>
-          </Card>
-          <Card title="Commitments to you">
-            <ul className="space-y-3 text-slate-700">
-              {commitments.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-1 inline-block h-2 w-2 rounded-full bg-sky-900" aria-hidden />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Card>
-        </div>
-      </Section>
-    </>
+    </main>
   );
 }
+

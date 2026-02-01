@@ -1,139 +1,104 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { site } from "@/config/site";
-import { Button } from "./ui/button";
+import { usePathname } from "next/navigation";
+import { SiteButton, Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui";
+import { Menu } from "lucide-react";
 
 const navItems = [
-  { href: "/start-here", label: "Start Here" },
-  { href: "/services", label: "Services" },
-  { href: "/approach", label: "Approach" },
+  { href: "/", label: "Home" },
+  { href: "/approach", label: "My Approach" },
   { href: "/about", label: "About" },
-  { href: "/fees-faq", label: "Fees & FAQ" },
+  { href: "/contact", label: "Let's Connect" },
 ];
 
 export function HeaderNav() {
-  const [isOpen, setIsOpen] = useState(false);
-  const firstLinkRef = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
-  useEffect(() => {
-    if (isOpen) {
-      firstLinkRef.current?.focus();
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = originalOverflow;
-      };
-    }
-  }, [isOpen]);
+  const pathname = usePathname();
 
   return (
-    <header className="relative border-b border-slate-200 bg-white/95 text-slate-900 backdrop-blur">
+    <header className="relative border-b border-border bg-background/95 text-foreground backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-          aria-label="Steady Path Counseling home"
+          className="flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          aria-label="Blazing Star Therapy home"
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-base font-semibold text-sky-900">
-            <span>SP</span>
-          </div>
-          <div className="leading-tight">
-            <p className="text-base font-semibold">{site.name}</p>
-            <p className="text-sm text-slate-600">{site.locationShort}</p>
-          </div>
+          <Image
+            src="/images/branding/bst-website-logo.png"
+            alt="Blazing Star Therapy logo"
+            width={160}
+            height={160}
+            className="h-12 w-auto sm:h-16"
+            priority
+          />
         </Link>
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-6 text-sm font-medium text-slate-800 lg:flex"
+          className="hidden items-center gap-6 text-sm font-medium text-foreground lg:flex"
         >
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-full px-2 py-1 transition hover:text-sky-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Button href="/contact" className="px-4 py-2">
-            Contact
-          </Button>
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`rounded-full px-2 py-1 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
+                  isActive
+                    ? "bg-muted text-primary font-semibold"
+                    : "text-foreground hover:text-accent"
+                }`}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="lg:hidden">
-          <button
-            type="button"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-sm transition hover:border-sky-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-            onClick={() => setIsOpen((prev) => !prev)}
-          >
-            <span className="sr-only">Toggle menu</span>
-            <svg
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-              )}
-            </svg>
-          </button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <button
+                type="button"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background text-foreground shadow-sm transition hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                aria-label="Open navigation menu"
+              >
+                <span className="sr-only">Toggle menu</span>
+                <Menu className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetHeader>
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+              </SheetHeader>
+              <nav className="mt-8 flex flex-col gap-3" aria-label="Mobile navigation">
+                {navItems.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`rounded-lg px-3 py-2 text-base font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
+                        isActive
+                          ? "bg-primary/10 text-primary font-semibold"
+                          : "text-foreground hover:bg-accent/20 hover:text-accent"
+                      }`}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+                <SiteButton href="/contact" className="justify-start w-full">
+                  Contact
+                </SiteButton>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-
-      {isOpen ? (
-        <div
-          id="mobile-menu"
-          role="dialog"
-          aria-modal="true"
-          className="lg:hidden"
-        >
-          <div className="fixed inset-0 bg-slate-900/30" onClick={() => setIsOpen(false)} />
-          <div className="absolute inset-x-0 top-full z-10 origin-top bg-white shadow-lg ring-1 ring-slate-200">
-            <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
-              <div className="flex flex-col gap-3" role="menu">
-                {navItems.map((item, index) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    role="menuitem"
-                    ref={index === 0 ? firstLinkRef : undefined}
-                    onClick={() => setIsOpen(false)}
-                    className="rounded-lg px-3 py-2 text-base font-medium text-slate-900 transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <Button href="/contact" className="justify-start">
-                  Contact
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : null}
     </header>
   );
 }

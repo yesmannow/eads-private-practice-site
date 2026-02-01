@@ -1,24 +1,71 @@
 import type { Metadata } from "next";
+import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { PageShell } from "@/components/PageShell";
+import { MotionProvider } from "@/components/motion/MotionProvider";
+import { PageTransition } from "@/components/motion/PageTransition";
 import { site } from "@/config/site";
 
-const title = `${site.name} | ${site.locationShort}`;
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const libreBaskerville = Libre_Baskerville({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-libre-baskerville",
+  display: "swap",
+});
+
+const defaultTitle = `Therapy & Care Navigation in Bloomington, IN | ${site.name}`;
+const defaultDescription = "Evidence-informed therapy and care navigation services in Bloomington, Indiana. Licensed Social Worker (MA, LSW) providing telehealth across Indiana.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.baseUrl),
   title: {
-    default: title,
+    default: defaultTitle,
     template: `%s | ${site.name}`,
   },
-  description: site.tagline,
+  description: defaultDescription,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   openGraph: {
-    title,
-    description: site.tagline,
+    title: defaultTitle,
+    description: defaultDescription,
     url: site.baseUrl,
     siteName: site.name,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} - Therapy in Bloomington, Indiana`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: ["/og.png"],
   },
 };
 
@@ -28,9 +75,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
-        <PageShell>{children}</PageShell>
+    <html lang="en" className={`${inter.variable} ${libreBaskerville.variable}`}>
+      <body className="antialiased font-sans">
+        <MotionProvider>
+          <PageTransition>
+            <PageShell>{children}</PageShell>
+          </PageTransition>
+        </MotionProvider>
       </body>
     </html>
   );
