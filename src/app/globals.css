@@ -137,6 +137,11 @@ body {
   color: hsl(var(--foreground));
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
 /* Keep anchors inheriting by default; Tailwind base below sets link styling */
 a {
   color: inherit;

@@ -1,60 +1,44 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SiteButton, Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui";
 import { Menu } from "lucide-react";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/approach", label: "My Approach" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Let's Connect" },
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#approach", label: "My Approach" },
+  { href: "#contact", label: "Let's Connect" },
 ];
 
 export function HeaderNav() {
-  const pathname = usePathname();
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1); // Remove the # symbol
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <header className="relative border-b border-border bg-background/95 text-foreground backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link
-          href="/"
-          className="flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-          aria-label="Blazing Star Therapy home"
-        >
-          <Image
-            src="/images/branding/bst-website-logo.png"
-            alt="Blazing Star Therapy logo"
-            width={160}
-            height={160}
-            className="h-12 w-auto sm:h-16"
-            priority
-          />
-        </Link>
-
+    <header className="relative border-b border-border bg-background/95 text-foreground backdrop-blur fixed top-0 left-0 right-0 z-50">
+      <div className="mx-auto flex max-w-6xl items-center justify-center px-4 py-4 sm:px-6 lg:px-8">
         <nav
           aria-label="Primary"
           className="hidden items-center gap-6 text-sm font-medium text-foreground lg:flex"
         >
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`rounded-full px-2 py-1 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
-                  isActive
-                    ? "bg-muted text-primary font-semibold"
-                    : "text-foreground hover:text-accent"
-                }`}
-                aria-current={isActive ? "page" : undefined}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(e) => handleClick(e, item.href)}
+              className="rounded-full px-4 py-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-foreground hover:text-accent hover:bg-muted"
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
         <div className="lg:hidden">
@@ -74,26 +58,16 @@ export function HeaderNav() {
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               </SheetHeader>
               <nav className="mt-8 flex flex-col gap-3" aria-label="Mobile navigation">
-                {navItems.map((item) => {
-                  const isActive = pathname === item.href;
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={`rounded-lg px-3 py-2 text-base font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
-                        isActive
-                          ? "bg-primary/10 text-primary font-semibold"
-                          : "text-foreground hover:bg-accent/20 hover:text-accent"
-                      }`}
-                      aria-current={isActive ? "page" : undefined}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                })}
-                <SiteButton href="/contact" className="justify-start w-full">
-                  Contact
-                </SiteButton>
+                {navItems.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => handleClick(e, item.href)}
+                    className="rounded-lg px-3 py-2 text-base font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-foreground hover:bg-accent/20 hover:text-accent"
+                  >
+                    {item.label}
+                  </a>
+                ))}
               </nav>
             </SheetContent>
           </Sheet>
