@@ -37,6 +37,8 @@ export function HeaderNav() {
           ))}
           <Link
             href={clientPortalNavItem.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-[#a8be57]/40 bg-[#a8be57]/10 px-4 py-2 text-sm font-semibold text-[#3b4a2a] transition duration-200 hover:bg-[#a8be57]/20"
           >
             <ExternalLink className="h-4 w-4 text-[#3b4a2a]" />

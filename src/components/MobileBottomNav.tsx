@@ -74,6 +74,8 @@ export function MobileBottomNav() {
         <div className="mt-4 flex justify-center">
           <Link
             href={clientPortalNavItem.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-full border border-[#a8be57]/50 bg-[#a8be57]/15 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#3b4a2a] transition-colors duration-200 hover:border-[#a8be57] hover:bg-[#a8be57]/25"
           >
             <ExternalLink className="h-4 w-4" />

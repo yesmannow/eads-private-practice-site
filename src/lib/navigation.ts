@@ -16,7 +16,7 @@ export const sectionNavItems: SectionNavItem[] = [
 ];
 
 export const clientPortalNavItem: RouteNavItem = {
-  href: "/portal",
+  href: "https://blazingstar.sessionshealth.com/",
   label: "Client Portal",
 };
 

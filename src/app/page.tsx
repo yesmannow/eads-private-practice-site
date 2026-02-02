@@ -61,7 +61,7 @@ export default function Home() {
             <div className="lg:w-5/12 flex flex-col gap-8">
               <ScrollReveal>
                 <div className="relative overflow-hidden rounded-[32px] border border-white/70 bg-white/70 shadow-xl shadow-[#a8be57]/20">
-                  <div className="aspect-[4/5] w-full">
+                  <div className="relative h-72 w-full md:aspect-[4/5] md:h-auto">
                     <Image
                       src="/images/bio-photo/tucker-bio-photo.jpg"
                       alt="Tucker Eads, LCSW"
