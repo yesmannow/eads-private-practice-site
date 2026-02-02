@@ -1,21 +1,29 @@
+import type { LucideIcon } from "lucide-react";
+import { Home, Info, MessageCircle } from "lucide-react";
+
 export type SectionNavItem = {
   href: `#${string}`;
   label: string;
 };
 
-export type RouteNavItem = {
-  href: string;
-  label: string;
+export type MobileNavItem = SectionNavItem & {
+  icon: LucideIcon;
 };
 
-export const sectionNavItems: SectionNavItem[] = [
+export const desktopNavItems: SectionNavItem[] = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#approach", label: "My Approach" },
-  { href: "#contact", label: "Let's Connect" },
+  { href: "#contact", label: "Connect" },
 ];
 
-export const clientPortalNavItem: RouteNavItem = {
+export const mobileNavItems: MobileNavItem[] = [
+  { href: "#home", label: "Home", icon: Home },
+  { href: "#about", label: "About", icon: Info },
+  { href: "#contact", label: "Connect", icon: MessageCircle },
+];
+
+export const clientPortalNavItem = {
   href: "https://blazingstar.sessionshealth.com/",
   label: "Client Portal",
 };

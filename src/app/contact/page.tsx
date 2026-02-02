@@ -28,7 +28,7 @@ export default function Contact() {
               href="https://blazingstar.sessionshealth.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#a8be57] px-8 py-4 text-white font-semibold shadow-lg transition hover:bg-[#96a84a]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#a8be57] px-8 py-4 text-white font-semibold shadow-lg transition duration-300 ease-in-out hover:bg-[#96a84a]"
             >
               <Calendar className="w-5 h-5" />
               Book no-cost consultation
@@ -43,10 +43,12 @@ export default function Contact() {
             <p className="text-lg text-gray-700 mb-4">
               You can also email me:
             </p>
-            <a
-              href="mailto:tucker@blazingstartherapy.com"
-              className="text-xl font-semibold text-primary hover:text-primary/80 transition-colors"
-            >
+              <a
+                href="mailto:tucker@blazingstartherapy.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xl font-semibold text-primary hover:text-primary/80 transition duration-300 ease-in-out"
+              >
               tucker@blazingstartherapy.com
             </a>
           </div>

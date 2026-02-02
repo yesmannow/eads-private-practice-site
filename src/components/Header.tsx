@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
-import { clientPortalNavItem, sectionNavItems, scrollToSection } from "@/lib/navigation";
+import { clientPortalNavItem, desktopNavItems, scrollToSection } from "@/lib/navigation";
 
 export function HeaderNav() {
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -25,12 +25,12 @@ export function HeaderNav() {
           aria-label="Primary"
           className="hidden items-center gap-6 text-sm font-semibold text-foreground lg:flex"
         >
-          {sectionNavItems.map((item) => (
+          {desktopNavItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={(e) => handleSectionClick(e, item.href)}
-              className="rounded-full px-4 py-2 transition-colors duration-200 hover:bg-[#a8be57]/10 hover:text-[#4a5c2c]"
+              className="rounded-full px-4 py-2 transition duration-300 ease-in-out hover:bg-[#a8be57]/10 hover:text-[#4a5c2c]"
             >
               {item.label}
             </a>
@@ -39,7 +39,7 @@ export function HeaderNav() {
             href={clientPortalNavItem.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-[#a8be57]/40 bg-[#a8be57]/10 px-4 py-2 text-sm font-semibold text-[#3b4a2a] transition duration-200 hover:bg-[#a8be57]/20"
+            className="inline-flex items-center gap-2 rounded-full border border-[#a8be57] bg-transparent px-4 py-2 text-sm font-semibold text-[#3b4a2a] transition duration-300 ease-in-out hover:bg-[#a8be57]/10 hover:text-[#1f2a19]"
           >
             <ExternalLink className="h-4 w-4 text-[#3b4a2a]" />
             {clientPortalNavItem.label}

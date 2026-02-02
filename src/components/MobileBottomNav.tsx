@@ -1,11 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ExternalLink, Home, Info, BookOpen, MessageCircle } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { clientPortalNavItem, sectionNavItems, scrollToSection } from "@/lib/navigation";
-
-const mobileNavIcons = [Home, Info, BookOpen, MessageCircle];
+import { clientPortalNavItem, mobileNavItems, scrollToSection } from "@/lib/navigation";
 
 export function MobileBottomNav() {
   const [visible, setVisible] = useState(true);
@@ -51,9 +49,9 @@ export function MobileBottomNav() {
       style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}
     >
       <div className="mx-4 rounded-2xl border border-[#a8be57]/30 bg-white/95 px-4 py-3 shadow-2xl shadow-[#a8be57]/20 backdrop-blur">
-        <div className="flex items-center justify-between text-xs uppercase tracking-wide text-[#3b4a2a]">
-          {sectionNavItems.map((item, index) => {
-            const Icon = mobileNavIcons[index] ?? Home;
+        <div className="flex items-center justify-between text-[0.65rem] uppercase tracking-[0.18em] text-[#3b4a2a]">
+          {mobileNavItems.map((item) => {
+            const Icon = item.icon;
             return (
               <a
                 key={item.href}
@@ -63,10 +61,10 @@ export function MobileBottomNav() {
                     event.preventDefault();
                   }
                 }}
-                className="flex flex-col items-center gap-1 transition-colors duration-200 hover:text-[#a8be57]"
+                className="flex flex-col items-center gap-1 transition duration-300 ease-in-out hover:text-[#a8be57]"
               >
                 <Icon className="h-5 w-5" />
-                <span className="text-[0.6rem] font-semibold">{item.label}</span>
+                <span className="text-[0.55rem] font-semibold">{item.label}</span>
               </a>
             );
           })}
@@ -76,7 +74,7 @@ export function MobileBottomNav() {
             href={clientPortalNavItem.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full border border-[#a8be57]/50 bg-[#a8be57]/15 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#3b4a2a] transition-colors duration-200 hover:border-[#a8be57] hover:bg-[#a8be57]/25"
+            className="flex items-center gap-2 rounded-full border border-[#a8be57] bg-transparent px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[#3b4a2a] transition duration-300 ease-in-out hover:bg-[#a8be57]/10 hover:text-[#1f2a19]"
           >
             <ExternalLink className="h-4 w-4" />
             <span>{clientPortalNavItem.label}</span>

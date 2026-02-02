@@ -131,26 +131,26 @@ export default function Home() {
                 <AccordionContent className="px-6 pb-6">
                   <div className="prose prose-lg text-gray-700">
                     <p>
-                      I center the therapeutic relationship. Healing and growth is most likely to happen in therapy within a relationship of safety, empathy, and collaboration. That is key to having the willingness to explore challenging and vulnerable themes.
+                      Healing becomes possible when someone shows up with curiosity, presence, and steady attention. I hold a calm, nonjudgmental space so that you can bring whatever is heavy, confusing, or hopeful, and we can explore it together at your pace.
                     </p>
                   </div>
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="evidence-based" className="border-gray-200">
+              <AccordionItem value="approach" className="border-gray-200">
                 <AccordionTrigger className="px-6 py-4 text-lg font-bold text-gray-900 hover:no-underline hover:bg-gray-50">
-                  Evidence Based
+                  Approach
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-6">
                   <div className="prose prose-lg text-gray-700 space-y-4">
                     <p>
-                      My approach is grounded in contextual behavioral therapies including Acceptance and Commitment Therapy (ACT) and Dialectical Behavior Therapy (DBT). ACT and DBT expand on traditional Cognitive Behavior Therapy (CBT), and incorporate the addition of mindfulness and acceptance.
+                      My work is informed by Acceptance and Commitment Therapy (ACT) and Dialectical Behavior Therapy (DBT), weaving mindfulness, values clarification, and behavioral skills into a context-sensitive framework. I balance practical tools with emotional validation so you can move toward meaningful change even while managing tough feelings or chronic stress.
                     </p>
                     <p>
-                      DBT offers specific skills for coping with distress, navigating strong emotions, handling challenges in relationships, and doing so mindfully. ACT is all about doing what matters most to us, despite the inevitable pain in life. Additionally, I have participated in training in Cognitive Processing Therapy (CPT) for PTSD.
+                      When it feels helpful, we pull from relational and trauma-sensitive practices, somatic awareness, and cognitive processing to match the moment. I partner with you to identify what matters most and craft small experiments that build resilience while honoring your lived experience.
                     </p>
                     <p>
-                      I also integrate elements of other modalities including relational and trauma therapies.
+                      Together we stay curious about patterns, broaden your choices, and rehearse new ways of responding so you can step into clarity and agency.
                     </p>
                   </div>
                 </AccordionContent>
@@ -163,20 +163,18 @@ export default function Home() {
                 <AccordionContent className="px-6 pb-6">
                   <div className="prose prose-lg text-gray-700 space-y-4">
                     <p>
-                      You are always in charge, and I&apos;m here to help guide you. Initially we&apos;ll meet for 1-2 sessions to better understand the problems and goals you&apos;d like to address. We&apos;ll then develop a treatment plan together and you can decide if I&apos;m a good fit. We&apos;ll check-in regularly to make sure sessions are helpful and adjust as needed. If you or I think another therapist would be a better fit, I&apos;m happy to provide resources and referrals.
+                      We begin with 1-2 intake sessions to clarify what brings you here, identify priorities, and make sure we are a good fit. Subsequent sessions follow your rhythm—sometimes steady, sometimes flexible—while keeping your goals and values in view.
                     </p>
                     <p>
-                      Regardless of the treatment plan and intervention, I commit to showing up for you with empathy, openness, and care.
+                      Regardless of the treatment plan or intervention, I commit to showing up for you with empathy, openness, and care.
+                    </p>
+                    <p>
+                      We talk openly about expectations, coordinate with other providers when helpful, and regularly check in so the work stays relevant and grounded in what actually supports you.
                     </p>
                   </div>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-          </ScrollReveal>
-          <ScrollReveal delay={0.4}>
-            <p className="mt-8 text-center text-lg text-gray-700">
-              Regardless of the treatment plan and intervention, I commit to showing up for you with empathy, openness, and care.
-            </p>
           </ScrollReveal>
         </div>
       </MotionSection>
@@ -197,17 +195,17 @@ export default function Home() {
           </div>
           
           <ScrollReveal delay={0.2}>
-            <div className="flex justify-center mb-12">
-              <Link
-                href="https://blazingstar.sessionshealth.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#a8be57] px-8 py-4 font-semibold text-white transition hover:bg-[#96a84a] hover:shadow-lg"
-              >
-                <Calendar className="w-5 h-5" />
-                Book no-cost consultation
-              </Link>
-            </div>
+              <div className="flex justify-center mb-12">
+                <Link
+                  href="https://blazingstar.sessionshealth.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#a8be57] px-8 py-4 font-semibold text-white transition duration-300 ease-in-out hover:bg-[#96a84a] hover:shadow-lg"
+                >
+                  <Calendar className="w-5 h-5" />
+                  Book no-cost consultation
+                </Link>
+              </div>
 
             {/* Email Contact */}
             <div className="text-center pt-8 border-t border-gray-200">
@@ -217,12 +215,14 @@ export default function Home() {
               <p className="text-lg text-gray-700 mb-4">
                 You can also email me:
               </p>
-              <a
-                href="mailto:tucker@blazingstartherapy.com"
-                className="text-xl font-semibold text-primary hover:text-primary/80 transition-colors"
-              >
-                tucker@blazingstartherapy.com
-              </a>
+            <a
+              href="mailto:tucker@blazingstartherapy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl font-semibold text-primary hover:text-primary/80 transition duration-300 ease-in-out"
+            >
+              tucker@blazingstartherapy.com
+            </a>
             </div>
           </ScrollReveal>
         </div>
@@ -339,45 +339,54 @@ export default function Home() {
       </MotionSection>
 
       {/* Blazing Star Section */}
-      <MotionSection className="py-16 md:py-24 bg-white border-t border-[#a8be57]/20">
-        <div className="container mx-auto px-4 max-w-4xl">
+      <MotionSection className="py-16 md:py-24 bg-[#a8be57]/8 border-t border-[#a8be57]/20">
+        <div className="container mx-auto px-4 max-w-6xl">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 text-center">What is Blazing Star?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1f2a19] text-center">What is Blazing Star?</h2>
           </ScrollReveal>
-          <div className="flex flex-col md:flex-row gap-12 items-start">
-            <ScrollReveal className="md:w-1/2">
-              <div className="prose text-gray-700 space-y-4">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr,_0.9fr] items-start">
+            <ScrollReveal>
+              <div className="prose text-gray-800 space-y-4">
                 <p>
-                  Blazing star, or Liatris, is a genus of perennial flowers native to North America. Prairie blazing star 
-                  (Liatris pycnostachya) is an iconic prairie plant, blooming from midsummer onward. Rough blazing star 
-                  (Liatris aspera) is hardy and tolerates drought and sandy and rocky soil.
+                  Blazing star, or <em>Liatris</em>, is a genus of durable, prairie-loving perennials. Prairie blazing star (<em>Liatris pycnostachya</em>) bursts purple spikes in midsummer, while rough blazing star (<em>Liatris aspera</em>) tolerates drought and sandy, rocky soil without giving up its brilliance.
                 </p>
                 <p>
-                  Blazing stars host numerous pollinators including bees, butterflies, moths, and even hummingbirds.
+                  These flowers draw bees, butterflies, moths, and even hummingbirds, offering both resilience and gentle movement to the landscape—qualities I mirror in therapy through steady care and curious exploration.
                 </p>
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.2} className="md:w-1/2">
-              <div className="relative h-80 md:aspect-square md:h-auto rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/home page/Liatris_aspera2.jpg"
-                  alt="Rough blazing star"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+            <ScrollReveal delay={0.2}>
+              <div className="space-y-4">
+                <div className="relative h-60 overflow-hidden rounded-[28px] border border-white/70 bg-white/60 shadow-xl shadow-[#a8be57]/30">
+                  <Image
+                    src="/images/home page/Liatris_aspera2.jpg"
+                    alt="Rough blazing star in bloom"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                </div>
+                <div className="relative h-60 overflow-hidden rounded-[28px] border border-white/70 bg-white/60 shadow-xl shadow-[#a8be57]/20">
+                  <Image
+                    src="/images/about/IMG_8960-2 (1).jpg"
+                    alt="Prairie blazing star"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                </div>
+                <p className="text-sm text-gray-600 italic">
+                  <Link
+                    href="https://en.wikipedia.org/wiki/Liatris_aspera"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#4a5c2c] transition duration-300 ease-in-out"
+                  >
+                    Rough blazing star (Liatris aspera)
+                  </Link>
+                </p>
               </div>
-              <p className="mt-2 text-sm text-gray-600 italic">
-                <Link
-                  href="https://en.wikipedia.org/wiki/Liatris_aspera"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[#4a5c2c]"
-                >
-                  Rough blazing star
-                </Link>
-              </p>
             </ScrollReveal>
           </div>
         </div>

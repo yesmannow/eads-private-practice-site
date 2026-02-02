@@ -54,23 +54,6 @@ export default function LetsConnect() {
         </div>
       </section>
 
-      {/* Bio Photo Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-12">
-            <div className="relative w-64 h-64 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-white">
-              <Image
-                src="/images/bio-photo/tucker-bio-photo.jpg"
-                alt="Tucker Eads, LCSW - Blazing Star Therapy"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 256px"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Consultation Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -104,7 +87,7 @@ export default function LetsConnect() {
                         href="https://blazingstar.sessionshealth.com/" 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block rounded-full bg-[#a8be57] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[#96a84a]"
+                        className="inline-block rounded-full bg-[#a8be57] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition duration-300 ease-in-out hover:bg-[#96a84a]"
                       >
                         Book no-cost consultation
                       </Link>
@@ -118,8 +101,10 @@ export default function LetsConnect() {
                     <div>
                       <h3 className="font-semibold text-lg">Email Me</h3>
                       <a 
-                        href="mailto:tucker@blazingstartherapy.com" 
-                        className="text-accent hover:underline"
+                        href="mailto:tucker@blazingstartherapy.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent hover:underline transition duration-300 ease-in-out"
                       >
                         tucker@blazingstartherapy.com
                       </a>
