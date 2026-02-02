@@ -193,7 +193,7 @@ export default function Home() {
 
               <AccordionItem value="evidence-based" className="border-gray-200">
                 <AccordionTrigger className="px-6 py-4 text-lg font-bold text-gray-900 hover:no-underline hover:bg-gray-50">
-                  Evidence based
+                  Evidence Based
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-6">
                   <div className="prose prose-lg text-gray-700 space-y-4">

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { SiteButton, Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui";
 import { Menu } from "lucide-react";
 
@@ -15,6 +14,8 @@ const navItems = [
 export function HeaderNav() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    if (!href.startsWith('#')) return;
+    
     const targetId = href.substring(1); // Remove the # symbol
     const element = document.getElementById(targetId);
     if (element) {
@@ -23,7 +24,7 @@ export function HeaderNav() {
   };
 
   return (
-    <header className="relative border-b border-border bg-background/95 text-foreground backdrop-blur fixed top-0 left-0 right-0 z-50">
+    <header className="border-b border-border bg-background/95 text-foreground backdrop-blur fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto flex max-w-6xl items-center justify-center px-4 py-4 sm:px-6 lg:px-8">
         <nav
           aria-label="Primary"
