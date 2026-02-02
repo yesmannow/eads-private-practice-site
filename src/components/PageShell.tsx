@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Header } from "./Header";
+import { MobileBottomNav } from "./MobileBottomNav";
 
 type PageShellProps = {
   children: ReactNode;
@@ -15,9 +16,10 @@ export function PageShell({ children }: PageShellProps) {
         Skip to content
       </a>
       <Header />
-      <main id="main-content" tabIndex={-1}>
+      <main id="main-content" tabIndex={-1} className="pb-24">
         {children}
       </main>
+      <MobileBottomNav />
     </div>
   );
 }

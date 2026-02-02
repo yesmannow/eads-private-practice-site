@@ -25,13 +25,13 @@ export default function Contact() {
           
           <div className="flex justify-center mb-12">
             <Link
-              href="https://calendly.com/blazingstartherapy/initial-consult"
+              href="https://blazingstar.sessionshealth.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-primary/90 hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#a8be57] px-8 py-4 text-white font-semibold shadow-lg transition hover:bg-[#96a84a]"
             >
               <Calendar className="w-5 h-5" />
-              Book Your Free Consultation
+              Book no-cost consultation
             </Link>
           </div>
 
@@ -71,51 +71,86 @@ export default function Contact() {
                 I&apos;m an in-network provider with the insurances listed below. After the initial consultation I can process an insurance verification to confirm your benefits and out-of-pocket cost, including co-pay or co-insurance. For in-network insurance, the cost is set by the insurance company and the specifics of your plan.
               </p>
               
-              <div className="grid md:grid-cols-2 gap-8 mt-8">
-                <div>
-                  <h4 className="text-lg font-semibold mb-4 text-gray-900">Illinois:</h4>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Blue Cross and Blue Shield of Illinois (BCBS-IL) (PPO and Blue Choice)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Cigna</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Aetna</span>
-                    </li>
-                  </ul>
+                <div className="grid md:grid-cols-2 gap-8 mt-8">
+                  <div>
+                    <h4 className="text-lg font-semibold mb-4 text-gray-900">Illinois:</h4>
+                    <ul className="space-y-2 text-gray-700">
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <Link
+                          href="https://www.bcbsil.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-[#3b4a2a] transition-colors"
+                        >
+                          Blue Cross and Blue Shield of Illinois (BCBS-IL) (PPO and Blue Choice)
+                        </Link>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <Link
+                          href="https://www.cigna.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-[#3b4a2a] transition-colors"
+                        >
+                          Cigna
+                        </Link>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <Link
+                          href="https://www.aetna.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-[#3b4a2a] transition-colors"
+                        >
+                          Aetna
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-semibold mb-4 text-gray-900">Indiana:</h4>
+                    <ul className="space-y-2 text-gray-700">
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <Link
+                          href="https://www.cigna.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-[#3b4a2a] transition-colors"
+                        >
+                          Cigna
+                        </Link>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <Link
+                          href="https://www.aetna.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-[#3b4a2a] transition-colors"
+                        >
+                          Aetna
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                
-                <div>
-                  <h4 className="text-lg font-semibold mb-4 text-gray-900">Indiana:</h4>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Cigna</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>Aetna</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
 
             {/* Out-of-Network and Self-Pay */}
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Out-of-network and self-pay</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                I can also work with you as an out-of-network provider for you to submit to your insurance. For out-of-network and self-pay, the rate is $175 per session.
+                I can also work with you as an out-of-network provider for you to submit to your insurance. For out-of-network and self-pay, the rate is $150 per session.
               </p>
               <div className="mt-6 p-6 bg-gray-50 rounded-lg border border-gray-200">
-                <p className="text-3xl font-bold text-gray-900">
-                  $175 <span className="text-lg font-normal text-gray-600">per session</span>
-                </p>
+                  <p className="text-3xl font-bold text-gray-900">
+                    $150 <span className="text-lg font-normal text-gray-600">per session</span>
+                  </p>
               </div>
             </div>
           </div>

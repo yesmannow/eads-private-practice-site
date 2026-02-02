@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Libre_Baskerville } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { PageShell } from "@/components/PageShell";
 import { MotionProvider } from "@/components/motion/MotionProvider";
@@ -9,13 +9,6 @@ import { site } from "@/config/site";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const libreBaskerville = Libre_Baskerville({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-libre-baskerville",
   display: "swap",
 });
 
@@ -75,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${libreBaskerville.variable}`}>
+    <html lang="en" className={inter.variable}>
       <body className="antialiased font-sans">
         <MotionProvider>
           <PageTransition>

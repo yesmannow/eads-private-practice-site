@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section with Blazing Star Flowers */}
-      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section id="home" className="relative min-h-[75vh] md:h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/home page/home (1).jpg"
@@ -41,89 +41,71 @@ export default function Home() {
           </p>
           
           {/* Scroll Down Indicator */}
-          <div className="animate-bounce mt-16">
-            <p className="text-sm mb-2 text-white/90">Scroll down</p>
-            <ArrowDown className="mx-auto h-6 w-6 text-white/90" />
-          </div>
+          <Link
+            href="#about"
+            aria-label="Scroll to the about section"
+            className="group mt-16 animate-bounce inline-flex flex-col items-center text-white/90 hover:text-white"
+          >
+            <span className="text-sm mb-2 transition-colors duration-200 group-hover:text-white">Scroll down</span>
+            <ArrowDown className="h-6 w-6" />
+          </Link>
         </div>
       </section>
 
-      {/* Bio Section with Headshot */}
-      <MotionSection className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
-            {/* Headshot on Left */}
-            <div className="lg:w-1/3 flex-shrink-0">
-              <ScrollReveal>
-                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/home page/tucker_headshot (1).jpg"
-                    alt="Tucker Eads, LCSW"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                </div>
-              </ScrollReveal>
-            </div>
-            
-            {/* Bio Text on Right */}
-            <div className="lg:w-2/3">
-              <ScrollReveal delay={0.2}>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-                  Tucker Eads, LCSW
-                </h2>
-                <div className="prose-lg text-gray-700 space-y-4">
-                  <p>
-                    I&apos;m a Licensed Clinical Social Worker (LCSW) with over 7 years of psychotherapy experience. 
-                    I support people in living a full life despite pain and struggle. Together we can create space 
-                    to navigate challenges, unwind stress, and move towards purpose.
-                  </p>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </div>
-      </MotionSection>
+      <div className="border-t border-[#a8be57]/20" aria-hidden="true" />
 
-      {/* About Section */}
-      <MotionSection id="about" className="py-16 md:py-24 bg-gray-50">
+      {/* Combined Bio and About Section */}
+      <MotionSection id="about" className="py-16 md:py-24 bg-[#a8be57]/10 border-t border-[#a8be57]/20">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex flex-col lg:flex-row gap-12 items-start">
-            {/* Bio Image - Left Column */}
-            <div className="lg:w-1/2 flex-shrink-0">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-start">
+            <div className="lg:w-5/12 flex flex-col gap-8">
               <ScrollReveal>
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/bio-photo/tucker-bio-photo.jpg"
-                    alt="Tucker Eads, LCSW"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
+                <div className="relative overflow-hidden rounded-[32px] border border-white/70 bg-white/70 shadow-xl shadow-[#a8be57]/20">
+                  <div className="aspect-[4/5] w-full">
+                    <Image
+                      src="/images/bio-photo/tucker-bio-photo.jpg"
+                      alt="Tucker Eads, LCSW"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      priority
+                    />
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.2}>
+                <div className="rounded-2xl border border-white/50 bg-white/80 p-6 shadow-inner">
+                  <h2 className="text-3xl md:text-4xl font-semibold text-[#1f2a19]">Tucker Eads, LCSW</h2>
+                  <p className="mt-4 text-lg leading-relaxed text-gray-800">
+                    I&apos;m a Licensed Clinical Social Worker (LCSW) with over 7 years of psychotherapy experience. I support people in
+                    living a full life despite pain and struggle. Together we can create space to navigate challenges, unwind stress,
+                    and move towards purpose.
+                  </p>
                 </div>
               </ScrollReveal>
             </div>
-            
-            {/* Bio Text - Right Column */}
-            <div className="lg:w-1/2">
-              <ScrollReveal delay={0.2}>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">About</h2>
-                <div className="prose-lg text-gray-700 space-y-6">
+
+            <div className="hidden lg:block w-px bg-[#a8be57]/40 self-stretch" aria-hidden="true" />
+
+            <div className="lg:w-7/12">
+              <ScrollReveal>
+                <h2 className="text-3xl md:text-4xl font-bold text-[#1f2a19]">About</h2>
+                <div className="mt-6 space-y-6 text-gray-800">
                   <p>
-                    I found this work after seeking support for myself as a young adult at the National Alliance on Mental Illness (NAMI). 
-                    I then volunteered at NAMI facilitating support and education groups. This meaningful work inspired me to complete a 
-                    Master&apos;s in Social Work from the University of Chicago.
+                    I found this work after seeking support for myself as a young adult at the National Alliance on Mental Illness (NAMI).
+                    I then volunteered at NAMI facilitating support and education groups. This inspired me to complete a Master&apos;s in
+                    Social Work from the University of Chicago.
                   </p>
                   <p>
-                    I enjoyed developing one-on-one therapeutic relationships during my internship on the outpatient mental health team at 
-                    Mt. Sinai Chicago. This led me to pursue a yearlong psychotherapy fellowship focused on ACT and DBT with Paul Holmes, 
-                    PsyD, at Emotion Management Program. During my 5+ years as a psychotherapist at Rush University Medical Center I 
-                    developed an interest and specialty in working with folks experiencing complex medical challenges and chronic pain.
+                    I enjoyed developing one-on-one therapeutic relationships during my internship on the outpatient mental health team
+                    at Mt. Sinai Chicago. This led me to pursue a yearlong psychotherapy fellowship focused on ACT and DBT. During my 5+
+                    years as a psychotherapist at Rush University Medical Center I developed an interest and specialty in working with
+                    folks experiencing complex medical challenges and chronic pain.
                   </p>
                   <p>
-                    Personally, I&apos;m down-to-earth and draw inspiration and joy from live music, nature, organizers and activists, art, 
-                    food and history. I love to grow food and flowers, ride bikes, and am interested in learning more about native plants 
+                    Personally, I&apos;m down-to-earth and draw inspiration and joy from live music, nature, organizers and activists, art,
+                    food and history. I love to grow food and flowers, ride bikes, and am interested in learning more about native plants
                     and regenerative ecology.
                   </p>
                 </div>
@@ -133,47 +115,11 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      {/* Blazing Star Section */}
-      <MotionSection className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="flex flex-col md:flex-row gap-12 items-start">
-            {/* Text Content */}
-            <ScrollReveal className="md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">What is Blazing Star?</h2>
-              <div className="prose text-gray-700 space-y-4">
-                <p>
-                  Blazing star, or Liatris, is a genus of perennial flowers native to North America. Prairie blazing star 
-                  (Liatris pycnostachya) is an iconic prairie plant, blooming from midsummer onward. Rough blazing star 
-                  (Liatris aspera) is hardy and tolerates drought and sandy and rocky soil.
-                </p>
-                <p>
-                  Blazing stars host numerous pollinators including bees, butterflies, moths, and even hummingbirds.
-                </p>
-              </div>
-            </ScrollReveal>
-            
-            {/* Image with Caption */}
-            <ScrollReveal delay={0.2} className="md:w-1/2">
-              <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/about/IMG_8960-2 (1).jpg"
-                  alt="Rough blazing star"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <p className="mt-2 text-sm text-gray-600 italic">Rough blazing star</p>
-            </ScrollReveal>
-          </div>
-        </div>
-      </MotionSection>
-
       {/* My Approach Section with Accordion */}
-      <MotionSection id="approach" className="py-16 md:py-24 bg-gray-50">
+      <MotionSection id="approach" className="py-16 md:py-24 bg-[#a8be57]/5 border-t border-[#a8be57]/20">
         <div className="container mx-auto px-4 max-w-4xl">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">My Therapeutic Approach</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-[#1f2a19] text-center">My Therapeutic Approach</h2>
           </ScrollReveal>
           
           <ScrollReveal delay={0.2}>
@@ -227,15 +173,20 @@ export default function Home() {
               </AccordionItem>
             </Accordion>
           </ScrollReveal>
+          <ScrollReveal delay={0.4}>
+            <p className="mt-8 text-center text-lg text-gray-700">
+              Regardless of the treatment plan and intervention, I commit to showing up for you with empathy, openness, and care.
+            </p>
+          </ScrollReveal>
         </div>
       </MotionSection>
 
       {/* Contact Section */}
-      <MotionSection id="contact" className="py-16 md:py-24 bg-white">
+      <MotionSection id="contact" className="py-16 md:py-24 bg-white border-t border-[#a8be57]/20">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12">
             <ScrollReveal>
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#a8be57]/15 text-[#3b4a2a] mb-6">
                 <Calendar className="w-8 h-8" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Schedule initial consultation</h2>
@@ -248,13 +199,13 @@ export default function Home() {
           <ScrollReveal delay={0.2}>
             <div className="flex justify-center mb-12">
               <Link
-                href="https://calendly.com/blazingstartherapy/initial-consult"
+                href="https://blazingstar.sessionshealth.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:bg-primary/90 hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#a8be57] px-8 py-4 font-semibold text-white transition hover:bg-[#96a84a] hover:shadow-lg"
               >
                 <Calendar className="w-5 h-5" />
-                Book Your Free Consultation
+                Book no-cost consultation
               </Link>
             </div>
 
@@ -278,7 +229,7 @@ export default function Home() {
       </MotionSection>
 
       {/* Cost Section */}
-      <MotionSection className="py-16 md:py-24 bg-gray-50">
+      <MotionSection className="py-16 md:py-24 bg-[#a8be57]/5 border-t border-[#a8be57]/20">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12">
             <ScrollReveal>
@@ -304,15 +255,36 @@ export default function Home() {
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-1">•</span>
-                        <span>Blue Cross and Blue Shield of Illinois (BCBS-IL) (PPO and Blue Choice)</span>
+                        <Link
+                          href="https://www.bcbsil.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-[#3b4a2a] transition-colors"
+                        >
+                          Blue Cross and Blue Shield of Illinois (BCBS-IL) (PPO and Blue Choice)
+                        </Link>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-1">•</span>
-                        <span>Cigna</span>
+                        <Link
+                          href="https://www.cigna.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-[#3b4a2a] transition-colors"
+                        >
+                          Cigna
+                        </Link>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-1">•</span>
-                        <span>Aetna</span>
+                        <Link
+                          href="https://www.aetna.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-[#3b4a2a] transition-colors"
+                        >
+                          Aetna
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -322,11 +294,25 @@ export default function Home() {
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-1">•</span>
-                        <span>Cigna</span>
+                        <Link
+                          href="https://www.cigna.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-[#3b4a2a] transition-colors"
+                        >
+                          Cigna
+                        </Link>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-1">•</span>
-                        <span>Aetna</span>
+                        <Link
+                          href="https://www.aetna.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-[#3b4a2a] transition-colors"
+                        >
+                          Aetna
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -339,14 +325,59 @@ export default function Home() {
               <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
                 <h3 className="text-2xl font-bold mb-4 text-gray-900">Out-of-network and self-pay</h3>
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  I can also work with you as an out-of-network provider for you to submit to your insurance. For out-of-network and self-pay, the rate is $175 per session.
+                  I can also work with you as an out-of-network provider for you to submit to your insurance. For out-of-network and self-pay, the rate is $150 per session.
                 </p>
                 <div className="mt-6 p-6 bg-gray-50 rounded-lg border border-gray-200">
                   <p className="text-3xl font-bold text-gray-900">
-                    $175 <span className="text-lg font-normal text-gray-600">per session</span>
+                    $150 <span className="text-lg font-normal text-gray-600">per session</span>
                   </p>
                 </div>
               </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </MotionSection>
+
+      {/* Blazing Star Section */}
+      <MotionSection className="py-16 md:py-24 bg-white border-t border-[#a8be57]/20">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <ScrollReveal>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 text-center">What is Blazing Star?</h2>
+          </ScrollReveal>
+          <div className="flex flex-col md:flex-row gap-12 items-start">
+            <ScrollReveal className="md:w-1/2">
+              <div className="prose text-gray-700 space-y-4">
+                <p>
+                  Blazing star, or Liatris, is a genus of perennial flowers native to North America. Prairie blazing star 
+                  (Liatris pycnostachya) is an iconic prairie plant, blooming from midsummer onward. Rough blazing star 
+                  (Liatris aspera) is hardy and tolerates drought and sandy and rocky soil.
+                </p>
+                <p>
+                  Blazing stars host numerous pollinators including bees, butterflies, moths, and even hummingbirds.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2} className="md:w-1/2">
+              <div className="relative h-80 md:aspect-square md:h-auto rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="/images/home page/Liatris_aspera2.jpg"
+                  alt="Rough blazing star"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <p className="mt-2 text-sm text-gray-600 italic">
+                <Link
+                  href="https://en.wikipedia.org/wiki/Liatris_aspera"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[#4a5c2c]"
+                >
+                  Rough blazing star
+                </Link>
+              </p>
             </ScrollReveal>
           </div>
         </div>

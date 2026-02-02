@@ -7,7 +7,8 @@
   /* Fonts */
   --font-sans: var(--font-inter), "Inter", "Helvetica Neue", Arial, system-ui, -apple-system,
     sans-serif;
-  --font-serif: var(--font-libre-baskerville), "Libre Baskerville", Georgia, serif;
+  --font-serif: var(--font-inter), "Inter", "Helvetica Neue", Arial, system-ui, -apple-system,
+    sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 
@@ -212,15 +213,15 @@ a {
 
   /* Typography scale - Serif for headings, Sans for body - Enhanced */
   h1 {
-    @apply font-serif text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl tracking-tight;
+    @apply font-sans text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl tracking-tight;
   }
 
   h2 {
-    @apply font-serif text-2xl font-bold text-foreground sm:text-3xl tracking-tight;
+    @apply font-sans text-2xl font-bold text-foreground sm:text-3xl tracking-tight;
   }
 
   h3 {
-    @apply font-serif text-lg font-bold text-foreground sm:text-xl tracking-tight;
+    @apply font-sans text-lg font-bold text-foreground sm:text-xl tracking-tight;
   }
 
   .text-body {

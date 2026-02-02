@@ -9,8 +9,36 @@ export const metadata: Metadata = {
 };
 
 const insuranceProviders = [
-  { state: "Illinois", providers: ["Blue Cross and Blue Shield of Illinois (BCBS-IL) (PPO and Blue Choice)", "Cigna", "Aetna"] },
-  { state: "Indiana", providers: ["Cigna", "Aetna"] }
+  {
+    state: "Illinois",
+    providers: [
+      {
+        name: "Blue Cross and Blue Shield of Illinois (BCBS-IL) (PPO and Blue Choice)",
+        url: "https://www.bcbsil.com",
+      },
+      {
+        name: "Cigna",
+        url: "https://www.cigna.com",
+      },
+      {
+        name: "Aetna",
+        url: "https://www.aetna.com",
+      },
+    ],
+  },
+  {
+    state: "Indiana",
+    providers: [
+      {
+        name: "Cigna",
+        url: "https://www.cigna.com",
+      },
+      {
+        name: "Aetna",
+        url: "https://www.aetna.com",
+      },
+    ],
+  },
 ];
 
 export default function LetsConnect() {
@@ -73,12 +101,12 @@ export default function LetsConnect() {
                     </p>
                     <div className="pt-4">
                       <Link 
-                        href="https://calendly.com/blazingstartherapy/initial-consult" 
+                        href="https://blazingstar.sessionshealth.com/" 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors"
+                        className="inline-block rounded-full bg-[#a8be57] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[#96a84a]"
                       >
-                        Book Your Free Consultation
+                        Book no-cost consultation
                       </Link>
                     </div>
                   </div>
@@ -122,7 +150,14 @@ export default function LetsConnect() {
                                   {state.providers.map((provider, i) => (
                                     <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
                                       <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-                                      <span>{provider}</span>
+                                      <Link
+                                        href={provider.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="transition-colors hover:text-[#3b4a2a]"
+                                      >
+                                        {provider.name}
+                                      </Link>
                                     </li>
                                   ))}
                                 </ul>
@@ -137,7 +172,7 @@ export default function LetsConnect() {
                             I can provide superbills for you to submit to your insurance for potential out-of-network reimbursement.
                           </p>
                           <div className="mt-3 p-4 bg-white rounded-lg border border-gray-200">
-                            <p className="text-2xl font-bold text-gray-900">$175 <span className="text-base font-normal text-gray-600">per session</span></p>
+                            <p className="text-2xl font-bold text-gray-900">$150 <span className="text-base font-normal text-gray-600">per session</span></p>
                           </div>
                         </div>
                       </div>
