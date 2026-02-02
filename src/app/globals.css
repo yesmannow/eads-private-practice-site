@@ -15,6 +15,7 @@
   --radius: 0.625rem;
   --container-max: 72rem; /* 1152px */
   --section-gap: 4rem; /* 64px */
+  --header-height: 5rem; /* 80px - consistent header height */
 
   /* Color tokens - Logo-based theme (shadcn compatible, HSL) */
   --background: 0 0% 99.6%; /* #FEFEFE */
@@ -135,6 +136,11 @@ body {
   font-family: var(--font-sans);
   margin: 0;
   color: hsl(var(--foreground));
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
 }
 
 /* Keep anchors inheriting by default; Tailwind base below sets link styling */
