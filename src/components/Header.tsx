@@ -2,9 +2,49 @@
 
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { clientPortalNavItem, desktopNavItems, scrollToSection } from "@/lib/navigation";
 
 export function HeaderNav() {
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
+  const resetTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const current = window.scrollY;
+
+      // Always show at top of page
+      if (current <= 50) {
+        setVisible(true);
+      } else if (current > lastScrollY.current + 5) {
+        // Scrolling down - hide
+        setVisible(false);
+      } else if (current < lastScrollY.current - 5) {
+        // Scrolling up - show
+        setVisible(true);
+      }
+
+      lastScrollY.current = current;
+
+      // Show nav when scrolling stops
+      if (resetTimeout.current) {
+        clearTimeout(resetTimeout.current);
+      }
+      resetTimeout.current = setTimeout(() => {
+        setVisible(true);
+      }, 400);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (resetTimeout.current) {
+        clearTimeout(resetTimeout.current);
+      }
+    };
+  }, []);
+
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (scrollToSection(href)) {
       e.preventDefault();
@@ -12,25 +52,23 @@ export function HeaderNav() {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-stone-200/50 bg-[#FAF9F6]/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 text-sm font-medium text-stone-900">
-        <Link
-          href="/"
-          className="text-lg font-serif font-bold tracking-tight text-stone-900 transition-colors hover:text-[#7C3AED]"
-        >
-          Blazing Star Therapy
-        </Link>
-
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ease-in-out ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      {/* Centered floating nav bar */}
+      <div className="hidden lg:flex justify-center pt-4 px-4">
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-6 text-sm font-semibold text-stone-700 lg:flex"
+          className="inline-flex items-center gap-2 rounded-full border border-stone-200/50 bg-[#FAF9F6]/95 backdrop-blur-md px-3 py-2 shadow-lg shadow-stone-200/30"
         >
           {desktopNavItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={(e) => handleSectionClick(e, item.href)}
-              className="rounded-full px-4 py-2 transition duration-300 ease-in-out hover:bg-stone-100 hover:text-[#1B261D]"
+              className="rounded-full px-4 py-2 text-sm font-semibold text-stone-700 transition duration-200 ease-in-out hover:bg-stone-100 hover:text-[#1B261D]"
             >
               {item.label}
             </a>
@@ -39,7 +77,7 @@ export function HeaderNav() {
             href={clientPortalNavItem.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-[#7C3AED] bg-transparent px-4 py-2 text-sm font-semibold text-[#7C3AED] transition duration-300 ease-in-out hover:bg-[#7C3AED] hover:text-white"
+            className="inline-flex items-center gap-2 rounded-full bg-[#7C3AED] px-4 py-2 text-sm font-semibold text-white transition duration-200 ease-in-out hover:bg-[#6D28D9]"
           >
             <ExternalLink className="h-4 w-4" />
             {clientPortalNavItem.label}

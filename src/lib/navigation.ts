@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Home, Info, MessageCircle } from "lucide-react";
+import { Home, User, HeartHandshake, MessageSquare, Flower2, ExternalLink } from "lucide-react";
 
 export type SectionNavItem = {
   href: `#${string}`;
@@ -10,22 +10,34 @@ export type MobileNavItem = SectionNavItem & {
   icon: LucideIcon;
 };
 
+export type ExternalNavItem = {
+  href: string;
+  label: string;
+  icon: LucideIcon;
+  isExternal: true;
+};
+
 export const desktopNavItems: SectionNavItem[] = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "#approach", label: "My Approach" },
-  { href: "#contact", label: "Connect" },
+  { href: "#approach", label: "Approach" },
+  { href: "#connect", label: "Connect" },
+  { href: "#blazing-star", label: "Blazing Star" },
 ];
 
 export const mobileNavItems: MobileNavItem[] = [
   { href: "#home", label: "Home", icon: Home },
-  { href: "#about", label: "About", icon: Info },
-  { href: "#contact", label: "Connect", icon: MessageCircle },
+  { href: "#about", label: "About", icon: User },
+  { href: "#approach", label: "Approach", icon: HeartHandshake },
+  { href: "#connect", label: "Connect", icon: MessageSquare },
+  { href: "#blazing-star", label: "Blazing Star", icon: Flower2 },
 ];
 
-export const clientPortalNavItem = {
+export const clientPortalNavItem: ExternalNavItem = {
   href: "https://blazingstar.sessionshealth.com/",
-  label: "Client Portal",
+  label: "Portal",
+  icon: ExternalLink,
+  isExternal: true,
 };
 
 export function scrollToSection(href: string) {

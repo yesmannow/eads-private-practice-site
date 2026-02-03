@@ -9,7 +9,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-[60vh] min-h-[500px] md:min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -40,7 +40,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="text-xl md:text-2xl mb-12 text-white/95 drop-shadow-md font-light"
         >
-          Psychotherapy and counseling for a life of meaning
+          Psychotherapy and Counseling
         </motion.p>
 
         {/* Scroll Down Indicator */}
