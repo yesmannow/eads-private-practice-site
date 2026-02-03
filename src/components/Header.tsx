@@ -12,25 +12,25 @@ export function HeaderNav() {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#a8be57]/30 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 text-sm font-medium text-foreground">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-stone-200/50 bg-[#FAF9F6]/95 backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 text-sm font-medium text-stone-900">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-[#a8be57]"
+          className="text-lg font-serif font-bold tracking-tight text-stone-900 transition-colors hover:text-[#7C3AED]"
         >
           Blazing Star Therapy
         </Link>
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-6 text-sm font-semibold text-foreground lg:flex"
+          className="hidden items-center gap-6 text-sm font-semibold text-stone-700 lg:flex"
         >
           {desktopNavItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={(e) => handleSectionClick(e, item.href)}
-              className="rounded-full px-4 py-2 transition duration-300 ease-in-out hover:bg-[#a8be57]/10 hover:text-[#4a5c2c]"
+              className="rounded-full px-4 py-2 transition duration-300 ease-in-out hover:bg-stone-100 hover:text-[#1B261D]"
             >
               {item.label}
             </a>
@@ -39,9 +39,9 @@ export function HeaderNav() {
             href={clientPortalNavItem.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-[#a8be57] bg-transparent px-4 py-2 text-sm font-semibold text-[#3b4a2a] transition duration-300 ease-in-out hover:bg-[#a8be57]/10 hover:text-[#1f2a19]"
+            className="inline-flex items-center gap-2 rounded-full border border-[#7C3AED] bg-transparent px-4 py-2 text-sm font-semibold text-[#7C3AED] transition duration-300 ease-in-out hover:bg-[#7C3AED] hover:text-white"
           >
-            <ExternalLink className="h-4 w-4 text-[#3b4a2a]" />
+            <ExternalLink className="h-4 w-4" />
             {clientPortalNavItem.label}
           </Link>
         </nav>

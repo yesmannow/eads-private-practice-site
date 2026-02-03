@@ -5,7 +5,7 @@ import { Heart, Phone, Mail, MapPin, Flower2, Users, Shield, Clock, Star } from 
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+    <footer className="bg-[#1B261D] text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-32 h-32 border border-white/10 rounded-full"></div>

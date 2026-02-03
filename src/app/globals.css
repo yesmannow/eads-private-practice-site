@@ -5,8 +5,7 @@
   /* Fonts */
   --font-sans: var(--font-inter), "Inter", "Helvetica Neue", Arial, system-ui, -apple-system,
     sans-serif;
-  --font-serif: var(--font-inter), "Inter", "Helvetica Neue", Arial, system-ui, -apple-system,
-    sans-serif;
+  --font-serif: "Georgia", "Times New Roman", "Cambria", serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 
@@ -16,37 +15,39 @@
   --section-gap: 4rem; /* 64px */
   --header-height: 5rem; /* 80px - consistent header height */
 
-  /* Color tokens - Logo-based theme (shadcn compatible, HSL) */
-  --background: 0 0% 99.6%; /* #FEFEFE */
-  --foreground: 177 18% 24%; /* #334948 */
+  /* High-contrast palette - Blazing Star Theme */
+  /* Sand/Off-white: #FAF9F6, Forest: #1B261D, Muted Violet: #7C3AED */
+
+  --background: 40 20% 97%; /* #FAF9F6 Sand/Off-white */
+  --foreground: 135 19% 13%; /* #1B261D Forest */
 
   --card: 0 0% 100%;
-  --card-foreground: 177 18% 24%;
+  --card-foreground: 135 19% 13%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 177 18% 24%;
+  --popover-foreground: 135 19% 13%;
 
-  /* Primary brand - Enhanced for better visibility */
-  --primary: 177 18% 24%; /* Deep Teal */
-  --primary-foreground: 0 0% 99%; /* FIX: white for readable text */
+  /* Primary brand - Forest Green */
+  --primary: 135 19% 13%; /* #1B261D Forest */
+  --primary-foreground: 40 20% 97%; /* Sand for readable text */
 
   /* Secondary surfaces */
-  --secondary: 155 25% 75%; /* Mist-ish */
-  --secondary-foreground: 177 18% 24%;
+  --secondary: 40 15% 92%; /* Warm off-white */
+  --secondary-foreground: 135 19% 13%;
 
-  --muted: 145 35% 85%; /* Soft Mint */
-  --muted-foreground: 145 15% 38%; /* readable muted text */
+  --muted: 40 10% 90%; /* Soft warm gray */
+  --muted-foreground: 40 5% 45%; /* readable muted text */
 
-  /* Accent - Enhanced gold */
-  --accent: 38 63% 55%; /* Gold */
-  --accent-foreground: 177 18% 24%;
+  /* Accent - Muted Violet for interactive elements */
+  --accent: 262 83% 58%; /* #7C3AED Muted Violet */
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
 
-  --border: 155 25% 85%;
-  --input: 155 25% 85%;
-  --ring: 38 63% 55%; /* Gold ring */
+  --border: 40 10% 88%;
+  --input: 40 10% 88%;
+  --ring: 262 83% 58%; /* Violet ring */
 
   /* Optional tokens used by some shadcn components (keep defined) */
   --chart-1: oklch(0.646 0.222 41.116);
@@ -153,36 +154,36 @@ a {
   outline-offset: 2px;
 }
 
-/* Dark mode: FIX primary tokens so primary buttons stay readable */
+/* Dark mode: High-contrast Blazing Star theme */
 .dark {
-  --background: 177 18% 10%;
-  --foreground: 155 25% 90%;
+  --background: 135 19% 8%;
+  --foreground: 40 15% 92%;
 
-  --card: 177 18% 12%;
-  --card-foreground: 155 25% 90%;
+  --card: 135 19% 10%;
+  --card-foreground: 40 15% 92%;
 
-  --popover: 177 18% 12%;
-  --popover-foreground: 155 25% 90%;
+  --popover: 135 19% 10%;
+  --popover-foreground: 40 15% 92%;
 
-  /* Keep primary as deep teal and foreground as near-white */
-  --primary: 177 18% 24%;
-  --primary-foreground: 0 0% 98%;
+  /* Keep primary as Forest and foreground as Sand */
+  --primary: 262 83% 58%; /* Violet as primary in dark mode */
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 145 15% 22%;
-  --secondary-foreground: 155 25% 90%;
+  --secondary: 135 12% 18%;
+  --secondary-foreground: 40 15% 92%;
 
-  --muted: 145 15% 18%;
-  --muted-foreground: 145 12% 70%;
+  --muted: 135 10% 15%;
+  --muted-foreground: 40 8% 65%;
 
-  --accent: 38 63% 55%;
-  --accent-foreground: 177 18% 24%;
+  --accent: 262 83% 58%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
 
-  --border: 155 18% 28%;
-  --input: 155 18% 28%;
-  --ring: 38 63% 55%;
+  --border: 135 12% 22%;
+  --input: 135 12% 22%;
+  --ring: 262 83% 58%;
 
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
