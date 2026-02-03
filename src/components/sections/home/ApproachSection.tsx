@@ -87,7 +87,7 @@ export function ApproachSection() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-serif text-stone-900 mb-4">
+          <h2 className="text-4xl md:text-5xl text-stone-900 mb-4">
             My Therapeutic Approach
           </h2>
           <p className="text-lg text-stone-500 max-w-2xl mx-auto">
@@ -127,7 +127,7 @@ export function ApproachSection() {
           transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="mt-28 text-center max-w-3xl mx-auto"
         >
-          <p className="italic text-xl md:text-2xl font-serif text-stone-700 leading-relaxed">
+          <p className="italic text-xl md:text-2xl text-stone-700 leading-relaxed">
             Regardless of the treatment plan and intervention, I commit to showing up for you with empathy, openness, and care.
           </p>
         </motion.div>

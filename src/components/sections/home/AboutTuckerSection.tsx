@@ -44,12 +44,12 @@ export function AboutTuckerSection() {
           </div>
 
           {/* Name & Title */}
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-stone-900 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 leading-tight">
             Tucker Eads, LCSW
           </h2>
 
           {/* Intro Pull-Quote */}
-          <p className="text-xl md:text-2xl leading-relaxed text-stone-700 italic border-l-8 border-stone-200 pl-8 font-serif">
+          <p className="text-xl md:text-2xl leading-relaxed text-stone-700 italic border-l-8 border-stone-200 pl-8">
             &ldquo;I&apos;m a Licensed Clinical Social Worker (LCSW) with over 7 years of psychotherapy experience. I support people in living a full life despite pain and struggle. Together we can create space to navigate challenges, unwind stress, and move towards purpose.&rdquo;
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ export function AboutTuckerSection() {
           variants={fadeUpVariant}
           transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h3 className="text-3xl md:text-4xl font-serif font-bold text-stone-900">
+          <h3 className="text-3xl md:text-4xl font-bold text-stone-900">
             About
           </h3>
 

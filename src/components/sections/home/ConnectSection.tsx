@@ -40,7 +40,7 @@ export function ConnectSection() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
-            <h2 className="text-4xl md:text-5xl font-serif text-stone-900 mb-6">
+            <h2 className="text-4xl md:text-5xl text-stone-900 mb-6">
               Schedule initial consultation
             </h2>
             <p className="text-xl text-stone-800 leading-relaxed">
@@ -93,7 +93,7 @@ export function ConnectSection() {
           transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
-            <h2 className="text-4xl md:text-5xl font-serif text-stone-900 mb-6">
+            <h2 className="text-4xl md:text-5xl text-stone-900 mb-6">
               Cost
             </h2>
             <h3 className="text-2xl font-semibold text-stone-900 mb-4">
@@ -147,7 +147,7 @@ export function ConnectSection() {
             <p className="text-stone-800">
               Out-of-network and self-pay: I can also work with you as an
               out-of-network provider for you to submit to your insurance. For
-              out-of-network and self-pay, the rate is $175 per session.
+              out-of-network and self-pay, the rate is $150 per session.
             </p>
           </div>
         </motion.div>
