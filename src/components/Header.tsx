@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { desktopNavItems, scrollToSection } from "@/lib/navigation";
+import { clientPortalNavItem, desktopNavItems, scrollToSection } from "@/lib/navigation";
 
 export function HeaderNav() {
   const [visible, setVisible] = useState(true);
@@ -67,6 +67,14 @@ export function HeaderNav() {
               {item.label}
             </a>
           ))}
+          <a
+            href={clientPortalNavItem.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full px-4 py-2 text-sm font-semibold text-[#1B261D] bg-[#90b654] border border-[#90b654] transition duration-200 ease-in-out hover:bg-[#536930] hover:text-[#f5f7ec] shadow-sm shadow-[#90b654]/40"
+          >
+            {clientPortalNavItem.label}
+          </a>
         </nav>
       </div>
     </header>
