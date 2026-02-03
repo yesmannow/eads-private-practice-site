@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { ExternalLink } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { clientPortalNavItem, desktopNavItems, scrollToSection } from "@/lib/navigation";
+import { desktopNavItems, scrollToSection } from "@/lib/navigation";
 
 export function HeaderNav() {
   const [visible, setVisible] = useState(true);
@@ -14,20 +12,16 @@ export function HeaderNav() {
     const handleScroll = () => {
       const current = window.scrollY;
 
-      // Always show at top of page
       if (current <= 50) {
         setVisible(true);
       } else if (current > lastScrollY.current + 5) {
-        // Scrolling down - hide
         setVisible(false);
       } else if (current < lastScrollY.current - 5) {
-        // Scrolling up - show
         setVisible(true);
       }
 
       lastScrollY.current = current;
 
-      // Show nav when scrolling stops
       if (resetTimeout.current) {
         clearTimeout(resetTimeout.current);
       }
@@ -73,15 +67,6 @@ export function HeaderNav() {
               {item.label}
             </a>
           ))}
-          <Link
-            href={clientPortalNavItem.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#90b654] px-4 py-2 text-sm font-semibold text-white transition duration-200 ease-in-out hover:bg-[#7CA44A]"
-          >
-            <ExternalLink className="h-4 w-4" />
-            {clientPortalNavItem.label}
-          </Link>
         </nav>
       </div>
     </header>

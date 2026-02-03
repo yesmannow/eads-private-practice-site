@@ -9,10 +9,10 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative h-[60vh] min-h-[500px] md:min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-[70vh] min-h-[500px] md:min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 animate-fade-in">
         <Image
           src="/images/home page/home (1).jpg"
           alt="Field of blazing star flowers"
