@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, Mail } from "lucide-react";
+import { Calendar, Mail, ShieldCheck } from "lucide-react";
 
 const insurancePartners = {
   illinois: [
@@ -28,9 +28,9 @@ export function ConnectSection() {
     <section
       id="connect"
       ref={ref}
-      className="py-24 bg-[#945d97]/80 text-white rounded-t-[3rem] relative z-10"
+      className="py-32 bg-[#FCFBF7] text-stone-800 rounded-t-[5rem] relative z-10"
     >
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
         {/* Left Column - Schedule */}
         <motion.div
           className="space-y-10"
@@ -40,30 +40,30 @@ export function ConnectSection() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
-            <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-serif text-stone-900 mb-6">
               Schedule initial consultation
             </h2>
-            <p className="text-xl text-white/90 leading-relaxed">
-              You can book a no-cost 20-minute initial consultation with me
-              here. I have telehealth availability in Illinois and Indiana, and
+            <p className="text-xl text-stone-800 leading-relaxed">
+              You can book a no-cost 20-minute initial consultation with me here.
+              I have telehealth availability in Illinois and Indiana, and
               in-person sessions in Bloomington, IN.
             </p>
           </div>
 
-          {/* CTA Buttons */}
+          {/* Action Hub */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <Link
               href="https://blazingstar.sessionshealth.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-white text-[#945d97] px-8 py-5 rounded-full font-bold text-lg hover:bg-[#f3e5f0] transition-colors duration-200"
+              className="inline-flex items-center justify-center gap-3 bg-[#90b654] text-white px-8 py-5 rounded-full font-bold text-lg hover:shadow-lg hover:scale-105 transition-transform duration-200"
             >
               <Calendar className="w-5 h-5" />
               Book no-cost consultation
             </Link>
             <a
               href="mailto:tucker@blazingstartherapy.com"
-              className="inline-flex items-center justify-center gap-3 px-8 py-5 border border-white text-white rounded-full text-center hover:bg-[#7a4a7a] transition-colors duration-200 font-semibold"
+              className="inline-flex items-center justify-center gap-3 px-8 py-5 border border-stone-200 text-stone-800 rounded-full text-center hover:bg-stone-100 transition-colors duration-200 font-semibold"
             >
               <Mail className="w-5 h-5" />
               Email Tucker
@@ -71,12 +71,12 @@ export function ConnectSection() {
           </div>
 
           {/* Email Contact */}
-          <div className="pt-8 border-t border-white/50">
-            <p className="text-white/90">
+          <div className="pt-8 border-t border-stone-300">
+            <p className="text-stone-800">
               You can also email me:{" "}
               <a
                 href="mailto:tucker@blazingstartherapy.com"
-                className="text-white font-semibold hover:underline underline-offset-4"
+                className="text-stone-900 font-semibold hover:underline underline-offset-4"
               >
                 tucker@blazingstartherapy.com
               </a>
@@ -84,7 +84,7 @@ export function ConnectSection() {
           </div>
         </motion.div>
 
-        {/* Right Column - Insurance */}
+        {/* Right Column - Cost & Insurance */}
         <motion.div
           className="space-y-10"
           initial="hidden"
@@ -93,32 +93,62 @@ export function ConnectSection() {
           transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
-            <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">
-              Insurance partners
+            <h2 className="text-4xl md:text-5xl font-serif text-stone-900 mb-6">
+              Cost
             </h2>
-            <p className="text-xl text-white/90 leading-relaxed">
-              I am in-network with the following insurance providers:
+            <h3 className="text-2xl font-semibold text-stone-900 mb-4">
+              In-network with your insurance
+            </h3>
+            <p className="text-xl text-stone-800 leading-relaxed">
+              I’m an in-network provider with the insurances listed below. After
+              the initial consultation I can process an insurance verification to
+              confirm your benefits and out-of-pocket cost.
             </p>
           </div>
+
+          {/* Insurance Badges */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 className="text-lg font-semibold text-stone-900 mb-2">
+                <ShieldCheck className="inline-block w-5 h-5 text-[#90b654] mr-2" />
                 Illinois
               </h3>
-              <ul className="text-white/90 space-y-2">
+              <ul className="space-y-2">
                 {insurancePartners.illinois.map((partner) => (
-                  <li key={partner}>{partner}</li>
+                  <li
+                    key={partner}
+                    className="bg-stone-100 text-stone-800 px-4 py-2 rounded-lg"
+                  >
+                    {partner}
+                  </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white mb-2">Indiana</h3>
-              <ul className="text-white/90 space-y-2">
+              <h3 className="text-lg font-semibold text-stone-900 mb-2">
+                <ShieldCheck className="inline-block w-5 h-5 text-[#90b654] mr-2" />
+                Indiana
+              </h3>
+              <ul className="space-y-2">
                 {insurancePartners.indiana.map((partner) => (
-                  <li key={partner}>{partner}</li>
+                  <li
+                    key={partner}
+                    className="bg-stone-100 text-stone-800 px-4 py-2 rounded-lg"
+                  >
+                    {partner}
+                  </li>
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Self-Pay Footer */}
+          <div className="pt-8 border-t border-stone-300">
+            <p className="text-stone-800">
+              Out-of-network and self-pay: I can also work with you as an
+              out-of-network provider for you to submit to your insurance. For
+              out-of-network and self-pay, the rate is $175 per session.
+            </p>
           </div>
         </motion.div>
       </div>
