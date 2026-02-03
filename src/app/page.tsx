@@ -31,7 +31,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/40 to-black/30" />
         </div>
-        
+
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
             Blazing Star Therapy
@@ -39,7 +39,7 @@ export default function Home() {
           <p className="text-xl md:text-2xl mb-8 text-white/95 drop-shadow-md">
             Psychotherapy and counseling
           </p>
-          
+
           {/* Scroll Down Indicator */}
           <Link
             href="#about"
@@ -121,7 +121,7 @@ export default function Home() {
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-[#1f2a19] text-center">My Therapeutic Approach</h2>
           </ScrollReveal>
-          
+
           <ScrollReveal delay={0.2}>
             <Accordion type="single" collapsible className="w-full bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
               <AccordionItem value="relationship" className="border-gray-200">
@@ -169,6 +169,9 @@ export default function Home() {
                       Regardless of the treatment plan or intervention, I commit to showing up for you with empathy, openness, and care.
                     </p>
                     <p>
+                      Regardless of the treatment plan and intervention, I commit to showing up for you with empathy, openness, and care.
+                    </p>
+                    <p>
                       We talk openly about expectations, coordinate with other providers when helpful, and regularly check in so the work stays relevant and grounded in what actually supports you.
                     </p>
                   </div>
@@ -176,6 +179,12 @@ export default function Home() {
               </AccordionItem>
             </Accordion>
           </ScrollReveal>
+
+          <div className="mt-10 text-center">
+            <p className="text-lg italic text-gray-800 leading-relaxed max-w-2xl mx-auto">
+              Regardless of the treatment plan and intervention, I commit to showing up for you with empathy, openness, and care.
+            </p>
+          </div>
         </div>
       </MotionSection>
 
@@ -193,7 +202,7 @@ export default function Home() {
               </p>
             </ScrollReveal>
           </div>
-          
+
           <ScrollReveal delay={0.2}>
               <div className="flex justify-center mb-12">
                 <Link
@@ -248,7 +257,7 @@ export default function Home() {
                 <p className="text-gray-700 mb-6 leading-relaxed">
                   I&apos;m an in-network provider with the insurances listed below. After the initial consultation I can process an insurance verification to confirm your benefits and out-of-pocket cost, including co-pay or co-insurance. For in-network insurance, the cost is set by the insurance company and the specifics of your plan.
                 </p>
-                
+
                 <div className="grid md:grid-cols-2 gap-8 mt-8">
                   <div>
                     <h4 className="text-lg font-semibold mb-4 text-gray-900">Illinois:</h4>
@@ -288,7 +297,7 @@ export default function Home() {
                       </li>
                     </ul>
                   </div>
-                  
+
                   <div>
                     <h4 className="text-lg font-semibold mb-4 text-gray-900">Indiana:</h4>
                     <ul className="space-y-2 text-gray-700">
@@ -344,7 +353,7 @@ export default function Home() {
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1f2a19] text-center">What is Blazing Star?</h2>
           </ScrollReveal>
-          <div className="grid gap-10 lg:grid-cols-[1.1fr,_0.9fr] items-start">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-start">
             <ScrollReveal>
               <div className="prose text-gray-800 space-y-4">
                 <p>

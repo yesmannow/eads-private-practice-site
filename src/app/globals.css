@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
   /* Fonts */
   --font-sans: var(--font-inter), "Inter", "Helvetica Neue", Arial, system-ui, -apple-system,
@@ -270,7 +268,7 @@ a {
   a[class*="bg-primary"][class*="text-primary-foreground"] {
     color: hsl(var(--primary-foreground)) !important;
   }
-  
+
   a.bg-white,
   a[class*="bg-white"] {
     color: hsl(var(--primary)) !important;

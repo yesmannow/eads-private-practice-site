@@ -10,7 +10,7 @@ export function FeesCard() {
     >
       <Card title="Session fee">
         <p className="mb-4 text-lg font-semibold text-slate-900">
-          $___ per 50–55 minute session (placeholder)
+          $150 per 50–55 minute session
         </p>
         <div className="space-y-3 text-slate-700">
           <div>

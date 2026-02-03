@@ -11,84 +11,44 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <main className="flex-1">
-      {/* Bio Section - 2 Columns */}
+      {/* Unified About Section */}
       <MotionSection className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex flex-col lg:flex-row gap-12 items-start">
-            {/* Bio Image - Left Column */}
-            <div className="lg:w-1/2 flex-shrink-0">
-              <ScrollReveal>
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/bio-photo/tucker-bio-photo.jpg"
-                    alt="Tucker Eads, LCSW"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
-                  />
-                </div>
-              </ScrollReveal>
-            </div>
-            
-            {/* Bio Text - Right Column */}
-            <div className="lg:w-1/2">
-              <ScrollReveal delay={0.2}>
-                <div className="prose-lg text-gray-700 space-y-6">
-                  <p>
-                    I found this work after seeking support for myself as a young adult at the National Alliance on Mental Illness (NAMI). 
-                    I then volunteered at NAMI facilitating support and education groups. This meaningful work inspired me to complete a 
-                    Master&apos;s in Social Work from the University of Chicago.
-                  </p>
-                  <p>
-                    I enjoyed developing one-on-one therapeutic relationships during my internship on the outpatient mental health team at 
-                    Mt. Sinai Chicago. This led me to pursue a yearlong psychotherapy fellowship focused on ACT and DBT with Paul Holmes, 
-                    PsyD, at Emotion Management Program. During my 5+ years as a psychotherapist at Rush University Medical Center I 
-                    developed an interest and specialty in working with folks experiencing complex medical challenges and chronic pain.
-                  </p>
-                  <p>
-                    Personally, I&apos;m down-to-earth and draw inspiration and joy from live music, nature, organizers and activists, art, 
-                    food and history. I love to grow food and flowers, ride bikes, and am interested in learning more about native plants 
-                    and regenerative ecology.
-                  </p>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </div>
-      </MotionSection>
-
-      {/* Blazing Star Section */}
-      <MotionSection className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="flex flex-col md:flex-row gap-12 items-start">
-            {/* Text Content */}
-            <ScrollReveal className="md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">What is Blazing Star?</h2>
-              <div className="prose text-gray-700 space-y-4">
-                <p>
-                  Blazing star, or Liatris, is a genus of perennial flowers native to North America. Prairie blazing star 
-                  (Liatris pycnostachya) is an iconic prairie plant, blooming from midsummer onward. Rough blazing star 
-                  (Liatris aspera) is hardy and tolerates drought and sandy and rocky soil.
-                </p>
-                <p>
-                  Blazing stars host numerous pollinators including bees, butterflies, moths, and even hummingbirds.
-                </p>
-              </div>
-            </ScrollReveal>
-            
-            {/* Image with Caption */}
-            <ScrollReveal delay={0.2} className="md:w-1/2">
-              <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] items-start">
+            {/* Left Column: Bio Image */}
+            <ScrollReveal>
+              <div className="relative aspect-4/5 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="/images/about/IMG_8960-2 (1).jpg"
-                  alt="Rough blazing star"
+                  src="/images/bio-photo/tucker-bio-photo.jpg"
+                  alt="Tucker Eads, LCSW"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
                 />
               </div>
-              <p className="mt-2 text-sm text-gray-600 italic">Rough blazing star</p>
+            </ScrollReveal>
+
+            {/* Right Column: About Text */}
+            <ScrollReveal delay={0.2}>
+              <div className="prose-lg text-gray-700 space-y-6">
+                <p>
+                  I found this work after seeking support for myself as a young adult at the National Alliance on Mental Illness (NAMI).
+                  I then volunteered at NAMI facilitating support and education groups. This meaningful work inspired me to complete a
+                  Master&apos;s in Social Work from the University of Chicago.
+                </p>
+                <p>
+                  I enjoyed developing one-on-one therapeutic relationships during my internship on the outpatient mental health team at
+                  Mt. Sinai Chicago. This led me to pursue a yearlong psychotherapy fellowship focused on ACT and DBT with Paul Holmes,
+                  PsyD, at Emotion Management Program. During my 5+ years as a psychotherapist at Rush University Medical Center I
+                  developed an interest and specialty in working with folks experiencing complex medical challenges and chronic pain.
+                </p>
+                <p>
+                  Personally, I&apos;m down-to-earth and draw inspiration and joy from live music, nature, organizers and activists, art,
+                  food and history. I love to grow food and flowers, ride bikes, and am interested in learning more about native plants
+                  and regenerative ecology.
+                </p>
+              </div>
             </ScrollReveal>
           </div>
         </div>

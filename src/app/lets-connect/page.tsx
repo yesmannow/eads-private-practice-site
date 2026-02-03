@@ -45,7 +45,7 @@ export default function LetsConnect() {
   return (
     <main className="flex-1">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-accent to-accent/90 text-white py-16 md:py-24">
+      <section className="bg-linear-to-b from-accent to-accent/90 text-white py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Let&apos;s Connect</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
@@ -61,7 +61,7 @@ export default function LetsConnect() {
             <div className="md:w-1/3">
               <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="/images/home page/tucker_headshot (1).jpg"
+                  src="/images/home%20page/tucker_headshot%20(1).jpg"
                   alt="Tucker Eads, LCSW"
                   fill
                   className="object-cover"
@@ -83,8 +83,8 @@ export default function LetsConnect() {
                       Book a no-cost 20-minute initial consultation with me here. I have telehealth availability in Illinois and Indiana, and in-person sessions in Bloomington, IN.
                     </p>
                     <div className="pt-4">
-                      <Link 
-                        href="https://blazingstar.sessionshealth.com/" 
+                      <Link
+                        href="https://blazingstar.sessionshealth.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block rounded-full bg-[#a8be57] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition duration-300 ease-in-out hover:bg-[#96a84a]"
@@ -100,7 +100,7 @@ export default function LetsConnect() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Email Me</h3>
-                      <a 
+                      <a
                         href="mailto:tucker@blazingstartherapy.com"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -119,27 +119,30 @@ export default function LetsConnect() {
                         <CreditCard className="w-5 h-5 text-accent" />
                         Session Fees
                       </h3>
-                      
+                      <p className="text-gray-600 text-sm mb-3">
+                        The session fee is $150 per 50–55 minute session.
+                      </p>
+
                       <div className="space-y-6">
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-2">In-Network Insurance</h4>
                           <p className="text-gray-600 text-sm mb-3">
                             I&apos;m an in-network provider with the following insurance plans. After the initial consultation, I can verify your benefits and out-of-pocket costs.
                           </p>
-                          
+
                           <div className="space-y-4">
-                            {insuranceProviders.map((state, index) => (
-                              <div key={index}>
+                            {insuranceProviders.map((state) => (
+                              <div key={state.state}>
                                 <h5 className="font-medium text-gray-800">{state.state}:</h5>
                                 <ul className="space-y-1 mt-1">
-                                  {state.providers.map((provider, i) => (
-                                    <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
+                                  {state.providers.map((provider) => (
+                                    <li key={provider.name} className="flex items-start gap-2 text-gray-600 text-sm">
                                       <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 shrink-0" />
                                       <Link
                                         href={provider.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="transition-colors hover:text-[#3b4a2a]"
+                                        className="hover:underline"
                                       >
                                         {provider.name}
                                       </Link>
@@ -185,7 +188,7 @@ export default function LetsConnect() {
               In-person sessions available in Bloomington, Indiana. Telehealth available throughout Illinois and Indiana.
             </p>
           </div>
-          
+
           <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200">
             <div className="aspect-video bg-gray-100 relative">
               {/* Replace with your actual office image */}

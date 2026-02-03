@@ -42,20 +42,20 @@ export default function ApproachPage() {
             </div>
           </div>
 
-          {/* Evidence Based */}
+          {/* Approach */}
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 py-12 border-b border-gray-200">
             <div className="md:pr-8">
-              <h2 className="text-xl font-bold text-gray-900">Evidence based</h2>
+              <h2 className="text-xl font-bold text-gray-900">Approach</h2>
             </div>
             <div className="prose prose-lg text-gray-700 space-y-4">
               <p>
-                My approach is grounded in contextual behavioral therapies including Acceptance and Commitment Therapy (ACT) and Dialectical Behavior Therapy (DBT). ACT and DBT expand on traditional Cognitive Behavior Therapy (CBT), and incorporate the addition of mindfulness and acceptance.
+                My approach is rooted in contextual behavioral therapies, including Acceptance and Commitment Therapy (ACT) and Dialectical Behavior Therapy (DBT). These therapies build upon traditional Cognitive Behavioral Therapy (CBT) by incorporating mindfulness and acceptance.
               </p>
               <p>
-                DBT offers specific skills for coping with distress, navigating strong emotions, handling challenges in relationships, and doing so mindfully. ACT is all about doing what matters most to us, despite the inevitable pain in life. Additionally, I have participated in training in Cognitive Processing Therapy (CPT) for PTSD.
+                DBT provides practical skills for managing distress, regulating emotions, improving relationships, and practicing mindfulness. ACT focuses on living a values-driven life, even in the face of life&apos;s inevitable challenges. I have also received training in Cognitive Processing Therapy (CPT) for PTSD.
               </p>
               <p>
-                I also integrate elements of other modalities including relational and trauma therapies.
+                Additionally, I integrate elements of relational and trauma-focused therapies to tailor the therapeutic experience to each individual.
               </p>
             </div>
           </div>

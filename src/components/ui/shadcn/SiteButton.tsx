@@ -38,6 +38,7 @@ export function SiteButton({
   ...props
 }: SiteButtonProps) {
   const shadcnVariant = variantMap[variant];
+
   const reducedMotion = useReducedMotion() ?? false;
 
   // Custom brand styling: rounded-full for primary/secondary, maintain site's look
