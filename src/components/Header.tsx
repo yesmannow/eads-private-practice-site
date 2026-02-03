@@ -77,7 +77,7 @@ export function HeaderNav() {
             href={clientPortalNavItem.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#7C3AED] px-4 py-2 text-sm font-semibold text-white transition duration-200 ease-in-out hover:bg-[#6D28D9]"
+            className="inline-flex items-center gap-2 rounded-full bg-[#90b654] px-4 py-2 text-sm font-semibold text-white transition duration-200 ease-in-out hover:bg-[#7CA44A]"
           >
             <ExternalLink className="h-4 w-4" />
             {clientPortalNavItem.label}

@@ -2,24 +2,20 @@
 
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { HeartHandshake, Brain, Compass } from "lucide-react";
 
 const approaches = [
   {
     title: "Therapeutic relationship",
-    icon: HeartHandshake,
     content:
       "Healing becomes possible when someone shows up with curiosity, presence, and steady attention. I hold a calm, nonjudgmental space so that you can bring whatever is heavy, confusing, or hopeful, and we can explore it together at your pace.",
   },
   {
     title: "Evidence based",
-    icon: Brain,
     content:
       "My work is informed by Acceptance and Commitment Therapy (ACT) and Dialectical Behavior Therapy (DBT), weaving mindfulness, values clarification, and behavioral skills into a context-sensitive framework. I balance practical tools with emotional validation so you can move toward meaningful change.",
   },
   {
     title: "What to expect",
-    icon: Compass,
     content:
       "We begin with 1-2 intake sessions to clarify what brings you here, identify priorities, and make sure we are a good fit. Subsequent sessions follow your rhythm—sometimes steady, sometimes flexible—while keeping your goals and values in view.",
   },
@@ -107,7 +103,6 @@ export function ApproachSection() {
           className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10"
         >
           {approaches.map((item) => {
-            const Icon = item.icon;
             return (
               <motion.div
                 key={item.title}
@@ -115,11 +110,7 @@ export function ApproachSection() {
                 className="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-stone-200/50 border border-stone-100 hover:shadow-2xl hover:shadow-stone-200/60 transition-shadow duration-300"
               >
                 {/* Icon */}
-                <div className="mb-6">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#f4f9f4] border border-stone-100">
-                    <Icon className="w-7 h-7 text-stone-800" />
-                  </div>
-                </div>
+                <div className="mb-6"></div>
                 <h3 className="text-2xl font-bold mb-4 text-stone-800">
                   {item.title}
                 </h3>

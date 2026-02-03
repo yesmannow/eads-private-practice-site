@@ -55,7 +55,7 @@ export function HeroSection() {
             className="group mt-8 animate-bounce inline-flex flex-col items-center text-white/80 hover:text-white transition-colors"
           >
             <span className="text-sm mb-2 font-medium tracking-wide">
-              Discover more
+              Scroll down
             </span>
             <ArrowDown className="h-6 w-6" />
           </Link>
