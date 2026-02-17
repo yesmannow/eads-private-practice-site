@@ -31,7 +31,7 @@ export function MobileBottomNav() {
       }, 350);
 
       // Determine active section
-      const sections = ["home", "about", "approach", "connect", "blazing-star"];
+      const sections = ["home", "about", "approach", "connect"];
       const reversedSections = [...sections].reverse();
       for (const section of reversedSections) {
         const el = document.getElementById(section);

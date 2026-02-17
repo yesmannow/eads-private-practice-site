@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { site } from "@/config/site";
 
 type PrepActionsProps = {
   emailBody: string;
@@ -27,7 +28,7 @@ export function PrepActions({ emailBody }: PrepActionsProps) {
           Print checklist
         </Button>
         <Button href="/contact" variant="primary" className="w-full sm:w-auto">
-          Contact Steady Path Counseling
+          Contact {site.name}
         </Button>
       </div>
 

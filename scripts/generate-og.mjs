@@ -1,6 +1,9 @@
 import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Brand colors
 const colors = {
@@ -49,9 +52,9 @@ async function generateOGImage() {
   <g transform="translate(80, 100)">
     ${logoBuffer ? `<image href="data:image/png;base64,${logoBuffer.toString('base64')}" x="0" y="0" height="60" preserveAspectRatio="xMidYMid meet"/>` : ''}
 
-    <!-- Practice Name -->
+    <!-- Practice Name (must match src/config/site.ts name) -->
     <text x="0" y="${logoBuffer ? '120' : '80'}" class="serif" font-size="64" font-weight="700" fill="${colors.text}">
-      Steady Path Counseling
+      Blazing Star Therapy
     </text>
 
     <!-- Accent line -->
@@ -59,7 +62,7 @@ async function generateOGImage() {
 
     <!-- Tagline -->
     <text x="0" y="${logoBuffer ? '200' : '160'}" class="sans" font-size="28" font-weight="400" fill="${colors.text}" opacity="0.85">
-      Therapy &amp; Care Navigation
+      Evidence-based therapy in Bloomington, Indiana
     </text>
 
     <!-- Location -->

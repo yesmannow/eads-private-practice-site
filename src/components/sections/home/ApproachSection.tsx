@@ -7,17 +7,17 @@ const approaches = [
   {
     title: "Therapeutic relationship",
     content:
-      "Healing becomes possible when someone shows up with curiosity, presence, and steady attention. I hold a calm, nonjudgmental space so that you can bring whatever is heavy, confusing, or hopeful, and we can explore it together at your pace.",
+      "I center the therapeutic relationship. Healing and growth are most likely to happen in therapy within a relationship of safety, empathy, and collaboration. That is key to having the willingness to explore challenging and vulnerable themes.",
   },
   {
     title: "Evidence based",
     content:
-      "My work is informed by Acceptance and Commitment Therapy (ACT) and Dialectical Behavior Therapy (DBT), weaving mindfulness, values clarification, and behavioral skills into a context-sensitive framework. I balance practical tools with emotional validation so you can move toward meaningful change.",
+      "My approach is grounded in evidence-based therapies including Acceptance and Commitment Therapy (ACT) and Dialectical Behavior Therapy (DBT). DBT offers specific skills for coping with distress, navigating strong emotions, and handling challenges in relationships. ACT is all about doing what matters most to us, despite the inevitable pain in life. I also integrate elements of other modalities including relational therapy and Cognitive Processing Therapy for PTSD (CPT).",
   },
   {
     title: "What to expect",
     content:
-      "We begin with 1-2 intake sessions to clarify what brings you here, identify priorities, and make sure we are a good fit. Subsequent sessions follow your rhythm—sometimes steady, sometimes flexible—while keeping your goals and values in view.",
+      "You are always in charge, and I'm here to help guide you. Initially we'll meet for 1-2 sessions to better understand the problems and goals you'd like to address. We'll then develop a treatment plan together and you can decide if I'm a good fit. We'll check-in regularly and adjust as needed.",
   },
 ];
 
@@ -90,9 +90,6 @@ export function ApproachSection() {
           <h2 className="text-4xl md:text-5xl text-stone-900 mb-4">
             My Therapeutic Approach
           </h2>
-          <p className="text-lg text-stone-500 max-w-2xl mx-auto">
-            A therapeutic approach grounded in evidence and compassion
-          </p>
         </motion.div>
 
         {/* Animated Cards Grid */}

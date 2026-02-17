@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Home, User, HeartHandshake, MessageSquare, Flower2, ExternalLink } from "lucide-react";
+import { Home, User, HeartHandshake, MessageSquare, ExternalLink } from "lucide-react";
 
 export type SectionNavItem = {
   href: `#${string}`;
@@ -22,7 +22,6 @@ export const desktopNavItems: SectionNavItem[] = [
   { href: "#about", label: "About" },
   { href: "#approach", label: "Approach" },
   { href: "#connect", label: "Connect" },
-  { href: "#blazing-star", label: "Blazing Star" },
 ];
 
 export const mobileNavItems: MobileNavItem[] = [
@@ -30,7 +29,6 @@ export const mobileNavItems: MobileNavItem[] = [
   { href: "#about", label: "About", icon: User },
   { href: "#approach", label: "Approach", icon: HeartHandshake },
   { href: "#connect", label: "Connect", icon: MessageSquare },
-  { href: "#blazing-star", label: "Blazing Star", icon: Flower2 },
 ];
 
 export const clientPortalNavItem: ExternalNavItem = {

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, Mail, ShieldCheck } from "lucide-react";
+import { Calendar, ShieldCheck } from "lucide-react";
 
 const insurancePartners = {
   illinois: [
@@ -61,13 +61,6 @@ export function ConnectSection() {
               <Calendar className="w-5 h-5" />
               Book no-cost consultation
             </Link>
-            <a
-              href="mailto:tucker@blazingstartherapy.com"
-              className="inline-flex items-center justify-center gap-3 px-8 py-5 border border-stone-200 text-stone-800 rounded-full text-center hover:bg-stone-100 transition-colors duration-200 font-semibold"
-            >
-              <Mail className="w-5 h-5" />
-              Email Tucker
-            </a>
           </div>
 
           {/* Email Contact */}
