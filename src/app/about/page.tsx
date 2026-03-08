@@ -19,7 +19,7 @@ export default function About() {
             <ScrollReveal>
               <div className="relative aspect-4/5 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="/images/bio-photo/tucker-bio-photo.jpg"
+                  src="/images/home page/new-bio-photo.jpg"
                   alt="Tucker Eads, LCSW"
                   fill
                   className="object-cover"

@@ -94,14 +94,22 @@ export function Footer() {
                     <p className="text-slate-400 text-sm">{site.telehealthLine}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                  <Link
-                    href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
-                    className="text-slate-300 hover:text-white transition-colors text-sm"
-                  >
-                    {site.phone}
-                  </Link>
+                <div className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" />
+                  <div className="space-y-1">
+                    <a
+                      href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
+                      className="text-slate-300 hover:text-white transition-colors text-sm block"
+                    >
+                      Indiana: {site.phone}
+                    </a>
+                    <a
+                      href={`tel:${site.phoneIllinois.replace(/[^\d+]/g, "")}`}
+                      className="text-slate-300 hover:text-white transition-colors text-sm block"
+                    >
+                      Illinois: {site.phoneIllinois}
+                    </a>
+                  </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-slate-400 flex-shrink-0" />
@@ -176,7 +184,7 @@ export function Footer() {
                   Insurance
                 </h5>
                 <p className="text-slate-400 text-xs leading-relaxed">
-                  In-network with Cigna, Aetna, and Blue Cross Blue Shield in Illinois & Indiana. Superbills available for out-of-network reimbursement.
+                  In-network with Cigna, Aetna, Blue Cross Blue Shield, Anthem Blue Cross and Blue Shield, and Carelon in Indiana. Superbills available for out-of-network reimbursement.
                 </p>
               </div>
 

@@ -6,8 +6,8 @@ import { ConnectSection } from "@/components/sections/home/ConnectSection";
 import { BlazingStarStorySection } from "@/components/sections/home/BlazingStarStorySection";
 
 export const metadata: Metadata = {
-  title: "Blazing Star Therapy | Psychotherapy and Counseling in Bloomington, IN",
-  description: "Tucker Eads, LCSW - Evidence-based therapy for anxiety, stress, and life transitions in Bloomington, Indiana. Specializing in ACT and DBT approaches."
+  title: "Blazing Star Therapy | Psychotherapy in Illinois and Indiana",
+  description: "Tucker Eads, LCSW - Evidence-based psychotherapy for anxiety, stress, and life transitions across Illinois and Indiana. Specializing in ACT and DBT approaches."
 };
 
 export default function Home() {

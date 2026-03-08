@@ -8,12 +8,20 @@ export function ContactInfo() {
       <div className="space-y-4 text-slate-700">
         <div>
           <p className="font-semibold text-slate-900">Phone</p>
-          <a
-            href={`tel:${siteConfig.contact.phone}`}
-            className="text-sky-900 underline hover:text-sky-800"
-          >
-            {siteConfig.contact.phone}
-          </a>
+          <div className="space-y-1">
+            <a
+              href={`tel:${siteConfig.contact.phone}`}
+              className="text-sky-900 underline hover:text-sky-800 block"
+            >
+              Indiana: {siteConfig.contact.phone}
+            </a>
+            <a
+              href={`tel:${site.phoneIllinois}`}
+              className="text-sky-900 underline hover:text-sky-800 block"
+            >
+              Illinois: {site.phoneIllinois}
+            </a>
+          </div>
         </div>
         <div>
           <p className="font-semibold text-slate-900">Email</p>

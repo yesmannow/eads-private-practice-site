@@ -12,8 +12,8 @@ const inter = Inter({
   display: "swap",
 });
 
-const defaultTitle = `Therapy & Care Navigation in Bloomington, IN | ${site.name}`;
-const defaultDescription = "Evidence-informed therapy and care navigation services in Bloomington, Indiana. Licensed Social Worker (MA, LSW) providing telehealth across Indiana.";
+const defaultTitle = `Psychotherapy in Illinois and Indiana | ${site.name}`;
+const defaultDescription = "Evidence-informed psychotherapy services across Illinois and Indiana. Licensed Clinical Social Worker (LCSW) providing telehealth therapy.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.baseUrl),
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: `${site.name} - Therapy in Bloomington, Indiana`,
+        alt: `${site.name} - Psychotherapy in Illinois and Indiana`,
       },
     ],
   },

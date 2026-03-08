@@ -11,7 +11,7 @@ export function AboutBio() {
       <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-sm">
           <Image
-            src="/images/bio-photo/tucker-bio-photo.jpg"
+            src="/images/home page/new-bio-photo.jpg"
             alt='Brian "Tucker" Eads, MA, LSW'
             fill
             className="object-cover"

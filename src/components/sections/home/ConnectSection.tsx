@@ -11,7 +11,7 @@ const insurancePartners = {
     "Cigna",
     "Aetna",
   ],
-  indiana: ["Cigna", "Aetna"],
+  indiana: ["Cigna", "Aetna", "Anthem Blue Cross and Blue Shield", "Carelon"],
 };
 
 export function ConnectSection() {
