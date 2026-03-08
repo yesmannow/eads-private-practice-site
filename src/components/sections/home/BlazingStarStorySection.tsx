@@ -18,7 +18,7 @@ export function BlazingStarStorySection() {
 		<section
 			id="blazing-star"
 			ref={ref}
-			className="relative py-32 px-6 bg-[#FAF9F6] text-stone-800 rounded-t-[5rem]"
+			className="relative py-20 md:py-32 px-6 bg-[#FAF9F6] text-stone-800 rounded-t-[5rem]"
 		>
 			<div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 				{/* Left Column - Text */}

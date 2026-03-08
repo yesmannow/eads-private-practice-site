@@ -28,7 +28,7 @@ export function ConnectSection() {
     <section
       id="connect"
       ref={ref}
-      className="py-32 bg-[#FCFBF7] text-stone-800 rounded-t-[5rem] relative z-10"
+      className="py-20 md:py-32 bg-[#FCFBF7] text-stone-800 rounded-t-[5rem] relative z-10"
     >
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
         {/* Left Column - Schedule */}
@@ -63,7 +63,7 @@ export function ConnectSection() {
             </Link>
           </div>
 
-          {/* Email Contact */}
+          {/* Email & Phone Contact */}
           <div className="pt-8 border-t border-stone-300">
             <p className="text-stone-800">
               You can also email me:{" "}
@@ -72,6 +72,23 @@ export function ConnectSection() {
                 className="text-stone-900 font-semibold hover:underline underline-offset-4"
               >
                 tucker@blazingstartherapy.com
+              </a>
+            </p>
+            <p className="mt-3 text-stone-800">
+              Indiana:{" "}
+              <a
+                href="tel:18122698624"
+                className="text-stone-900 font-semibold hover:underline underline-offset-4"
+              >
+                812-269-8624
+              </a>
+              <br />
+              Illinois:{" "}
+              <a
+                href="tel:13129679987"
+                className="text-stone-900 font-semibold hover:underline underline-offset-4"
+              >
+                312-967-9987
               </a>
             </p>
           </div>

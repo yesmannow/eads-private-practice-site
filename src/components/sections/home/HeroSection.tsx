@@ -9,7 +9,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative h-[70vh] min-h-[500px] md:min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-[60vh] min-h-[420px] md:h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 animate-fade-in">

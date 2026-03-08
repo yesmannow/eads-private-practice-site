@@ -18,7 +18,7 @@ export function AboutTuckerSection() {
     <section
       id="about"
       ref={ref}
-      className="py-24 px-6 bg-[#fdfcf8] rounded-[3rem] mx-4 my-8 shadow-sm border border-stone-100"
+      className="py-16 md:py-24 px-6 bg-[#fdfcf8] rounded-[3rem] mx-4 my-8 shadow-sm border border-stone-100"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-start">
         {/* Left column — 1/3: image only */}
@@ -32,7 +32,7 @@ export function AboutTuckerSection() {
           <div className="relative overflow-hidden rounded-2xl border border-stone-200/50 shadow-xl shadow-stone-200/30">
             <div className="relative aspect-[3/4] w-full">
               <Image
-                src="/images/home page/tucker_headshot (1).jpg"
+                src="/images/home page/new-bio-photo.jpg"
                 alt="Tucker Eads, LCSW"
                 fill
                 className="object-cover"

@@ -51,7 +51,7 @@ export function ApproachSection() {
     <section
       id="approach"
       ref={ref}
-      className="relative py-32 bg-[#f4f9f4] rounded-t-[5rem]"
+      className="relative py-20 md:py-32 bg-[#f4f9f4] rounded-t-[5rem]"
     >
       {/* Decorative botanical divider */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">

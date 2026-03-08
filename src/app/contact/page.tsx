@@ -35,7 +35,7 @@ export default function Contact() {
             </Link>
           </div>
 
-          {/* Email Contact */}
+          {/* Email & Phone Contact */}
           <div className="text-center pt-8 border-t border-gray-200">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 text-gray-700 mb-4">
               <Mail className="w-6 h-6" />
@@ -43,14 +43,31 @@ export default function Contact() {
             <p className="text-lg text-gray-700 mb-4">
               You can also email me:
             </p>
-              <a
-                href="mailto:tucker@blazingstartherapy.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xl font-semibold text-primary hover:text-primary/80 transition duration-300 ease-in-out"
-              >
+            <a
+              href="mailto:tucker@blazingstartherapy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl font-semibold text-primary hover:text-primary/80 transition duration-300 ease-in-out"
+            >
               tucker@blazingstartherapy.com
             </a>
+            <p className="mt-4 text-lg text-gray-700">
+              Indiana:{" "}
+              <a
+                href="tel:18122698624"
+                className="font-semibold text-gray-900 hover:underline underline-offset-4"
+              >
+                812-269-8624
+              </a>
+              {"  "}•{"  "}
+              Illinois:{" "}
+              <a
+                href="tel:13129679987"
+                className="font-semibold text-gray-900 hover:underline underline-offset-4"
+              >
+                312-967-9987
+              </a>
+            </p>
           </div>
         </div>
       </section>
